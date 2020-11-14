@@ -11,7 +11,7 @@
             
           </div>
           <p>Priskribo...Priskribo Priskribo Priskribo Priskribo Priskribo.</p>
-          <img class="agado"  width="400" height="250" src="assets/images/slides/images/CDELI.JPG" alt="" srcset="">
+          <img class="agado"  width="400" height="250" src="{{asset('assets/images/slides/images/CDELI.JPG')}}" alt="" srcset="">
             
           <div>
             <div class="d-flex ml-3">
@@ -28,7 +28,7 @@
             <p>Agado 3</p>
           </div>
           <p>Priskribo...Priskribo Priskribo Priskribo Priskribo Priskribo.</p>
-          <img class="agado" width="400" height="250" src="assets/images/slides/images/CDELI.JPG" alt="" srcset="">
+          <img class="agado" width="400" height="250" src="{{asset('assets/images/slides/images/CDELI.JPG')}}" alt="" srcset="">
             
           <div class="d-flex ml-3">
             <button  type="submit" class="btn btn-secondary mt-2 mr-2" style="margin-left:1px;">forigi</button>
@@ -42,7 +42,7 @@
             <p>Agado 1</p>
           </div>
           <p>Priskribo...Priskribo Priskribo Priskribo Priskribo Priskribo.</p>
-          <img  class="agado" width="400" height="250" src="assets/images/slides/images/CDELI.JPG" alt="" srcset="">
+          <img  class="agado" width="400" height="250" src="{{asset('assets/images/slides/images/CDELI.JPG')}}" alt="" srcset="">
             
           <div>
             <div class="d-flex ml-3">
@@ -57,7 +57,7 @@
       <div class="row d-flex align-items-center">                   
         <div class="col-lg-4 d-flex align-items-center">
           <div class="order">1-a</div>
-          <div class="avatar"> <img src="img/avatar-1.jpg" alt="..." class="img-fluid"></div><a href="#" class="name"><strong class="d-block">Gobi abyss</strong><span class="d-block">@gobi</span></a>
+          <div class="avatar"> <img src="{{asset('img/avatar-1.jpg')}}" alt="..." class="img-fluid"></div><a href="#" class="name"><strong class="d-block">Gobi abyss</strong><span class="d-block">@gobi</span></a>
         </div>
         <div class="col-lg-4 text-center">
           <div class="contributions">Prezidanto</div>
@@ -75,7 +75,7 @@
       <div class="row d-flex align-items-center">                   
         <div class="col-lg-4 d-flex align-items-center">
           <div class="order">2-a</div>
-          <div class="avatar"> <img src="img/avatar-2.jpg" alt="..." class="img-fluid"></div><a href="#" class="name"><strong class="d-block">Mirejo Grosjean</strong><span class="d-block">@alexshelby</span></a>
+          <div class="avatar"> <img src="{{asset('img/avatar-2.jpg')}}" alt="..." class="img-fluid"></div><a href="#" class="name"><strong class="d-block">Mirejo Grosjean</strong><span class="d-block">@alexshelby</span></a>
         </div>
         <div class="col-lg-4 text-center">
           <div class="contributions">Prezidanto ilei</div>
@@ -115,8 +115,8 @@
       <div class="col-lg-4">
         <div class="stats-with-chart-1 block">
           <div class="title"> <strong class="d-block">Video evento 1</strong><span class="d-block">Priskribo</span></div>
-          <video width="350" height="240" controls>
-            <source src="img/videos/CRUD Tutorial - ReactJS, NodeJS, MySQL [Part 2].mp4" type="video/mp4">
+          <video  class="agado" width="350" height="240" controls>
+            <source src="{{asset('img/videos/CRUD Tutorial - ReactJS, NodeJS, MySQL [Part 2].mp4')}}" type="video/mp4">
             <source src="movie.ogg" type="video/ogg">
           Your browser does not support the video tag.
           </video> 
@@ -131,8 +131,8 @@
       <div class="col-lg-4">   
         <div class="stats-with-chart-1 block">
           <div class="title"> <strong class="d-block">Video evento 2</strong><span class="d-block">Priskribo</span></div>
-          <video width="350" height="240" controls>
-            <source src="img/videos/CRUD Tutorial - ReactJS, NodeJS, MySQL [Part 2].mp4" type="video/mp4">
+          <video  class="agado" width="350" height="240" controls>
+            <source src="{{asset('img/videos/CRUD Tutorial - ReactJS, NodeJS, MySQL [Part 2].mp4')}}" type="video/mp4">
             <source src="movie.ogg" type="video/ogg">
           Your browser does not support the video tag.
           </video> 
@@ -147,8 +147,8 @@
       <div class="col-lg-4">
         <div class="stats-with-chart-1 block">
           <div class="title"> <strong class="d-block">Video evento ...</strong><span class="d-block">Priskribo</span></div>
-          <video width="350" height="240" controls>
-            <source src="img/videos/CRUD Tutorial - ReactJS, NodeJS, MySQL [Part 2].mp4" type="video/mp4">
+          <video  class="agado" width="350" height="240" controls>
+            <source src="{{asset('storage/actuality_photos/3210438380.mp4')}}" type="video/mp4">
             <source src="movie.ogg" type="video/ogg">
           Your browser does not support the video tag.
           </video> 

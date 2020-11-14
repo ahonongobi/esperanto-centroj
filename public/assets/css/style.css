@@ -323,7 +323,7 @@ li>a:only-child:after {
 
     nav ul li.social-icons {
         display: inline-block;
-        float: left;
+        
         width: 32.3%;
         margin: 0 auto;
         text-align: center;
@@ -1345,7 +1345,7 @@ h4.title-hny {
     color: #feac00;
 }
 
-.single-page-form {}
+ 
 
 /*--//single --*/
 /*--//contact-- */
@@ -1411,13 +1411,7 @@ h4.title-hny {
 }
 
 
-#timeline {
-    /* Fonts * padding: 100px 0;
-    background: #f7f7f7;
-    border-top: 1px solid rgba(191, 191, 191, 0.4);
-    border-bottom: 1px solid rgba(191, 191, 191, 0.4);
-    /* Fonts */
-}
+
 
 #timeline h1 {
     text-align: center;
@@ -1537,7 +1531,7 @@ h4.title-hny {
 
 #timeline .demo-card .head .number-box {
     display: inline;
-    float: left;
+    
     margin: 15px;
     padding: 10px;
     font-size: 35px;
@@ -1583,7 +1577,7 @@ h4.title-hny {
 }
 
 @media (min-width: 1000px) {
-    #timeline .demo-card .body {}
+     
 }
 
 #timeline .demo-card .body p {
@@ -2232,7 +2226,13 @@ a.move-top span {
         min-height: 395px;
     }
 }
-
+@media screen and (min-width: 410px) {
+    .agado{
+      margin-left:0px;
+      
+    }
+    
+  }
 @media(max-width:320px) {
 
     .banner-w3pvt-1,

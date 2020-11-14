@@ -55,8 +55,8 @@ Espaeranto
                                 <li><a href="error.html" class="drop-text">Social Media</a></li>
                             </ul>
                         </li>
-                        <li><a href="login.html">Ensaluti</a></li>
-                        <li><a href="contact.html">Kontakto</a></li>
+                    <li><a href="{{route('registerpage')}}">Ensaluti</a></li>
+                    <li><a href="{{route('contact')}}">Kontakto</a></li>
 
                         <li class="social-icons ml-lg-3"><a href="#" class="p-0 social-icon"><span class="fa fa-facebook-official" aria-hidden="true"></span>
                                 <div class="tooltip">Facebook</div>
@@ -129,7 +129,7 @@ Espaeranto
                    </h3> <br>
                 <div class="top-buttons mx-auto text-center mt-md-5 mt-3">
                     <a href="single.html" class="btn more mr-2">Centroj</a>
-                    <a href="contact.html" class="btn">Kontaktu Nin</a>
+                <a href="{{route('contact')}}" class="btn">Kontaktu Nin</a>
                 </div>
                 <div class="d-flex hny-stats-inf">
                     <div class="col-md-4 stats_w3pvt_counter_grid mt-3">
@@ -495,6 +495,23 @@ Espaeranto
                 document.body.scrollTop = 0;
                 document.documentElement.scrollTop = 0;
             }
+        </script>
+        <script>
+            (function() {
+       if (!localStorage.getItem('cookieconsent')) {
+           document.body.innerHTML += '\
+           <div class="cookieconsent" style="position:fixed;padding:20px;left:0;bottom:0;background-color:#000;color:#FFF;text-align:center;width:100%;z-index:99999;">\
+            Ĉi tiu retejo uzas kuketojn por plibonigi viajn preferojn. Daŭrante foliumi ĉi tiun retejon, vi konsentas ilian uzon. \
+               <a class="btn more black" href="#">Mi komprenas</a>\
+           </div>\
+           ';
+           document.querySelector('.cookieconsent a').onclick = function(e) {
+               e.preventDefault();
+               document.querySelector('.cookieconsent').style.display = 'none';
+               localStorage.setItem('cookieconsent', true);
+           };
+       }
+   })();
         </script>
         <!-- /move top -->
     </div>

@@ -14,6 +14,7 @@
     <!-- Custom Font Icons CSS-->
     <link rel="stylesheet" href="{{asset('css/font.css')}}">
     <!-- Google fonts - Muli-->
+
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli:300,400,700">
     <!-- theme stylesheet-->
     <link rel="stylesheet" href="{{asset('css/style.default.css')}}" id="theme-stylesheet">
@@ -173,22 +174,23 @@
       <nav id="sidebar">
         <!-- Sidebar Header-->
         <div class="sidebar-header d-flex align-items-center">
-          <div class="avatar"><img src="img/avatar-6.jpg" alt="..." class="img-fluid rounded-circle"></div>
+          <div class="avatar"><img src="{{asset('img/avatar-6.jpg')}}" alt="..." class="img-fluid rounded-circle"></div>
           <div class="title">
-            <h1 class="h5">Gobi abyssinie</h1>
+          <h1 class="h5">{{Auth::user()->centro}}</h1>
             <p>Softvara developer</p>
           </div>
         </div>
         <!-- Sidebar Navidation Menus--><span class="heading">Main</span>
         <ul class="list-unstyled">
                 <li class="active"><a href="index.html"> <i class="icon-home"></i>Ĉefpaĝo</a></li>
+                 <li><a href="{{route('informojInfo')}}"><i class="fa fa-exclamation-triangle"></i>Gravaj informoj</a></li>
                 <li><a href="#agadojn"> <i class="icon-grid"></i>Agadprogramoj </a></li>
-        <li><a href="{{route('videoj')}}"> <i class="fa fa-bar-chart"></i>Videoj</a></li>
+                <li><a href="{{route('videoj')}}"> <i class="fa fa-bar-chart"></i>Videoj</a></li>
                 <li><a href="{{route('eventoj')}}"> <i class="icon-padnote"></i>Posti eventoj </a></li>
                 <li><a href="{{route('anoncoj')}}"> <i class="icon-padnote"></i>Posti anoncoj </a></li>
                 <li><a href="{{route('aldoni')}}"> <i class="fa fa-plus"></i>Aldoni Estrarano</a></li>
                 <li><a href="{{route('aldoni')}}"> <i class="fa fa-plus"></i>Aldoni Membrighoj</a></li>
-                <li><a href=""> <i class="icon-logout"></i>elsaluti </a></li>
+                <li><a href="{{route('logout')}}"> <i class="icon-logout"></i>elsaluti </a></li>
         </ul><span class="heading">Esperanto</span>
         
       </nav>
@@ -280,5 +282,6 @@
     <script src="{{asset('vendor/jquery-validation/jquery.validate.min.js')}}"></script>
     <script src="{{asset('js/charts-home.js')}}"></script>
     <script src="{{asset('js/front.js')}}"></script>
+    
   </body>
 </html>

@@ -3451,14 +3451,17 @@ pre code {
     margin-left: 15px;
   }
   
-}
-@media screen and (max-width: 410px) {
+} 
+@media screen and (min-width: 410px) {
   .agado{
     width:300px;
     
   }
   .mobile{
     margin-bottom: 50%;
+  }
+  .no-padding-top{
+    margin-bottom: 10%;
   }
 }
 

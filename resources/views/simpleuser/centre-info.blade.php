@@ -7,10 +7,10 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title> Webzine Entertainment & Blog Category Responsive Website Template | Lifestyle </title>
+  <title> Esperanto-centrojn </title>
   <!-- Template CSS -->
-  <link rel="stylesheet" href="assets/css/style-starter.css">
-  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="{{asset('assets/css/style-starter.css')}}">
+  <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
   <!-- Template CSS -->
   <link href="//fonts.googleapis.com/css?family=Playfair+Display:400,400i,700&display=swap" rel="stylesheet">
   <link href="//fonts.googleapis.com/css?family=Montserrat:300,300i,400,600,700,800&display=swap" rel="stylesheet">
@@ -125,63 +125,37 @@
 		<div class="container">
 			<div class="banner-bottom-sechny py-md-4">
 				<h3 class="hny-title text-center"> Freŝaj<span> novaĵoj</span></h3>
+				@if($count2==0)
+			         <center><p>Ne havas novajn agadprogramojn</p></center>
+				@endif
 				<div class="ban-content-inf row py-lg-3">
-
-					<div class="maghny-gd-1 col-md-6">
+                      @foreach ($recentposts as $recentpost)
+					  <div class="maghny-gd-1 col-md-6">
 						<div class="maghny-grid">
 							<figure class="effect-lily">
-								<img class="img-fluid" src="assets/images/slides/images/CDELI.JPG">
+								<img class="img-fluid" src="{{ asset('storage/actuality_photos/'.$recentpost->file1)}}">
 								<figcaption>
 
 
 								</figcaption>
 							</figure>
 						</div>
-						<h5 class="top-title mb-3"><a href="#">Unika Pako de Revuaj Novaĵoj por Via Retejo, Estas
-							multaj variaĵoj, kiuj fokusas pri prezentado </a> </h5>
-							<p> Vivamus a ligula quam. Ut blandit eu leo ​​non suscipit. Duis feugiat tortor sed.Nulla quis
-							lorem neque, mattis venenatis lectus. In interdum ullamcorper dolor eu mattis.Nulla quis
-							lorem neque</p>
+						<h5 class="top-title mb-3"><a href="#">{{$recentpost->title}} </a> </h5>
+					<p>{{$recentpost->desc}}</p>
 						<div class="mag-post-meta mt-3"><span class="meta-author text-uppercase"><span>By&nbsp;</span><a
 									href="#" class="author-name"> John
 									Brain</a> </span>
-							<span class="author-date">Jan 5, 2020</span>
+						<span class="author-date">{{date('d-m-Y',strtotime($recentpost->created_at))}}</span>
 						</div>
 						<div style="display: flex; ">
 							<a href="blog-single" class="read-more btn mt-3">Legu pli</a>
-							<a  style="margin-left: 60%;" href="blog-single" class=""><img width="32" height="32" src="assets/images/slides/images/chat.png" alt="" srcset=""></a>
-							<a style="margin-left: 40px;" href="blog-single" class=""><img src="assets/images/slides/images/like_variation.png"" alt="" srcset=""></a>
+							<a  style="margin-left: 60%;" href="blog-single" class=""><img width="32" height="32" src="{{asset('assets/images/slides/images/chat.png')}}" alt="" srcset=""></a>
+							<a style="margin-left: 40px;" href="blog-single" class=""><img src="{{asset('assets/images/slides/images/like_variation.png')}}" alt="" srcset=""></a>
 							
 						</div>
 					</div>
-					<div class="maghny-gd-1 col-md-6">
-						<div class="maghny-grid">
-							<figure class="effect-lily">
-								<img class="img-fluid" src="assets/images/slides/images/JoCa Kotonuo.JPG">
-								<figcaption>
-
-
-								</figcaption>
-							</figure>
-						</div>
-						<h5 class="top-title mb-3"><a href="#">Unika Pako de Revuaj Novaĵoj por Via Retejo, Estas
-							multaj variaĵoj, kiuj fokusas pri prezentado </a> </h5>
-							<p> Vivamus a ligula quam. Ut blandit eu leo ​​non suscipit. Duis feugiat tortor sed.Nulla quis
-							lorem neque, mattis venenatis lectus. In interdum ullamcorper dolor eu mattis.Nulla quis
-							lorem neque<</p>
-						<div class="mag-post-meta mt-3"> <span
-								class="meta-author text-uppercase"><span>By&nbsp;</span><a href="#" class="author-name">
-									John
-									Brain</a> </span>
-							<span class="author-date">Jan 5, 2020</span>
-						</div>
-						<div style="display: flex; ">
-							<a href="blog-single" class="read-more btn mt-3">Legu pli</a>
-							<a  style="margin-left: 60%;" href="blog-single" class=""><img width="32" height="32" src="assets/images/slides/images/chat.png" alt="" srcset=""></a>
-							<a style="margin-left: 40px;" href="blog-single" class=""><img src="assets/images/slides/images/like_variation.png"" alt="" srcset=""></a>
-							
-						</div>
-					</div>
+					  @endforeach
+					
 				</div>
 			</div>
 			<div class="blog-inner-grids py-md-4">
@@ -189,246 +163,59 @@
 					<!--//mag-left-grid-1-->
 					<div class="mag-hny-content mb-lg-5">
 						<h3 class="hny-title">Agadoj <span></span></h3>
-						<!--/mag-left-grid-1-->
+						
+							@if($count2==0)
+						<center><p>Ne havas novajn agadprogramojn</p></center>
+					        @endif
 						<div class="maghny-grids-inf row">
+							@foreach ($allposts as $allpost)
 							<div class="maghny-gd-1 col-lg-4 col-md-6">
 								<div class="maghny-grid">
 									<figure class="effect-lily">
-										<img class="img-fluid" src="assets/images/grid9.jpg" alt="">
+										<img class="img-fluid" src="{{ asset('storage/actuality_photos/'.$recentpost->file1)}}" alt="">
 
 									</figure>
 								</div>
 								<h5><a href="#">
-										There are many variations that focuses on presenting</a></h5>
-								<p>Vivamus a ligula quam. Ut blandit eu leo non suscipit. Duis feugiat tortor sed.</p>
-								<div class="mag-post-meta"><a href="#"><img src="assets/images/admin.jpg"
+								{{$allpost->title}}</a></h5>
+								<p>{{$allpost->desc}}</p>
+								<div class="mag-post-meta"><a href="#"><img src="{{asset('assets/images/admin.jpg')}}"
 											class="img-fluid rounded-circle admin-img admin-img1" alt=""></a> <span
 										class="meta-author"><span>By&nbsp;</span><a href="#" class="author-name">John
 											Brain</a> </span>
-									<span class="author-date">Jan 5, 2020</span>
+										<span class="author-date">{{date('d-m-Y',strtotime($allpost->created_at))}}</span>
 								</div>
 							</div>
-							<div class="maghny-gd-1 col-lg-4 col-md-6">
-								<div class="maghny-grid">
-									<figure class="effect-lily">
-										<img class="img-fluid" src="assets/images/grid5.jpg">
-
-									</figure>
-								</div>
-								<h5><a href="#">
-										There are many variations that focuses on presenting</a></h5>
-								<p>Vivamus a ligula quam. Ut blandit eu leo non suscipit. Duis feugiat tortor sed.</p>
-								<div class="mag-post-meta"><a href="#"><img src="assets/images/admin.jpg"
-											class="img-fluid rounded-circle admin-img admin-img1" alt=""></a><span
-										class="meta-author"><span>By&nbsp;</span><a href="#" class="author-name"> John
-											Brain</a> </span>
-									<span class="author-date">Jan 5, 2020</span>
-								</div>
-							</div>
-							<div class="maghny-gd-1 col-lg-4 col-md-6">
-								<div class="maghny-grid">
-									<figure class="effect-lily">
-										<img class="img-fluid" src="assets/images/grid12.jpg" alt="">
-
-									</figure>
-								</div>
-								<h5><a href="#">
-										There are many variations that focuses on presenting</a></h5>
-								<p>Vivamus a ligula quam. Ut blandit eu leo non suscipit. Duis feugiat tortor sed.</p>
-								<div class="mag-post-meta"><a href="#"><img src="assets/images/admin.jpg"
-											class="img-fluid rounded-circle admin-img admin-img1" alt=""></a> <span
-										class="meta-author"><span>By&nbsp;</span><a href="#" class="author-name">John
-											Brain</a> </span>
-									<span class="author-date">Jan 5, 2020</span>
-								</div>
-							</div>
-
-							<div class="maghny-gd-1 col-lg-4 col-md-6 my-lg-5">
-									<div class="maghny-grid">
-										<figure class="effect-lily">
-											<img class="img-fluid" src="assets/images/grid17.jpg" alt="">
-	
-										</figure>
-									</div>
-									<h5><a href="#">
-											There are many variations that focuses on presenting</a></h5>
-									<p>Vivamus a ligula quam. Ut blandit eu leo non suscipit. Duis feugiat tortor sed.</p>
-									<div class="mag-post-meta"><a href="#"><img src="assets/images/admin.jpg"
-												class="img-fluid rounded-circle admin-img admin-img1" alt=""></a> <span
-											class="meta-author"><span>By&nbsp;</span><a href="#" class="author-name">John
-												Brain</a> </span>
-										<span class="author-date">Jan 5, 2020</span>
-									</div>
-								</div>
-
-								<div class="maghny-gd-1 col-lg-4 col-md-6 my-lg-5">
-										<div class="maghny-grid">
-											<figure class="effect-lily">
-												<img class="img-fluid" src="assets/images/grid14.jpg" alt="">
-		
-											</figure>
-										</div>
-										<h5><a href="#">
-												There are many variations that focuses on presenting</a></h5>
-										<p>Vivamus a ligula quam. Ut blandit eu leo non suscipit. Duis feugiat tortor sed.</p>
-										<div class="mag-post-meta"><a href="#"><img src="assets/images/admin.jpg"
-													class="img-fluid rounded-circle admin-img admin-img1" alt=""></a> <span
-												class="meta-author"><span>By&nbsp;</span><a href="#" class="author-name">John
-													Brain</a> </span>
-											<span class="author-date">Jan 5, 2020</span>
-										</div>
-									</div>
-									<div class="maghny-gd-1 col-lg-4 col-md-6 my-lg-5">
-											<div class="maghny-grid">
-												<figure class="effect-lily">
-													<img class="img-fluid" src="assets/images/grid18.jpg" alt="">
-			
-												</figure>
-											</div>
-											<h5><a href="#">
-													There are many variations that focuses on presenting</a></h5>
-											<p>Vivamus a ligula quam. Ut blandit eu leo non suscipit. Duis feugiat tortor sed.</p>
-											<div class="mag-post-meta"><a href="#"><img src="assets/images/admin.jpg"
-														class="img-fluid rounded-circle admin-img admin-img1" alt=""></a> <span
-													class="meta-author"><span>By&nbsp;</span><a href="#" class="author-name">John
-														Brain</a> </span>
-												<span class="author-date">Jan 5, 2020</span>
-											</div>
-										</div>
-						</div>
+							@endforeach
+							
 					</div>
 					<!--//mag-left-grid-2-->
-
+                  
 					<!--/mag-left-grid-6-->
-					<div class="mag-hny-content my-lg-5">
+					
+					<div class="container">
 						<h3 class="hny-title">Videoj<span>Kategorioj</span></h3>
-						<div class="fashny-grids-inf row">
-							<div class="fashion-gd-1 col-lg-3">
-								<div class="fas-gallery-grid">
-									<a href="#">
-										<div class="content">
-											<div class="post-video-grid">
-												<div class="video-content mb-3">
-													<a href="#notify" class="play-button btn"><span class="fa fa-play"
-															aria-hidden="true">
-			
-														</span></a>
-			
-													<!-- notify-popup-->
-													<div id="notify" class="notify-pop-overlay">
-														<div class="notify-popup">
-															<h5>Watch Our Video</h5>
-															<iframe src="https://player.vimeo.com/video/156953364" frameborder="0"
-																allow="autoplay; fullscreen" allowfullscreen></iframe>
-															<a class="close" href="#coming-s">&times;</a>
-														</div>
-													</div>
-													<!-- //notify-popup -->
-												</div>
-												<h4 class="mag-post-title">
-													<a href="#">A New Report Shows That Fashion Ads Are Still Overwhelmingly
-														White
-														Dresses</a> </h4>
-											</div>
-										</div>
-									</a>
-								</div>
-							</div>
-							<div class="fashion-gd-1 col-lg-3">
-								<div class="fas-gallery-grid">
-									<a href="#">
-										<div class="content">
-											<div class="post-video-grid">
-												<div class="video-content mb-3">
-													<a href="#notify" class="play-button btn"><span class="fa fa-play"
-															aria-hidden="true">
-			
-														</span></a>
-			
-													<!-- notify-popup-->
-													<div id="notify" class="notify-pop-overlay">
-														<div class="notify-popup">
-															<h5>Watch Our Video</h5>
-															<iframe src="https://player.vimeo.com/video/156953364" frameborder="0"
-																allow="autoplay; fullscreen" allowfullscreen></iframe>
-															<a class="close" href="#coming-s">&times;</a>
-														</div>
-													</div>
-													<!-- //notify-popup -->
-												</div>
-												<h4 class="mag-post-title">
-													<a href="#">A New Report Shows That Fashion Ads Are Still Overwhelmingly
-														White
-														Dresses</a> </h4>
-											</div>
-										</div>
-									</a>
-								</div>
-							</div>
-							<div class="fashion-gd-1 col-lg-3">
-								<div class="fas-gallery-grid">
-									<a href="#">
-										<div class="content">
-											<div class="post-video-grid">
-												<div class="video-content mb-3">
-													<a href="#notify" class="play-button btn"><span class="fa fa-play"
-															aria-hidden="true">
-			
-														</span></a>
-			
-													<!-- notify-popup-->
-													<div id="notify" class="notify-pop-overlay">
-														<div class="notify-popup">
-															<h5>Watch Our Video</h5>
-															<iframe src="https://player.vimeo.com/video/156953364" frameborder="0"
-																allow="autoplay; fullscreen" allowfullscreen></iframe>
-															<a class="close" href="#coming-s">&times;</a>
-														</div>
-													</div>
-													<!-- //notify-popup -->
-												</div>
-												<h4 class="mag-post-title">
-													<a href="#">A New Report Shows That Fashion Ads Are Still Overwhelmingly
-														White
-														Dresses</a> </h4>
-											</div>
-										</div>
-									</a>
-								</div>
-							</div>
-							<div class="fashion-gd-1 col-lg-3">
-									<div class="fas-gallery-grid">
-										<a href="#">
-											<div class="content">
-												<div class="post-video-grid">
-													<div class="video-content mb-3">
-														<a href="#notify" class="play-button btn"><span class="fa fa-play"
-																aria-hidden="true">
-				
-															</span></a>
-				
-														<!-- notify-popup-->
-														<div id="notify" class="notify-pop-overlay">
-															<div class="notify-popup">
-																<h5>Watch Our Video</h5>
-																<iframe width="1221" height="763" src="https://www.youtube.com/embed/R8wFz2u0U8U" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-																<a class="close" href="#coming-s">&times;</a>
-															</div>
-														</div>
-														<!-- //notify-popup -->
-													</div>
-													<h4 class="mag-post-title">
-														<a href="#">A New Report Shows That Fashion Ads Are Still Overwhelmingly
-															White
-															Dresses 2</a> </h4>
-												</div>
-											</div>
-										</a>
-									</div>
-								</div>
+						@if($count3==0)
+						<center><p>Ne havas novajn agadprogramojn</p></center>
+					        @endif
+						<div class="row">
+							@foreach ($videos as $video)
+							<div class="col-lg-4 col-12">
+								<video  class="agado" width="350" height="240" controls>
+									<source src="{{asset('storage/actuality_photos/'.$video->videos)}}" type="video/mp4">
+									<source src="movie.ogg" type="video/ogg">
+								  Your browser does not support the video tag.
+								  </video> 
+		
+								<h4>
+									<div></div>
+									<a style="font-weight:bold; font-size:16px;" href="#">{{$video->desc}}</a> </h4>
+							  </div>			
+							@endforeach
+						  
+						  
 						</div>
-
-					</div>
+					  </div>
 					<!--//mag-hny-content-6-->
 					<!--/social-->
 					<div class="mag-hny-content my-lg-5 pt-lg-5">
@@ -482,6 +269,7 @@
 					<!--//social-->
 				</div>
 			</div>
+			
 			<!--/newsletter-->
 			<div class="form-inner-newsletter py-lg-5">
 
@@ -507,6 +295,7 @@
 	</div>
 	<!--//mag-content-->
 </section>
+
 <!-- footer-66 -->
 <footer class="w3l-footer-66">
     <section class="footer-inner-main py-md-5 py-5">

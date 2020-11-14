@@ -8,7 +8,7 @@
 			<p class="sub-tittle mt-3 mb-4">Tiu retejo prezentas la Esperanto-centrojn en la tuta mondo. Ĝi estas starigita de
 				Universala Esperanto Asocio UEA kaj Internacia Ligo de Esperantistaj Instruistoj
 				ILEI kune. Ĝi ebligas ekkoni ĉiujn centrojn, iliajn agadojn, ofertojn, ecojn.</p>
-			<a class="btn more black" href="{{route('centro.info')}}" role="button">Legu pli</a>
+			<a class="btn more black" href="" role="button">Legu pli</a>
 		</div>
 	</div>
 </section>
@@ -19,16 +19,17 @@
 		<div class="container">
 			<div class="banner-bottom-sechny py-md-4">
 				<h3 class="hny-title text-center">Lastatempaj <span> Novaĵoj</span></h3>
+				@foreach($pictures as $picture)
 				<div class="ban-content-inf row py-lg-3">
 					<div class="maghny-gd-1 col-lg-6">
 						<div class="maghny-grid">
 							<figure class="effect-lily">
-								<img class="img-fluid" src="assets/images/slides/images/CDELI.JPG" alt="">
+								<img class="img-fluid" src="{{ asset('storage/actuality_photos/'.$picture->file1)}}" alt="">
 								<figcaption class="w3set-hny">
 									<div>
-										<h4 class="top-text">Centro de Dokumentado kaj Esploro pri la Lingvo Internacia (CDELI), vasta kolekto de dokumentoj; kunvenejo.
-											<span>Svisio</span></h4>
-										<p>Jan.20.2020 </p>
+										<h4 class="top-text">{{$picture->description1}}
+											<span>{{$picture->center}}</span></h4>
+										<p>{{date('d-m-Y', strtotime($picture->created_at))}} </p>
 									</div>
 
 								</figcaption>
@@ -40,52 +41,50 @@
 							<div class="maghny-gd-1 col-md-6">
 								<div class="maghny-grid">
 									<figure class="effect-lily">
-										<img class="img-fluid" src="assets/images/slides/images/CDELILaChaux-de-FondsSvisio.jpg">
+										<img class="img-fluid" src="{{ asset('storage/actuality_photos/'.$picture->file2)}}">
 										<figcaption>
 											<div>
 												<!--<h4>woman near <span>pigeons</span></h4> -->
-												<p>Jan.20.2020 </p>
+												<p>{{date('d-m-Y', strtotime($picture->created_at))}} </p>
 											</div>
 
 										</figcaption>
 									</figure>
 								</div>
-								<h5 class="top-title"><a href="#">CDLI. LACHAUX DE FOND</a></h5>
+								<h5 class="top-title"><a href="#">{{$picture->description2}}</a></h5>
 
 								<div class="mag-post-meta mt-3"><span
-										class="meta-author text-uppercase"><span>publikigi &nbsp;</span><a href="#"
-											class="author-name"> John
-											Brain</a> </span>
-									<span class="author-date">Jan 5, 2020</span>
+										class="meta-author text-uppercase">
+									<span class="author-date">{{date('d-m-Y', strtotime($picture->created_at))}}</span>
 								</div>
 								<a href="#" class="read-more btn mt-3">Legu pli</a>
 							</div>
 							<div class="maghny-gd-1 col-md-6">
 								<div class="maghny-grid">
 									<figure class="effect-lily">
-										<img class="img-fluid" src="assets/images/slides/images/cdeli .jpg">
+										<img class="img-fluid" src="{{ asset('storage/actuality_photos/'.$picture->file3)}}">
 										<figcaption>
 											<div>
 												<!--<h4>Man standing on railroad near <span>plants</span></h4>-->
-												<p>Jan.20.2020 </p>
+												<p>{{date('d-m-Y', strtotime($picture->created_at))}} </p>
 											</div>
 
 										</figcaption>
 									</figure>
 								</div>
 								<h5 class="top-title"><a href="#">
-										Esperanto-centro de Svisio,La Chaux-de-Fonds</a></h5>
+									{{$picture->description3}}</a></h5>
 								<div class="mag-post-meta mt-3"> <span
-										class="meta-author text-uppercase"><span>By&nbsp;</span><a href="#"
-											class="author-name"> John
-											Brain</a> </span>
-									<span class="author-date">Jan 5, 2020</span>
+										class="meta-author text-uppercase" 
+									<span class="author-date">{{date('d-m-Y', strtotime($picture->created_at))}}</span>
 								</div>
 								<a href="#" class="read-more btn mt-3">Legu pli</a>
 							</div>
 						</div>
 					</div>
 				</div>
+				@endforeach
+
 			</div>
 			<div class="blog-inner-grids py-md-4 row">
 				<div class="mag-content-left-hny col-lg-8">
@@ -94,74 +93,33 @@
 						<h3 class="hny-title">Lastaj <span>Agadprogramojn</span></h3>
 						<!--/mag-left-grid-1-->
 						<div class="maghny-grids-inf row">
+							@foreach ($agadoj as $agado)
 							<div class="maghny-gd-1 col-lg-4 col-md-6">
 								<div class="maghny-grid">
 									<figure class="effect-lily">
-										<img class="img-fluid" src="assets/images/grid1.jpg" alt="">
+										<img class="img-fluid" src="{{ asset('storage/actuality_photos/'.$agado->file1)}}" alt="">
 										<figcaption>
 											<div>
-												<h4>Man holding camera and woman playing <span>violin</span></h4>
-												<p>Jan.20.2020 </p>
+												<h4>{{$agado->title}} <span>{{$agado->center}}</span></h4>
+												<p>{{date('d-m-Y', strtotime($agado->created_at))}}</p>
 											</div>
 
 										</figcaption>
 									</figure>
 								</div>
 								<h5><a href="#">
-										Eta skribo koncerne ciu esperanto centro kaj diversajoj....</a></h5>
+									{{$agado->desc}}</a></h5>
 
 								<div class="mag-post-meta mt-3"><a href="#"><img src="assets/images/admin.jpg"
 											class="img-fluid rounded-circle admin-img" alt=""></a> <span
 										class="meta-author"><span>By&nbsp;</span><a href="#" class="author-name">John
 											Brain</a> </span>
-									<span class="author-date">Jan 5, 2020</span>
+									<span class="author-date">{{date('d-m-Y', strtotime($agado->created_at))}}</span>
 								</div>
 							</div>
-							<div class="maghny-gd-1 col-lg-4 col-md-6">
-								<div class="maghny-grid">
-									<figure class="effect-lily">
-										<img class="img-fluid" src="assets/images/grid2.jpg" alt="">
-										<figcaption>
-											<div>
-												<h4>Adult beautiful breakfast <span>brunette</span></h4>
-												<p>Jan.20.2020 </p>
-											</div>
-
-										</figcaption>
-									</figure>
-								</div>
-								<h5><a href="#">
-										Eta skribo koncerne ciu esperanto centro kaj diversajoj....</a></h5>
-
-								<div class="mag-post-meta mt-3"> <a href="#"><img src="assets/images/admin.jpg"
-											class="img-fluid rounded-circle admin-img" alt=""></a><span
-										class="meta-author"><span>By&nbsp;</span><a href="#" class="author-name"> John
-											Brain</a> </span>
-									<span class="author-date">Jan 5, 2020</span>
-								</div>
-							</div>
-							<div class="maghny-gd-1 col-lg-4 col-md-6">
-								<div class="maghny-grid">
-									<figure class="effect-lily">
-										<img class="img-fluid" src="assets/images/grid3.jpg" alt="">
-										<figcaption>
-											<div>
-												<h4>Man in black shorts on <span>boat end</span></h4>
-												<p>Jan.20.2020 </p>
-											</div>
-
-										</figcaption>
-									</figure>
-								</div>
-								<h5><a href="#">
-										Eta skribo koncerne ciu esperanto centro kaj diversajoj....</a></h5>
-								<div class="mag-post-meta mt-3"><a href="#"><img src="assets/images/admin.jpg"
-											class="img-fluid rounded-circle admin-img" alt=""></a> <span
-										class="meta-author"><span>By&nbsp;</span><a href="#" class="author-name"> John
-											Brain</a> </span>
-									<span class="author-date">Jan 5, 2020</span>
-								</div>
-							</div>
+							
+							@endforeach
+							
 						</div>
 					</div>
 					<!--//mag-hny-content-1-->
@@ -379,128 +337,32 @@
 						<h3 class="hny-title">Esperanto-<span>centroj</span></h3>
 						<!--/mag-left-grid-1-->
 						<div class="maghny-grids-inf row">
+							@foreach ($centroj as $centro)
 							<div class="maghny-gd-1 col-lg-4 col-md-6">
 								<div class="maghny-grid">
 									<figure class="effect-lily">
-										<img class="img-fluid" src="assets/images/slides/images/CDELI.JPG">
+									<img class="img-fluid" src="{{ asset('storage/actuality_photos/'.$centro->logo)}}">
 										<figcaption>
 											<div>
-												<h4>Esperanto centro de la Chaux-de-Fonds, <span>Svisio</span></h4>
-												<p>Jan.20.2020 </p>
+												<h4><span>{{$centro->centro}}</span></h4>
+												<p>{{date('m-d-Y',strtotime($centro->created_at))}}</p>
 											</div>
 
 										</figcaption>
 									</figure>
 								</div>
 								<h5><a href="#">
-										Eta skribo koncerne ciu esperanto centro kaj diversajoj....</a></h5>
+								{{$centro->vortoj}}</a></h5>
  
-								<div class="mag-post-meta mt-3"><a href="#"><a href="" class="btn more black">Legu Pli</a>
-									<span class="author-date">Jan 5, 2020</span>
+								<div style="margin-bottom: 10%;" class="mag-post-meta"><a href="{{url('/info/'.$centro->id)}}" class="btn more black">Legu Pli</a>
+								<span class="author-date">{{date('m-d-Y',strtotime($centro->created_at))}}</span>
 									
 								</div>
 							</div>
-							<div class="maghny-gd-1 col-lg-4 col-md-6">
-								<div class="maghny-grid">
-									<figure class="effect-lily">
-										<img class="img-fluid" src="assets/images/slides/images/helsinki.JPG">
-										<figcaption>
-											<div>
-												<h4>woman near <span>pigeons</span></h4>
-												<p>Jan.20.2020 </p>
-											</div>
-
-										</figcaption>
-									</figure>
-								</div>
-								<h5><a href="#">Eta skribo koncerne ciu esperanto centro kaj diversajoj....</a></h5>
-
-								<div class="mag-post-meta mt-3"><a href="{{route('centro.info')}}" class="btn more black">Legu Pli</a>
-									<span class="author-date">Jan 5, 2020</span>
-								</div>
-							</div>
-							<div class="maghny-gd-1 col-lg-4 col-md-6">
-								<div class="maghny-grid">
-									<figure class="effect-lily">
-										<img class="img-fluid" src="assets/images/slides/images/JoCa Kotonuo balkono.JPG">
-										<figcaption>
-											<div>
-												<h4>Man standing on railroad near <span>plants</span></h4>
-												<p>Jan.20.2020 </p>
-											</div>
-
-										</figcaption>
-									</figure>
-								</div>
-								<h5><a href="#">
-										Eta skribo koncerne ciu esperanto centro kaj diversajoj....</a></h5>
-								<div class="mag-post-meta mt-3"><a href="#"><a href="" class="btn more black">Legu Pli</a>
-									<span class="author-date">Jan 5, 2020</span>
-								</div>
-							</div>
+							@endforeach
+							
 						</div>
-						<div class="maghny-grids-inf mt-3 row">
-							<div class="maghny-gd-1 col-lg-4 col-md-6">
-								<div class="maghny-grid">
-									<figure class="effect-lily">
-										<img class="img-fluid" src="assets/images/slides/images/CDELI.JPG">
-										<figcaption>
-											<div>
-												<h4>Person lying down on white <span>surface</span></h4>
-												<p>Jan.20.2020 </p>
-											</div>
-
-										</figcaption>
-									</figure>
-								</div>
-								<h5><a href="#">
-										Eta skribo koncerne ciu esperanto centro kaj diversajoj....</a></h5>
- 
-								<div class="mag-post-meta mt-3"><a href="{{route('centro.info')}}" class="btn more black">Legu Pli</a>
-									<span class="author-date">Jan 5, 2020</span>
-									
-								</div>
-							</div>
-							<div class="maghny-gd-1 col-lg-4 col-md-6">
-								<div class="maghny-grid">
-									<figure class="effect-lily">
-										<img class="img-fluid" src="assets/images/slides/images/CDELI.JPG">
-										<figcaption>
-											<div>
-												<h4>woman near <span>pigeons</span></h4>
-												<p>Jan.20.2020 </p>
-											</div>
-
-										</figcaption>
-									</figure>
-								</div>
-								<h5><a href="#">Eta skribo koncerne ciu esperanto centro kaj diversajoj....</a></h5>
-
-								<div class="mag-post-meta mt-3"><a href="{{route('centro.info')}}" class="btn more black">Legu Pli</a>
-									<span class="author-date">Jan 5, 2020</span>
-								</div>
-							</div>
-							<div class="maghny-gd-1 col-lg-4 col-md-6">
-								<div class="maghny-grid">
-									<figure class="effect-lily">
-										<img class="img-fluid" src="assets/images/slides/images/CDELI.JPG">
-										<figcaption>
-											<div>
-												<h4>Man standing on railroad near <span>plants</span></h4>
-												<p>Jan.20.2020 </p>
-											</div>
-
-										</figcaption>
-									</figure>
-								</div>
-								<h5><a href="#">
-										Eta skribo koncerne ciu esperanto centro kaj diversajoj....</a></h5>
-								<div class="mag-post-meta mt-3">
-									<a href="{{route('centro.info')}}" class="btn more black">Legu Pli</a>
-									<span class="author-date">Jan 5, 2020</span>
-								</div>
-							</div>
-						</div>
+					
 					</div>
 					
 					<!--//mag-hny-content-1-->
@@ -681,81 +543,32 @@
 					<!--/mag-hny-content-3-->
 					<div class="mag-hny-content my-lg-5 mb-5">
 						<h3 class="hny-title">Listoj de <span>Agadprogramojn</span></h3>
+						@foreach($allagadoj as $allagado)
 						<div class="maghny-grids-inf row">
 							<div class="mag-post-thumb col-md-6">
-								<a href="#"><img src="assets/images/grid16.jpg" class="img-fluid" alt=""></a>
+								<a href="#"><img src="{{ asset('storage/actuality_photos/'.$allagado->file1)}}" class="img-fluid" alt=""></a>
 
 							</div>
 							<div class="mag-post-fashion-details col-md-6 mt-md-0 mt-4">
 								<a href="#" class="link-mag">
 									<h4 class="mag-post-head">
-										Eta skribo koncerne ciu esperanto centro kaj diversajoj....</h4>
+									{{$allagado->title}}</h4>
 								</a>
 								<div class="mag-post-meta mt-3"><a href="#"><img src="assets/images/admin.jpg"
 											class="img-fluid rounded-circle admin-img admin-img1" alt=""></a> <span
 										class="meta-author"> <span>By&nbsp;</span><a href="#" class="author-name"> John
 											Brain</a> </span>
-									<span class="author-date">Jan 5, 2020</span>
+									<span class="author-date">{{date('d-m-Y', strtotime($allagado->created_at))}}</span>
 								</div>
-								<p class="para my-3">Nulla quis lorem neque, mattis venenatis lectus. In interdum
-									ullamcorper dolor eu
-									mattis.Nulla quis lorem neque, mattis venenatis lectus. </p>
+							<p class="para my-3">{{$allagado->desc}}</p>
 								<a href="#" class="read-more btn">Legu pli</a>
 
 							</div>
 
 
 						</div>
-						<div class="maghny-grids-inf row my-5">
-							<div class="mag-post-thumb col-md-6">
-								<a href="#"><img src="assets/images/grid17.jpg " class="img-fluid" alt=""></a>
-
-							</div>
-							<div class="mag-post-fashion-details col-md-6 mt-md-0 mt-4">
-								<a href="#" class="link-mag">
-									<h4 class="mag-post-head">
-										Eta skribo koncerne ciu esperanto centro kaj diversajoj....</h4>
-								</a>
-								<div class="mag-post-meta mt-3"><a href="#"><img src="assets/images/admin.jpg"
-											class="img-fluid rounded-circle admin-img admin-img1" alt=""></a> <span
-										class="meta-author"><span>By&nbsp;</span><a href="#" class="author-name"> John
-											Brain</a> </span>
-									<span class="author-date">Jan 5, 2020</span>
-								</div>
-								<p class="para my-3">Nulla quis lorem neque, mattis venenatis lectus. In interdum
-									ullamcorper dolor eu
-									mattis.Nulla quis lorem neque, mattis venenatis lectus. </p>
-								<a href="#" class="read-more btn">Legu pli</a>
-
-							</div>
-
-
-						</div>
-						<div class="maghny-grids-inf row">
-							<div class="mag-post-thumb col-md-6">
-								<a href="#"><img src="assets/images/grid13.jpg" class="img-fluid" alt=""></a>
-
-							</div>
-							<div class="mag-post-fashion-details col-md-6 mt-md-0 mt-4">
-								<a href="#" class="link-mag">
-									<h4 class="mag-post-head">
-										Eta skribo koncerne ciu esperanto centro kaj diversajoj....</h4>
-								</a>
-								<div class="mag-post-meta mt-3"><a href="#"><img src="assets/images/admin.jpg"
-											class="img-fluid rounded-circle admin-img admin-img1" alt=""></a> <span
-										class="meta-author"><span>By&nbsp;</span><a href="#" class="author-name"> John
-											Brain</a> </span>
-									<span class="author-date">Jan 5, 2020</span>
-								</div>
-								<p class="para my-3">Nulla quis lorem neque, mattis venenatis lectus. In interdum
-									ullamcorper dolor eu
-									mattis.Nulla quis lorem neque, mattis venenatis lectus. </p>
-								<a href="#" class="read-more btn">Legu pli</a>
-
-							</div>
-
-
-						</div>
+						@endforeach
+					
 
 					</div>
 					<!--//mag-hny-content-3-->
@@ -1202,50 +1015,19 @@
 						<div class="side-bar-hny-recent mb-5">
 							<h4 class="mag-side-title">Plej  <span>novaj filmetoj</span></h4>
 							<div class="mag-small-post">
+								@foreach ($videoj as $video)
 								<div class="post-video-grid">
-									<div class="video-content mb-3">
-										<a href="#notify" class="play-button btn"><span class="fa fa-play"
-												aria-hidden="true">
-
-											</span></a>
-
-										<!-- notify-popup-->
-										<div id="notify" class="notify-pop-overlay">
-											<div class="notify-popup">
-												<h5>Watch Our Video</h5>
-												<iframe src="https://player.vimeo.com/video/156953364" frameborder="0"
-													allow="autoplay; fullscreen" allowfullscreen></iframe>
-												<a class="close" href="#coming-s">&times;</a>
-											</div>
-										</div>
-										<!-- //notify-popup -->
-									</div>
+									<video  class="agado" width="350" height="240" controls>
+										<source src="{{asset('storage/actuality_photos/'.$video->videos)}}" type="video/mp4">
+										<source src="movie.ogg" type="video/ogg">
+									  Your browser does not support the video tag.
+									  </video> 
 									<h4 class="mag-post-title">
-										<a href="#">A New Report Shows That Fashion Ads Are Still Overwhelmingly
-											White
-											Dresses</a> </h4>
+									<a href="#">{{$video->desc}}</a> </h4>
 								</div>
-								<div class="post-video-grid mt-5 mb-lg-5">
-									<div class="video-content video-content2 mb-3">
-										<a href="#notify1" class="play-button btn"><span class="fa fa-play"
-												aria-hidden="true">
-
-											</span></a>
-
-										<!-- notify-popup-->
-										<div id="notify1" class="notify-pop-overlay">
-											<div class="notify-popup">
-												<h5>Watch Our Video</h5>
-												<iframe src="https://player.vimeo.com/video/42638891" frameborder="0"
-													allow="autoplay; fullscreen" allowfullscreen></iframe>
-												<a class="close" href="#coming-s">&times;</a>
-											</div>
-										</div>
-										<!-- //notify-popup -->
-									</div>
-									<h4 class="mag-post-title">
-										<a href="#">Penguins on snow covered gound,Looking Awesome to see</a> </h4>
-								</div>
+								@endforeach
+								
+						
 							</div>
 						</div>
 						<div class="side-bar-hny-recent mb-5">
