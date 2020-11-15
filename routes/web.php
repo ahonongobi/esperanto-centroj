@@ -9,7 +9,7 @@ use App\Http\Controllers\MembrojController;
 use App\Http\Controllers\contactController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\CentroAgado;
-
+use App\Http\Controllers\RespondeculoController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,26 +23,16 @@ use App\Http\Controllers\CentroAgado;
 
 
 Route::get('/',[IndexController::class,'indexPost']);
-Route::get('/respondeculo', function () {
-    return view('respondeculo/index');
-});
+
 
 
 Route::get('/info/{id}',[CentroAgado::class,'display']);
-Route::get('/anoncoj',function(){
-    return view('respondeculo/anoncoj');
- })->name('anoncoj');
 
- Route::get('/videoj',function(){
-    return view('respondeculo/videoj');
- })->name('videoj');
-
- Route::get('/aldoni',function(){
-    return view('respondeculo/aldoni');
- })->name('aldoni');
- Route::get('/eventoj',function(){
-    return view('respondeculo/eventoj');
- })->name('eventoj');
+Route::get('/eventoj',[RespondeculoController::class,'eventoj'])->name('eventoj');
+Route::get('/aldoni',[RespondeculoController::class,'aldoni'])->name('aldoni');
+Route::get('/videoj',[RespondeculoController::class,'videoj'])->name('videoj');
+Route::get('/anoncoj',[RespondeculoController::class,'anoncoj'])->name('anoncoj');
+Route::get('/respondeculo',[RespondeculoController::class,'respondeculo'])->name('respondeculo');
 
 Route::post('/register',[RegisterController::class,'store'])->name('register');
 Route::get('/register',[RegisterController::class,'loginPage'])->name('registerpage');

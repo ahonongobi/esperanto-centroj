@@ -30,7 +30,7 @@
 				<!-- nav -->
 				<nav class="wthree-w3ls">
 					<div id="logo">
-						<h1> <a class="navbar-brand px-0 mx-0" href="index.html">ILEI
+						<h1> <a class="navbar-brand px-0 mx-0" href="/">ILEI
 							</a>
 						</h1>
 					</div>
@@ -38,7 +38,7 @@
 					<label for="drop" class="toggle">Menu</label>
 					<input type="checkbox" id="drop" />
 					<ul class="menu mr-auto">
-						<li><a href="index.html">ĉefpaĝo</a></li>
+						<li><a href="#">ĉefpaĝo</a></li>
 						<li><a href="about.html">Pri ni</a></li>
 						<li>
 							<!-- First Tier Drop Down -->
@@ -55,8 +55,8 @@
 								<li><a href="error.html" class="drop-text">Social Media</a></li>
 							</ul>
 						</li>
-						<li><a href="index.html">Ensaluti</a></li>
-						<li><a href="contact.html">Kontaktu</a></li>
+						<li><a href="{{route('registerpage')}}">Ensaluti</a></li>
+						<li><a href="{{route('contact')}}">Kontaktu</a></li>
 
 						<li class="social-icons ml-lg-3"><a href="#" class="p-0 social-icon"><span class="fa fa-facebook-official" aria-hidden="true"></span>
 								<div class="tooltip">Facebook</div>

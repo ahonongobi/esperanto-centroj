@@ -24,7 +24,7 @@ class CentroAgado extends Controller
         $videos = DB::select('SELECT * FROM use_videojs WHERE id_user = ?',[
             $id,
         ]);
-
+         
         return view('simpleuser/centre-info',compact('recentposts','count2','allposts','videos','count3'));
     }
 }

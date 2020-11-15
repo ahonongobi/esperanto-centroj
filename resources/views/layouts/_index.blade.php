@@ -38,7 +38,7 @@ Espaeranto
                     <label for="drop" class="toggle">Menu</label>
                     <input type="checkbox" id="drop" />
                     <ul class="menu mr-auto">
-                        <li class="active"><a href="index.html">ĉefpaĝo</a></li>
+                        <li class="active"><a href="#">ĉefpaĝo</a></li>
                         <li><a href="about.html">Pri ni</a></li>
                         <li>
                             <!-- First Tier Drop Down -->

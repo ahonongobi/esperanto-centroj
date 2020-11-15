@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\membroj;
 use App\Models\Informoj;
 use App\Models\User;
+use App\Models\UseVideoj;
+use App\Models\PostAfiche;
 use Image;
 use Illuminate\Support\Facades\Auth;
 
@@ -16,23 +18,18 @@ class MembrojController extends Controller
         $eror = request()->validate([
             'name'=>['required','string'],
             'surname'=>['required','string'],
+            'poste'=>['required','string'],
             'numero'=>['required','string'],
             'email'=>['required','email'],
             'file'=>['required','image'],
         ]);
-            if($eror){
-                $notification = array(
-                    'message'=>'Bonvolu bone plenigi la formularon amiko.',
-                    'alert-type'=>'warning'
-                   );
-                return back()->with($notification);
-            } 
-
+            
             $membroj = new membroj();
             $membroj->id_user = Auth::user()->id;
             $membroj->center = Auth::user()->centro;
             $membroj->name = $req->name;
             $membroj->surname=$req->surname;
+            $membroj->poste=$req->poste;
             $membroj->email = $req->email;
             
             if($req->hasFile('file')){
@@ -54,7 +51,9 @@ class MembrojController extends Controller
             
     }
     public function indexInfor(){
-        return view('respondeculo/gravaj');
+        $UseVideojCount = UseVideoj::where('id_user',Auth::user()->id)->count();
+        $postsCount = PostAfiche::where('id_user',Auth::user()->id)->count();
+        return view('respondeculo/gravaj',compact('UseVideojCount','postsCount'));
     }
 
 

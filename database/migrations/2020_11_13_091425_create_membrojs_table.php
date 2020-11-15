@@ -19,6 +19,7 @@ class CreateMembrojsTable extends Migration
             $table->string('center');
             $table->string('name');
             $table->string('surname');
+            $table->string('poste');
             $table->string('email');
             $table->string('photo');
             $table->timestamps();

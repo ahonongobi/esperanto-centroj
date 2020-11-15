@@ -27,8 +27,15 @@
 			         @endif
               </div>
               <div class="form-group">       
+                <label class="form-control-label">Posto</label>
+                <input type="text" name="poste" placeholder="Prezidanto,sekretario,membro, ktp... " class="form-control">
+                @if($errors->has('poste'))
+	          			<p style="color: green;" class="text-red">{{ $errors->first('poste') }}</p>
+			         @endif
+              </div>
+              <div class="form-group">       
                   <label class="form-control-label">Telefono </label>
-                  <input type="number" name="numero" placeholder="Telefono " class="form-control">
+                  <input type="text" name="numero" placeholder="Telefono " class="form-control">
                   @if($errors->has('numero'))
 	          			<p style="color: green;" class="text-red">{{ $errors->first('numero') }}</p>
 			         @endif

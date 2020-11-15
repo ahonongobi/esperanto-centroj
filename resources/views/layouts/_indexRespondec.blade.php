@@ -182,7 +182,7 @@
         </div>
         <!-- Sidebar Navidation Menus--><span class="heading">Main</span>
         <ul class="list-unstyled">
-                <li class="active"><a href="index.html"> <i class="icon-home"></i>Ĉefpaĝo</a></li>
+                <li class="active"><a href="/respondeculo"> <i class="icon-home"></i>Ĉefpaĝo</a></li>
                  <li><a href="{{route('informojInfo')}}"><i class="fa fa-exclamation-triangle"></i>Gravaj informoj</a></li>
                 <li><a href="#agadojn"> <i class="icon-grid"></i>Agadprogramoj </a></li>
                 <li><a href="{{route('videoj')}}"> <i class="fa fa-bar-chart"></i>Videoj</a></li>
@@ -210,7 +210,7 @@
                     <div class="title">
                       <div class="icon"><i class="icon-user-1"></i></div><strong>Afiŝoj</strong>
                     </div>
-                    <div class="number dashtext-1">27</div>
+                  <div class="number dashtext-1">{{$postsCount}}</div>
                   </div>
                   <div class="progress progress-template">
                     <div role="progressbar" style="width: 30%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" class="progress-bar progress-bar-template dashbg-1"></div>
@@ -223,7 +223,7 @@
                     <div class="title">
                       <div class="icon"><i class="icon-contract"></i></div><strong>videoj</strong>
                     </div>
-                    <div class="number dashtext-2">375</div>
+                  <div class="number dashtext-2">{{$UseVideojCount}}</div>
                   </div>
                   <div class="progress progress-template">
                     <div role="progressbar" style="width: 70%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" class="progress-bar progress-bar-template dashbg-2"></div>

@@ -5,14 +5,26 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+use App\Models\PostAfiche;
+use App\Models\UseVideoj;
+use App\Models\membroj;
 class LoginController extends Controller
 {
     //
     public function loginIndex(){
+
+        
         return view('simpleuser/login');
     }
     public function indexRespondeculo(){
-        return view('respondeculo/index');
+        
+        $posts = PostAfiche::where('id_user',Auth::user()->id)->paginate(3);
+        $postsCount = PostAfiche::where('id_user',Auth::user()->id)->count();
+        $UseVideoj = UseVideoj::where('id_user',Auth::user()->id)->paginate(3);
+        $UseVideojCount = UseVideoj::where('id_user',Auth::user()->id)->count();
+        $membroj = membroj::where('id_user',Auth::user()->id)->get();
+
+        return view('respondeculo/index',compact('posts','UseVideoj','membroj','UseVideojCount','postsCount'));
     }
 
     public function loginUser(Request $req) {
