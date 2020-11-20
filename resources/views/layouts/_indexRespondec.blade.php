@@ -21,6 +21,8 @@
     <!-- Custom stylesheet - for your changes-->
     <link rel="stylesheet" href="{{asset('css/custom.css')}}">
     <!-- Favicon-->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet">
+
     <link rel="shortcut icon" href="{{asset('img/favicon.ico')}}">
     <!-- Tweaks for older IEs--><!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -52,9 +54,10 @@
             <div class="list-inline-item"><a href="#" class="search-open nav-link"><i class="icon-magnifying-glass-browser"></i></a></div>
             <div class="list-inline-item dropdown"><a id="navbarDropdownMenuLink1" href="http://example.com" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link messages-toggle"><i class="icon-email"></i><span class="badge dashbg-1">5</span></a>
               <div aria-labelledby="navbarDropdownMenuLink1" class="dropdown-menu messages"><a href="#" class="dropdown-item message d-flex align-items-center">
-                  <div class="profile"><img src="img/avatar-3.jpg" alt="..." class="img-fluid">
+                  <!--<div class="profile"><img src="img/avatar-3.jpg" alt="..." class="img-fluid">
                     <div class="status online"></div>
-                  </div>
+                  </div>-->
+                  
                   <div class="content">   <strong class="d-block">Nadia Halsey</strong><span class="d-block">lorem ipsum dolor sit amit</span><small class="date d-block">9:30am</small></div></a><a href="#" class="dropdown-item message d-flex align-items-center">
                   <div class="profile"><img src="img/avatar-2.jpg" alt="..." class="img-fluid">
                     <div class="status away"></div>
@@ -88,10 +91,18 @@
                   <div class="progress">
                     <div role="progressbar" style="width: 30%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" class="progress-bar dashbg-4"></div>
                   </div></a><a href="#" class="dropdown-item">
-                  <div class="text d-flex justify-content-between"><strong>Task 5</strong><span>65% complete</span></div>
+                  <form action="{{route('avatar')}}" method="post" enctype="multipart/form-data">
+                    @csrf
+                  <div class="text d-flex justify-content-between">
+                    <input type="file" name="avatar">
+                  </div>
                   <div class="progress">
                     <div role="progressbar" style="width: 65%" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100" class="progress-bar dashbg-1"></div>
-                  </div></a><a href="#" class="dropdown-item text-center"> <strong>See All Tasks <i class="fa fa-angle-right"></i></strong></a>
+                  </div></a><a href="#" class="dropdown-item text-center"> <strong>
+                    <button type="submit">Change avatar</button>
+                   
+                    <i class="fa fa-angle-right"></i></strong></a>
+                  </form>
               </div>
             </div>
             <!-- Tasks end-->
@@ -164,7 +175,7 @@
               <div aria-labelledby="languages" class="dropdown-menu"><a rel="nofollow" href="#" class="dropdown-item"> <img src="img/flags/16/DE.png" alt="English" class="mr-2 text-white"><span>German</span></a><a rel="nofollow" href="#" class="dropdown-item"> <img src="img/flags/16/FR.png" alt="English" class="mr-2 text-white"><span>French  </span></a></div>
             </div>
             <!-- Log out               -->
-            <div class="list-inline-item logout">                   <a id="logout" href="login.html" class="nav-link text-white">Elsaluti <i class="icon-logout"></i></a></div>
+            <div class="list-inline-item logout">                   <a id="logout" href="{{route('logout')}}" class="nav-link text-white">Elsaluti <i class="icon-logout"></i></a></div>
           </div>
         </div>
       </nav>
@@ -174,7 +185,14 @@
       <nav id="sidebar">
         <!-- Sidebar Header-->
         <div class="sidebar-header d-flex align-items-center">
-          <div class="avatar"><img src="{{asset('img/avatar-6.jpg')}}" alt="..." class="img-fluid rounded-circle"></div>
+        <!--<div class="avatar"><img src="img/avatar-6.jpg" alt="" class="img-fluid rounded-circle"></div>-->
+          @if(Auth::user()->logo=="default.png")
+          <img style=" border-radius: 50%;" class="round" width="60" height="60" avatar="{{Auth::user()->centro}}">
+          @else
+        <div class="avatar"><img src="{{asset('storage/member_profile/'.Auth::user()->logo)}}" alt="" class="img-fluid rounded-circle"></div>
+          @endif
+        
+          
           <div class="title">
           <h1 class="h5">{{Auth::user()->centro}}</h1>
             <p>Softvara developer</p>
@@ -273,7 +291,112 @@
         </footer>
       </div>
     </div>
-    <!-- JavaScript files-->
+    <!-- JavaScript files
+     https://codepen.io/arturheinze/pen/ZGvOMw avatar script
+    -->
+    <script>
+      (function (w, d) {
+  function LetterAvatar(name, size) {
+    name = name || "";
+    size = size || 60;
+
+    var colours = [
+        "#1abc9c",
+        "#2ecc71",
+        "#3498db",
+        "#9b59b6",
+        "#34495e",
+        "#16a085",
+        "#27ae60",
+        "#2980b9",
+        "#8e44ad",
+        "#2c3e50",
+        "#f1c40f",
+        "#e67e22",
+        "#e74c3c",
+        "#ecf0f1",
+        "#95a5a6",
+        "#f39c12",
+        "#d35400",
+        "#c0392b",
+        "#bdc3c7",
+        "#7f8c8d"
+      ],
+      nameSplit = String(name).toUpperCase().split(" "),
+      initials,
+      charIndex,
+      colourIndex,
+      canvas,
+      context,
+      dataURI;
+
+    if (nameSplit.length == 1) {
+      initials = nameSplit[0] ? nameSplit[0].charAt(0) : "?";
+    } else {
+      initials = nameSplit[0].charAt(0) + nameSplit[1].charAt(0);
+    }
+
+    if (w.devicePixelRatio) {
+      size = size * w.devicePixelRatio;
+    }
+
+    charIndex = (initials == "?" ? 72 : initials.charCodeAt(0)) - 64;
+    colourIndex = charIndex % 20;
+    canvas = d.createElement("canvas");
+    canvas.width = size;
+    canvas.height = size;
+    context = canvas.getContext("2d");
+
+    context.fillStyle = colours[colourIndex - 1];
+    context.fillRect(0, 0, canvas.width, canvas.height);
+    context.font = Math.round(canvas.width / 2) + "px Arial";
+    context.textAlign = "center";
+    context.fillStyle = "#FFF";
+    context.fillText(initials, size / 2, size / 1.5);
+
+    dataURI = canvas.toDataURL();
+    canvas = null;
+
+    return dataURI;
+  }
+
+  LetterAvatar.transform = function () {
+    Array.prototype.forEach.call(d.querySelectorAll("img[avatar]"), function (
+      img,
+      name
+    ) {
+      name = img.getAttribute("avatar");
+      img.src = LetterAvatar(name, img.getAttribute("width"));
+      img.removeAttribute("avatar");
+      img.setAttribute("alt", name);
+    });
+  };
+
+  // AMD support
+  if (typeof define === "function" && define.amd) {
+    define(function () {
+      return LetterAvatar;
+    });
+
+    // CommonJS and Node.js module support.
+  } else if (typeof exports !== "undefined") {
+    // Support Node.js specific `module.exports` (which can be a function)
+    if (typeof module != "undefined" && module.exports) {
+      exports = module.exports = LetterAvatar;
+    }
+
+    // But always support CommonJS module 1.1.1 spec (`exports` cannot be a function)
+    exports.LetterAvatar = LetterAvatar;
+  } else {
+    window.LetterAvatar = LetterAvatar;
+
+    d.addEventListener("DOMContentLoaded", function (event) {
+      LetterAvatar.transform();
+    });
+  }
+})(window, document);
+
+    </script>
     <script src="{{asset('vendor/jquery/jquery.min.js')}}"></script>
     <script src="{{asset('vendor/popper.js/umd/popper.min.js')}}"> </script>
     <script src="{{asset('vendor/bootstrap/js/bootstrap.min.js')}}"></script>
@@ -282,6 +405,27 @@
     <script src="{{asset('vendor/jquery-validation/jquery.validate.min.js')}}"></script>
     <script src="{{asset('js/charts-home.js')}}"></script>
     <script src="{{asset('js/front.js')}}"></script>
-    
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <script>
+        @if(Session::has('message')){
+            var type= "{{Session::get('alert-type','info')}}";
+            switch(type){
+              case'info':
+              toastr.info("{{Session::get('message')}}");
+              break;
+              case'warning':
+              toastr.warning("{{Session::get('message')}}");
+              break;
+              case'success':
+              toastr.success("{{Session::get('message')}}");
+              break;
+            } 
+          } 
+          
+           
+  
+        @endif
+        
+	  </script>
   </body>
 </html>

@@ -26,8 +26,9 @@
                 <div class="form-groupform-group file-upload-wrapper">
                   <input type="file" name="file" id="input-file-now" class="file-upload" />
                 </div>
-              <div class="form-group mt-3">       
-                <input type="submit" value="Sendi" class="btn btn-primary">
+              <div class="form-group mt-3"> 
+                <button type="submit" style="background-color: #e95f71;" class="btn btn-primary"><i class="fa fa-send"></i>sendi</button>      
+               
               </div>
             </form>
           </div>
@@ -60,7 +61,8 @@
                 </div>
                 <div class="form-group row">       
                   <div class="col-sm-9 offset-sm-3">
-                    <input type="submit" value="Sendi" class="btn btn-primary"><i class="fa fa-send"></i>
+                    <button type="submit" style="background-color: #e95f71;" class="btn btn-primary"><i class="fa fa-send"></i>sendi</button>
+                    
                   </div>
                 </div>
               </form>

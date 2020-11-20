@@ -58,7 +58,8 @@
 			         @endif
               </div>
               <div>       
-                <input type="submit" value="Sendi" class="btn btn-primary">
+                <button type="submit" style="background-color: #e95f71;" class="btn btn-primary"><i class="fa fa-send"></i>sendi</button>
+                
               </div>
             </form>
           </div>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\PostAfiche;
 use App\Models\UseVideoj;
+use App\Models\Comment;
 use DB;
 class CentroAgado extends Controller
 {
@@ -24,7 +25,10 @@ class CentroAgado extends Controller
         $videos = DB::select('SELECT * FROM use_videojs WHERE id_user = ?',[
             $id,
         ]);
+        $comments = Comment::where('centre_id',$id)->orderBy('id','desc')->get();
+        $Countcomments = Comment::where('centre_id',$id)->orderBy('id','desc')->count();
+
          
-        return view('simpleuser/centre-info',compact('recentposts','count2','allposts','videos','count3'));
+        return view('simpleuser/centre-info',compact('recentposts','count2','allposts','videos','count3','comments','id','Countcomments'));
     }
 }

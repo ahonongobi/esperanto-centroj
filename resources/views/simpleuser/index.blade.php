@@ -354,7 +354,7 @@
 								<h5><a href="#">
 								{{$centro->vortoj}}</a></h5>
  
-								<div style="margin-bottom: 10%;" class="mag-post-meta"><a href="{{url('/info/'.$centro->id)}}" class="btn more black">Legu Pli</a>
+								<div style="margin-bottom: 10%;" class="mag-post-meta"><a href="{{url('/info/token='.$centro->id)}}" class="btn more black">Legu Pli</a>
 								<span class="author-date">{{date('m-d-Y',strtotime($centro->created_at))}}</span>
 									
 								</div>
@@ -489,7 +489,7 @@
 					
 					<!--//mag-hny-content-3-->
 					<!--/mag-left-grid-6-->
-					<div class="mag-hny-content my-lg-5 mb-5">
+					<div style="margin-top: 10%;" class="mag-hny-content my-lg-5 mb-5">
 						<h3 class="hny-title">Plej<span>ŝatata</span></h3>
 						<div class="fashny-grids-inf row">
 							<div class="fashion-gd-1 col-lg-4 col-6">

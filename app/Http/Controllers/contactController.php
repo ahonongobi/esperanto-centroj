@@ -27,4 +27,6 @@ class contactController extends Controller
            );
         return back()->with($notification);
     }
+
+    
 }

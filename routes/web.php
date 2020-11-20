@@ -10,6 +10,10 @@ use App\Http\Controllers\contactController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\CentroAgado;
 use App\Http\Controllers\RespondeculoController;
+use App\Http\Controllers\DeleteUpdateController;
+use App\Http\Controllers\CommentController;
+use App\Http\Controllers\LikesController;
+use App\Http\Controllers\UpdateavatarController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,11 +30,11 @@ Route::get('/',[IndexController::class,'indexPost']);
 
 
 
-Route::get('/info/{id}',[CentroAgado::class,'display']);
+Route::get('/info/token={id}',[CentroAgado::class,'display']);
 
 Route::get('/eventoj',[RespondeculoController::class,'eventoj'])->name('eventoj');
 Route::get('/aldoni',[RespondeculoController::class,'aldoni'])->name('aldoni');
-Route::get('/videoj',[RespondeculoController::class,'videoj'])->name('videoj');
+Route::get('/videoj',[RespondeculoController::class,'videoj'])->middleware('auth')->name('videoj');
 Route::get('/anoncoj',[RespondeculoController::class,'anoncoj'])->name('anoncoj');
 Route::get('/respondeculo',[RespondeculoController::class,'respondeculo'])->name('respondeculo');
 
@@ -53,4 +57,9 @@ Route::post('/informoj',[MembrojController::class,'informoj'])->name('informoj')
 Route::get('/informoj',[MembrojController::class,'indexInfor'])->name('informojInfo');
 
 Route::post('/contact',[contactController::class,'store'])->name('contact');
+Route::post('/ajax',[CommentController::class,'ajaxpost']);
+Route::post('/likes',[LikesController::class,'likes']);
+Route::post('/avatar',[UpdateavatarController::class,'update'])->name('avatar');
+
+Route::get('/delete/{id}',[DeleteUpdateController::class,'delete']);
 

@@ -7,6 +7,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+ 
   <title> Esperanto-centrojn </title>
   <!-- Template CSS -->
   <link rel="stylesheet" href="{{asset('assets/css/style-starter.css')}}">
@@ -15,6 +16,7 @@
   <link href="//fonts.googleapis.com/css?family=Playfair+Display:400,400i,700&display=swap" rel="stylesheet">
   <link href="//fonts.googleapis.com/css?family=Montserrat:300,300i,400,600,700,800&display=swap" rel="stylesheet">
   <!-- Template CSS -->
+  <meta name="csrf-token" content="{{ csrf_token() }}" />
 
 
 </head>
@@ -90,33 +92,7 @@
 </div>
 <!--w3l-banner-slider-main-->
 
-	<script src="assets/js/jquery-3.3.1.min.js"></script>
-	<script src="assets/js/bootstrap.min.js"></script>
-	<script src="assets/js/sliderPro.min.js"></script>
-	<script type="text/javascript">
-		$( document ).ready(function( $ ) {
-			$( '#example2' ).sliderPro({
-				width: '50%',
-				height: 500,
-				aspectRatio: 1.5,
-				visibleSize: '100%',
-				forceSize: 'fullWidth'
-			});
 	
-			// instantiate fancybox when a link is clicked
-			$( '#example2 .sp-image' ).parent( 'a' ).on( 'click', function( event ) {
-				event.preventDefault();
-	
-				// check if the clicked link is also used in swiping the slider
-				// by checking if the link has the 'sp-swiping' class attached.
-				// if the slider is not being swiped, open the lightbox programmatically,
-				// at the correct index
-				if ( $( '#example2' ).hasClass( 'sp-swiping' ) === false ) {
-					$.fancybox.open( $( '#example2 .sp-image' ).parent( 'a' ), { index: $( this ).parents( '.sp-slide' ).index() } );
-				}
-			});
-		});
-	</script>
 </section>
 <!-- //w3l-banner-slider-main -->
 <section class="w3l-mag-main">
@@ -149,8 +125,9 @@
 						</div>
 						<div style="display: flex; ">
 							<a href="blog-single" class="read-more btn mt-3">Legu pli</a>
-							<a  style="margin-left: 60%;" href="blog-single" class=""><img width="32" height="32" src="{{asset('assets/images/slides/images/chat.png')}}" alt="" srcset=""></a>
-							<a style="margin-left: 40px;" href="blog-single" class=""><img src="{{asset('assets/images/slides/images/like_variation.png')}}" alt="" srcset=""></a>
+							<a  style="margin-left: 60%;" href="#komment" class=""><img width="32" height="32" src="{{asset('assets/images/slides/images/chat.png')}}" alt="" srcset=""></a>
+						<input type="hidden" name="token" id="token2" value="{{csrf_token()}}">
+							<a style="margin-left: 40px; cursor:pointer" id="ajaxbtn"  class=""><img  src="{{asset('assets/images/slides/images/like_variation.png')}}" alt="" srcset=""></a>
 							
 						</div>
 					</div>
@@ -243,22 +220,22 @@
 									</a>
 								</div>
 								<div class="grid-social-box col-lg-3 col-sm-6">
-									<a href="#" class="sub-facebook google"><span class="fa fa-google"
+									<a href="#" class="sub-facebook google"><span class="fa fa-hand-o-right"
 											aria-hidden="true"></span>
 										<div class="soc-info">
-											<span class="sub_social_info sub_social_info_counter">14,507</span>
-											<span class="sub_social_info sub_social_info_name">Followers</span>
+											<span class="sub_social_info sub_social_info_counter">+14,507</span>
+											<span class="sub_social_info sub_social_info_name">Like</span>
 										</div>
 									</a>
 
 
 								</div>
 								<div class="grid-social-box col-lg-3 col-sm-6">
-									<a href="#" class="sub-facebook dribble"><span class="fa fa-dribbble"
+									<a href="#" class="sub-facebook dribble"><span class="fa fa-comments"
 											aria-hidden="true"></span>
 										<div class="soc-info">
-											<span class="sub_social_info sub_social_info_counter">14,507</span>
-											<span class="sub_social_info sub_social_info_name">Followers</span>
+										<span class="sub_social_info sub_social_info_counter">{{$Countcomments}}</span>
+											<span class="sub_social_info sub_social_info_name">Commentaire</span>
 										</div>
 									</a>
 								</div>
@@ -270,7 +247,61 @@
 				</div>
 			</div>
 			
-			<!--/newsletter-->
+			<div class="container">
+				<div class="row bootstrap snippets bootdeys">
+					<div class="col-md-12 col-sm-12">
+						<div class="comment-wrapper">
+							<div class="panel panel-info">
+								<div class="panel-heading">
+									Komentoj
+								</div>
+								<div id="komment" class="panel-body">
+
+								<form action="{{url('ajax')}}" method="post">
+									
+									<input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">
+								<input type="hidden" name="centre_id" value="{{$id}}">
+									<textarea name="message" id="message" class="form-control" placeholder="skribu komento..." rows="3"></textarea>
+									@if($errors->has('message'))
+									<p style="color: red;" class="text-red">{{ $errors->first('message') }}</p>
+							   @endif
+								<br>
+								<button  id="" class="btn btn-info pull-right">Postu <i class="fa fa-send"></i></button>
+
+								  </form>
+							      
+									
+									<div class="clearfix"></div>
+									<hr>
+									<ul class="media-list">
+										@foreach ($comments as $comment)
+										<li class="media">
+											<a href="#" class="pull-left">
+												<img style="border-radius: 50%;" src="https://bootdey.com/img/Content/user_1.jpg" alt="" class="img-circle">
+											</a>
+											<div class="media-body">
+												<span class="text-muted pull-right">
+												<small style="font-size: 20px;"  class="text-muted">{{$comment->created_at->format('d-m-Y')}}</small>
+												</span>
+												<strong class="text-success">@Komentanto</strong>
+												<p>
+													{{$comment->message}}
+													
+												</p>
+											</div>
+										</li>
+										@endforeach
+										
+										
+									</ul>
+								</div>
+							</div>
+						</div>
+				
+					</div>
+				</div>
+				</div>
+			<!--/newsletter
 			<div class="form-inner-newsletter py-lg-5">
 
 				<div class="newsletter-infhny p-5 mt-lg-0 mt-5">
@@ -290,7 +321,7 @@
 					</div>
 				</div>
 			</div>
-			<!--//newsletter-->
+			//newsletter-->
 		</div>
 	</div>
 	<!--//mag-content-->
@@ -423,6 +454,9 @@
                 document.body.scrollTop = 0;
                 document.documentElement.scrollTop = 0;
             }
+			
+	 
+
         </script>
         <!-- /move top -->
     </div>
@@ -432,6 +466,33 @@
 
 </footer>
 <!--//footer-66 -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+	<script src="{{asset('assets/js/bootstrap.min.js')}}"></script>
+	<script src="{{asset('assets/js/sliderPro.min.js')}}"></script>
+	<script>
+	
+	$(document).ready(function(){
+		$('#ajaxbtn').click(function(){
+			
+			
+			var token = $("#token2").val();
+		     alert(token);
+			
+			$.ajax({
+				url:"{{ url('likes') }}", 
+			    type:"POST", 
+				data:"centre_id="+ <?php echo $id; ?> "&_token="+token, 
+				sucess:function(data){
+				   console.log(data);
+				},
+			});
+		});
+
+	});
+		
+	</script>
+ 
 </body>
 
 </html>

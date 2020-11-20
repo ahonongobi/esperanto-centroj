@@ -12,12 +12,12 @@
             <!-- 3084 for modify dark color -->
           </div>
         <p>{{substr($post->desc,0,5)."..."}}</p>
-          <img class="agado"  width="400" height="250" src="{{ asset('storage/actuality_photos/'.$post->file1)}}" alt="" srcset="">
+          <img class="agado"  width="" height="" src="{{ asset('storage/actuality_photos/'.$post->file1)}}" alt="" srcset="">
             
           <div>
             <div class="d-flex ml-3">
-              <button  type="submit" class="btn btn-secondary mt-2 mr-2" style="margin-left:1px;">forigi</button>
-              <button type="submit" class="btn btn-warning mt-2" style="margin-left:1px;">Modifii</button>
+              <button  type="submit" class="btn btn-secondary mt-2 mr-2" style="margin-left:1px;"><i class="fa fa-trash"></i>forigi</button>
+              <button type="submit" class="btn btn-warning mt-2" style="margin-left:1px;"><i class="fa fa-edit"></i>Modifii</button>
             </div>
           </div>
         </div>
@@ -44,9 +44,9 @@
         </div>
         <div class="col-lg-4">
           <div class="details d-flex">
-          <div class="item"><i class="fa fa-phone"></i><strong>{{$membro->numero}}</strong></div>
-          <div class="item"><i class="fa fa-envelope"></i><strong>{{$membro->email}}</strong></div>
-            <div class="item"><i class="fa fa-user"></i><strong>Uzanto</strong></div>
+           <!-- <div class="item"><i class="fa fa-user"></i><strong>Uzanto</strong></div>-->
+          <div class="item" style="max-width: 100%;"><i class="fa fa-envelope"></i><strong>{{$membro->email}}</strong></div>
+            
           </div>
         </div>
       </div>
@@ -67,15 +67,15 @@
       <div class="col-lg-4">
         <div class="stats-with-chart-1 block">
         <div class="title"> <strong class="d-block">{{$UseVideo->title}}</strong><span class="d-block">{{$UseVideo->desc}}</span></div>
-          <video  class="agado" width="350" height="240" controls>
+          <video  class="agado" width="" height="" controls>
             <source src="{{ asset('storage/actuality_photos/'.$UseVideo->videos)}}" type="video/mp4">
             <source src="movie.ogg" type="video/ogg">
           Your browser does not support the video tag.
           </video> 
          
             <div class="d-flex ml-3">
-              <button  type="submit" class="btn btn-secondary mt-2 mr-2" style="margin-left:1px;">forigi</button>
-              <button type="submit" class="btn btn-warning mt-2" style="margin-left:1px;">Modifii</button>
+              <button  type="submit" class="btn btn-secondary mt-2 mr-2" style="margin-left:1px;"><i class="fa fa-trash"></i>forigi</button>
+              <button type="submit" class="btn btn-warning mt-2" style="margin-left:1px;"><i class="fa fa-edit"></i>Modifii</button>
             </div>
           
         </div>

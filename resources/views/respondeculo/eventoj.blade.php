@@ -1,4 +1,6 @@
 @extends('layouts/_indexRespondec')
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
 <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet">
 
 @section('content')
@@ -42,33 +44,33 @@
 	          			<p style="color: green;" class="text-red">{{ $errors->first('description3') }}</p>
 			         @endif
                 </div>
-              <div class="form-group file-upload-wrapper">
+              <div class="form-group">
                   <input type="file" name="file1" value="{{old('file1')}}" id="input-file-now" class="file-upload" />
                   @if($errors->has('file1'))
 	          			<p style="color: green;" class="text-red">{{ $errors->first('file') }}</p>
 			         @endif
                 </div>
-                <div class="form-group file-upload-wrapper">
+                <div class="form-group">
                   <input type="file" name="file2" value="{{old('file2')}}" id="input-file-now" class="file-upload" />
                   @if($errors->has('file2'))
 	          			<p style="color: green;" class="text-red">{{ $errors->first('file2') }}</p>
 			         @endif
                 </div>
-                <div class="form-groupform-group file-upload-wrapper">
+                <div class="form-group">
                   <input type="file" name="file3" value="{{old('file3')}}" id="input-file-now" class="file-upload" />
                   @if($errors->has('file3'))
 	          			<p style="color: green;" class="text-red">{{ $errors->first('file3') }}</p>
 			         @endif
                 </div>
               <div class="form-group mt-3">       
-                <input type="submit" value="Sendi" class="btn btn-primary">
+                <button type="submit" style="background-color: #e95f71" class="btn btn-primary"><i class="fa fa-send"></i>sendi</button>
               </div>
             </form>
           </div>
         </div>
       </div>
       <!-- Horizontal Form-->
-      <div class="col-lg-6 mb-5">
+      <div style="margin-bottom:5%;" class="col-lg-6">
         <div class="block">
           <div class="title"><strong class="d-block">Volas Publikigi videoj ?</strong><span class="d-block">Lorem ipsum dolor sit amet consectetur.</span></div>
           <div class="block-body">
@@ -94,7 +96,8 @@
               </div>
               <div class="form-group row">       
                 <div class="col-sm-9 offset-sm-3">
-                  <input type="submit" value="Sendi" class="btn btn-primary"><i class="fa fa-send"></i>
+
+                  <button type="submit" style="background-color: #e95f71;" class="btn btn-primary"><i class="fa fa-send"></i>sendi</button>
                 </div>
               </div>
             </form>
@@ -104,12 +107,15 @@
       <!-- Inline Form-->
       
       <!-- Modal Form-->  
-          </div>
-        </div>
-      </div>
+         
+      
     </div>
   </div>
 </section>
+<section>
+  <div style="height: 5%" class="clearfix"></div>
+</section>
+
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 	<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>

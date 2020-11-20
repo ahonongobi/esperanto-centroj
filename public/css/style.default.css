@@ -3,7 +3,58 @@
 body {
   position: relative;
 }
+/**  avatar design begin gere**/
+.badges {
+  position: relative;
+  width: 216px;
+  display: inline-block;
+  
+}
+.badges .title {
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+  font-size: 1.7em;
+  position: absolute;
+  top: -28px;
+  border-radius: 8px 8px 0 0;
+  text-align: center;
+  width: 100%;
+  background: red;
+  padding: 20px 0;
+}
+.badges .subtitle {
+  position: absolute;
+  font-family: "Fjalla One", sans-serif;
+  font-size: 1.8em;
+  width: 100%;
+  text-align: center;
+  color: white;
+  position: absolute;
+  top: 100px;
+}
+.badges .subtitle:after {
+  content: "★ ★ ★";
+  display: block;
+  font-size: .4em;
+  position: relative;
+  margin: 15px 0 0;
+  transition: all .3s;
+}
+.badge:hover .subtitle:after {
+  word-spacing: 30px;
+}
 
+.red .title {
+  background: #DC514E;
+}
+.red .subtitle:after {
+  color: #DC514E;
+}
+
+
+
+
+/**end **/
 section {
   padding: 0 1rem;
 }
@@ -3452,20 +3503,17 @@ pre code {
   }
   
 } 
-@media screen and (min-width: 410px) {
-  .agado{
-    width:300px;
-    
-  }
-  .mobile{
-    margin-bottom: 50%;
-  }
-  .no-padding-top{
-    margin-bottom: 10%;
-  }
-}
+
 
 .card .list-group-item {
   background: #2d3035;
   border-color: #34373d;
+}
+
+.agado{
+ 
+    max-width: 100%;
+    max-height: 100%;
+
+
 }
