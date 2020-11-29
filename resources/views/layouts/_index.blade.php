@@ -30,7 +30,7 @@ Espaeranto
                 <!-- nav -->
                 <nav class="wthree-w3ls">
                     <div id="logo">
-                        <h1> <a class="navbar-brand px-0 mx-0" href="index.html">ILEI
+                        <h1> <a class="navbar-brand px-0 mx-0" href="index.html">ILEI/UEA
                             </a>
                         </h1>
                     </div>
@@ -46,13 +46,10 @@ Espaeranto
                             <a href="#">Centroj  <span class="fa fa-angle-down" aria-hidden="true"></span></a>
                             <input type="checkbox" id="drop-2" />
                             <ul>
-
-                                <li><a href="services.html" class="drop-text">Services</a></li>
-                                <li><a href="timeline.html" class="drop-text">Timeline</a></li>
-                                <li><a href="team.html" class="drop-text">Team</a></li>
-                                <li><a href="typo.html" class="drop-text">Typography</a></li>
-                                <li><a href="error.html" class="drop-text">Faq's</a></li>
-                                <li><a href="error.html" class="drop-text">Social Media</a></li>
+                                 @foreach ($centroj as $centro)
+                                  <li><a href="services.html" class="drop-text">{{$centro->centro}}</a></li>
+                                 @endforeach
+                                
                             </ul>
                         </li>
                     <li><a href="{{route('registerpage')}}">Ensaluti</a></li>
@@ -128,7 +125,7 @@ Espaeranto
                 <h3>Esperanto centroj
                    </h3> <br>
                 <div class="top-buttons mx-auto text-center mt-md-5 mt-3">
-                    <a href="single.html" class="btn more mr-2">Centroj</a>
+                    <a href="{{route('loginPage')}}" style="color: white;" class="btn more mr-2"><i class="fa fa-user"></i> Ensalutu</a>
                 <a href="{{route('contact')}}" class="btn">Kontaktu Nin</a>
                 </div>
                 <div class="d-flex hny-stats-inf">

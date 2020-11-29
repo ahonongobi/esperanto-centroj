@@ -5,7 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\PostAfiche;
 use App\Models\UseVideoj;
+use App\Models\UserAfishoj;
 use App\Models\Comment;
+use App\Models\Informoj;
+use App\Models\User;
 use DB;
 class CentroAgado extends Controller
 {
@@ -18,17 +21,22 @@ class CentroAgado extends Controller
         $count2 = PostAfiche::where('id_user', $id)->count();
         $count3 = UseVideoj::where('id_user', $id)->count();
 
-        $allposts =DB::select("SELECT * FROM post_afiches WHERE id_user = ?",[
-            $id,
-        ]);  
+         
         
-        $videos = DB::select('SELECT * FROM use_videojs WHERE id_user = ?',[
-            $id,
-        ]);
+        $allposts = UserAfishoj::where('id_user',$id)->paginate(6,['*'],'agadoj');
+        $videos = UseVideoj::where('id_user',$id)->paginate(3,['*'],'vodeo');
         $comments = Comment::where('centre_id',$id)->orderBy('id','desc')->get();
         $Countcomments = Comment::where('centre_id',$id)->orderBy('id','desc')->count();
+        $allpost = UserAfishoj::where('id_user',$id)->paginate(1);
+       
+        $infos = DB::select('SELECT * FROM informojs WHERE id_user= ? ORDER BY id DESC LIMIT 1',[
+            $id,
+        ]);
+        $email = DB::select('SELECT email FROM users WHERE id=?',[
+            $id,
+        ]);
 
-         
-        return view('simpleuser/centre-info',compact('recentposts','count2','allposts','videos','count3','comments','id','Countcomments'));
+
+        return view('simpleuser/centre-info',compact('recentposts','count2','allposts','videos','count3','comments','id','Countcomments','allpost','infos','email'));
     }
 }

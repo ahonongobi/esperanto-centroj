@@ -11,27 +11,31 @@
       <!-- Basic Form-->
       <div class="col-lg-6">
         <div class="block">
-          <div class="title"><strong class="d-block">Posti afisoj</strong><span class="d-block">vi povas posti tri fotoj kaj priskriboj.</span></div>
+          <div class="title"><strong class="d-block">Update</strong><span class="d-block">vi povas posti tri fotoj kaj priskriboj.</span></div>
           <div class="block-body">
-          <form action="{{route('savepost')}}" method="POST" enctype="multipart/form-data">
+          <form action="{{url('update'.'/'.$UserAfishoj[0]->id)}}" method="POST" enctype="multipart/form-data">
               @csrf
               <div class="form-group">
                 <label class="form-control-label">Titolo</label>
-              <input type="text" name="title" value="{{old('title')}}" placeholder="Titolo " vak class="form-control">
+              <input type="text" name="title" value="{{$UserAfishoj[0]->title}}" placeholder="Titolo " vak class="form-control">
                 @if($errors->has('title'))
 	          			<p style="color: green;" class="text-red">{{ $errors->first('title') }}</p>
 			         @endif
               </div>
               <div class="form-group">       
                 <label class="form-control-label">Priskriboj 1</label>
-                <textarea name="description1" value="{{old('description1')}}" placeholder="Priskriboj pri la bildo 1" class="form-control" id="" cols="30" rows=""></textarea>
+                <textarea name="description1" value="" placeholder="Priskriboj pri la bildo 1" class="form-control" id="" cols="30" rows="">
+                  {{$UserAfishoj[0]->description1}}
+                </textarea>
                 @if($errors->has('description1'))
 	          			<p style="color: green;" class="text-red">{{ $errors->first('description1') }}</p>
 			         @endif
               </div>
               <div class="form-group">       
                   <label class="form-control-label">Priskriboj 2</label>
-                  <textarea name="description2" value="{{old('description2')}}" placeholder="Priskriboj pri la bildo 2" class="form-control" id="" cols="30" rows=""></textarea>
+                  <textarea name="description2" value=""  class="form-control" id="" cols="30" rows="">
+                    {{$UserAfishoj[0]->description2}}
+                  </textarea>
                   @if($errors->has('description2'))
 	          			<p style="color: green;" class="text-red">{{ $errors->first('description2') }}</p>
 			         @endif
@@ -39,29 +43,15 @@
                 <div class="form-group">       
                   <label class="form-control-label">Priskriboj 3</label>
                   
-                  <textarea name="description3" value="{{old('description3')}}" placeholder="Priskriboj pri la bildo 3" class="form-control" id="" cols="30" rows=""></textarea>
+                  <textarea name="description3" value="" placeholder="Priskriboj pri la bildo 3" class="form-control" id="" cols="30" rows="">
+                    {{$UserAfishoj[0]->description3}}
+                  </textarea>
                   @if($errors->has('description1'))
 	          			<p style="color: green;" class="text-red">{{ $errors->first('description3') }}</p>
 			         @endif
                 </div>
-              <div class="form-group">
-                  <input style="max-width: 100%;"  type="file" name="file1" value="{{old('file1')}}" id="input-file-now"  />
-                  @if($errors->has('file1'))
-	          			<p style="color: green;" class="text-red">{{ $errors->first('file') }}</p>
-			         @endif
-                </div>
-                <div class="form-group">
-                  <input style="max-width: 100%;"  type="file" name="file2" value="{{old('file2')}}" id="input-file-now"/>
-                  @if($errors->has('file2'))
-	          			<p style="color: green;" class="text-red">{{ $errors->first('file2') }}</p>
-			         @endif
-                </div>
-                <div class="form-group">
-                  <input style="max-width: 100%;" type="file" name="file3" value="{{old('file3')}}" id="input-file-now"  />
-                  @if($errors->has('file3'))
-	          			<p style="color: green;" class="text-red">{{ $errors->first('file3') }}</p>
-			         @endif
-                </div>
+              
+                
               <div class="form-group mt-3">       
                 <button type="submit" style="background-color: #e95f71" class="btn btn-primary"><i class="fa fa-send"></i>sendi</button>
               </div>
@@ -74,7 +64,7 @@
         <div class="block">
           <div class="title"><strong class="d-block">Volas Publikigi videoj ?</strong><span class="d-block">Lorem ipsum dolor sit amet consectetur.</span></div>
           <div class="block-body">
-          <form action="{{route('uploadVideo')}}" method="POST" enctype="multipart/form-data" class="form-horizontal">
+          <form action="{{route('uploadVideo')}}" method="POST"  class="form-horizontal">
             @csrf
               <div class="form-group row">
                 <label class="col-sm-3 form-control-label">Pri kiu video estas ?</label>

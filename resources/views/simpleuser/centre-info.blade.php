@@ -23,7 +23,7 @@
 
 <body>
 <!-- Headers-4 block -->
-<div id="home" class="inner-w3pvt-page">
+<div id="home" class="inner-w3pvt-page" style="background-image: url('{{ asset('storage/actuality_photos/3210514804.jpg')}}')">
 	<div class="overlay-innerpage">
 		<!--/top-nav -->
 		<div class="top_w3pvt_main container">
@@ -40,8 +40,8 @@
 					<label for="drop" class="toggle">Menu</label>
 					<input type="checkbox" id="drop" />
 					<ul class="menu mr-auto">
-						<li><a href="#">ĉefpaĝo</a></li>
-						<li><a href="about.html">Pri ni</a></li>
+						<li><a href="/">ĉefpaĝo</a></li>
+						<li><a href="">Pri ni</a></li>
 						<li>
 							<!-- First Tier Drop Down -->
 							<label for="drop-2" class="toggle toggle-2">Centroj <span class="fa fa-angle-down" aria-hidden="true"></span> </label>
@@ -95,10 +95,138 @@
 	
 </section>
 <!-- //w3l-banner-slider-main -->
+<section>
+	
+</section>
 <section class="w3l-mag-main">
 	<!--/mag-content-->
 	<div class="mag-content-inf py-5">
+
 		<div class="container">
+			<h3 class="hny-title text-center">Rigardu <span> Eventoj</span></h3>
+
+			<ul>
+				@foreach ($allpost as $gobi)
+				<li class="booking-card" style="">
+
+					<div class="book-container">
+						<img style="max-width: 100%;min-width:100%; max-height:100%;" src="{{ asset('storage/actuality_photos/'.'/'.$gobi->file1)}}" alt="" srcset="">
+
+						<p style="height: 5%"></p>
+					<h2 class="title">{{$gobi->title}}</h2>
+						
+					  </div>
+					  
+					
+					<div class="informations-container">
+					  <h2 class="title">Je suis moi aussi un billet</h2>
+					  <p class="sub-title">{{$gobi->description1}}</p>
+					  <p class="price"><svg class="icon" style="width:24px;height:24px" viewBox="0 0 24 24">
+					<path fill="currentColor" d="M3,6H21V18H3V6M12,9A3,3 0 0,1 15,12A3,3 0 0,1 12,15A3,3 0 0,1 9,12A3,3 0 0,1 12,9M7,8A2,2 0 0,1 5,10V14A2,2 0 0,1 7,16H17A2,2 0 0,1 19,14V10A2,2 0 0,1 17,8H7Z" />
+				</svg>De 0 à 35 €</p>
+					  <div class="more-information">
+						<div class="info-and-date-container">
+						  <div class="box info">
+							<svg class="icon" style="width:24px;height:24px" viewBox="0 0 24 24">
+					  <path fill="currentColor" d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z" />
+				  </svg>
+							<p></p>
+						  </div>
+						  <div class="box date">
+							<svg class="icon" style="width:24px;height:24px" viewBox="0 0 24 24">
+					  <path fill="currentColor" d="M19,19H5V8H19M16,1V3H8V1H6V3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3H18V1M17,12H12V17H17V12Z" />
+				  </svg>
+							<p></p>
+						  </div>
+						</div>
+					<p class="disclaimer"></p>
+						</div>
+					</div>
+				  </li>	
+
+				  
+				<li class="booking-card" style="">
+
+					<div class="book-container">
+						<img style="max-width: 100%;min-width:100%; max-height:100%;" src="{{ asset('storage/actuality_photos/'.'/'.$gobi->file2)}}" alt="" srcset="">
+
+						<p style="height: 5%"></p>
+					<h2 class="title">{{$gobi->title}}</h2>
+						<p class="sub-title">Et moi je suis un 2ème sous-titre</p>
+					  </div>
+					  
+					
+					<div class="informations-container">
+					  <h2 class="title">Je suis moi aussi un billet</h2>
+					  <p class="sub-title">{{$gobi->description1}}</p>
+					  <p class="price"><svg class="icon" style="width:24px;height:24px" viewBox="0 0 24 24">
+					<path fill="currentColor" d="M3,6H21V18H3V6M12,9A3,3 0 0,1 15,12A3,3 0 0,1 12,15A3,3 0 0,1 9,12A3,3 0 0,1 12,9M7,8A2,2 0 0,1 5,10V14A2,2 0 0,1 7,16H17A2,2 0 0,1 19,14V10A2,2 0 0,1 17,8H7Z" />
+				</svg>De 0 à 35 €</p>
+					  <div class="more-information">
+						<div class="info-and-date-container">
+						  <div class="box info">
+							<svg class="icon" style="width:24px;height:24px" viewBox="0 0 24 24">
+					  <path fill="currentColor" d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z" />
+				  </svg>
+							<p>Parlement de Bretagne à RENNES</p>
+						  </div>
+						  <div class="box date">
+							<svg class="icon" style="width:24px;height:24px" viewBox="0 0 24 24">
+					  <path fill="currentColor" d="M19,19H5V8H19M16,1V3H8V1H6V3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3H18V1M17,12H12V17H17V12Z" />
+				  </svg>
+							<p>À partir du Dimanche 3 Juin 2020</p>
+						  </div>
+						</div>
+					<p class="disclaimer">{{$gobi->description2}}</p>
+						</div>
+					</div>
+				  </li>	
+				  
+				<li class="booking-card" style="">
+
+					<div class="book-container">
+						<img style="max-width: 100%;min-width:100%; max-height:100%;" src="{{ asset('storage/actuality_photos/'.'/'.$gobi->file3)}}" alt="" srcset="">
+
+						<p style="height: 5%"></p>
+					<h2 class="title">{{$gobi->title}}</h2>
+						<p class="sub-title">Et moi je suis un 2ème sous-titre</p>
+					  </div>
+					  
+					
+					<div class="informations-container">
+					  <h2 class="title">Je suis moi aussi un billet</h2>
+					  <p class="sub-title">{{$gobi->description1}}</p>
+					  <p class="price"><svg class="icon" style="width:24px;height:24px" viewBox="0 0 24 24">
+					<path fill="currentColor" d="M3,6H21V18H3V6M12,9A3,3 0 0,1 15,12A3,3 0 0,1 12,15A3,3 0 0,1 9,12A3,3 0 0,1 12,9M7,8A2,2 0 0,1 5,10V14A2,2 0 0,1 7,16H17A2,2 0 0,1 19,14V10A2,2 0 0,1 17,8H7Z" />
+				</svg>De 0 à 35 €</p>
+					  <div class="more-information">
+						<div class="info-and-date-container">
+						  <div class="box info">
+							<svg class="icon" style="width:24px;height:24px" viewBox="0 0 24 24">
+					  <path fill="currentColor" d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z" />
+				  </svg>
+							<p>Parlement de Bretagne à RENNES</p>
+						  </div>
+						  <div class="box date">
+							<svg class="icon" style="width:24px;height:24px" viewBox="0 0 24 24">
+					  <path fill="currentColor" d="M19,19H5V8H19M16,1V3H8V1H6V3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3H18V1M17,12H12V17H17V12Z" />
+				  </svg>
+							<p>À partir du Dimanche 3 Juin 2020</p>
+						  </div>
+						</div>
+					<p class="disclaimer">{{$gobi->description3}}</p>
+						</div>
+					</div>
+				  </li>	
+
+				  
+				
+				@endforeach
+				
+
+		   </ul>
+		   <div class="row pagination d-flex justify-content-center">{!! $allpost->appends(Request::all())->links() !!}</div>
+
 			<div class="banner-bottom-sechny py-md-4">
 				<h3 class="hny-title text-center"> Freŝaj<span> novaĵoj</span></h3>
 				@if($count2==0)
@@ -166,6 +294,8 @@
 							@endforeach
 							
 					</div>
+					<div class="row pagination d-flex justify-content-center">{!! $allposts->appends(Request::all())->links() !!}</div>
+
 					<!--//mag-left-grid-2-->
                   
 					<!--/mag-left-grid-6-->
@@ -189,12 +319,165 @@
 									<a style="font-weight:bold; font-size:16px;" href="#">{{$video->desc}}</a> </h4>
 							  </div>			
 							@endforeach
-						  
+
 						  
 						</div>
 					  </div>
+					  <div class="row pagination d-flex justify-content-center">{!! $videos->appends(Request::all())->links() !!}</div>
+
 					<!--//mag-hny-content-6-->
 					<!--/social-->
+					<!-- infos -->
+					<div class="mag-hny-content my-lg-5 pt-lg-5">
+						<h3 class="hny-title">Specifajoj <span></span></h3>
+						<!--/social-media-->
+						
+						<div class="mag-small-post my-lg-3 my-4">
+							<div class="social-media-icons row">
+								
+								<div  class="grid-social-box col-lg-3 col-sm-12 mt-3">
+									<a style="background-color: #f0f0f0" href="#" class="sub-facebook twitter"><span class="fa fa-user"
+											aria-hidden="true"></span>
+										<div  class="soc-info">
+											<span class="sub_social_info sub_social_info_counter">Nomo</span>
+										<span class="sub_social_info sub_social_info_name">{{$infos[0]->center}}</span>
+										</div>
+									</a>
+								</div>
+								<div class="grid-social-box col-lg-3 col-sm-12 mt-3">
+									<a style="background-color:yellow" href="#" class="sub-facebook twitter"><span class="fa fa-location-arrow"
+											aria-hidden="true"></span>
+										<div class="soc-info">
+											<span class="sub_social_info sub_social_info_counter">Lokejo</span>
+											<span class="sub_social_info sub_social_info_name">{{$infos[0]->lokejo}}</span>
+										</div>
+									</a>
+								</div>
+								<div class="grid-social-box col-lg-3 col-sm-12 mt-3">
+									<a style="background-color: orange" href="#" class="sub-facebook twitter"><span class="fa fa-book"
+											aria-hidden="true"></span>
+										<div class="soc-info">
+											<span class="sub_social_info sub_social_info_counter">Bibliotheque</span>
+											<span class="sub_social_info sub_social_info_name">{{$infos[0]->bibliothque}}</span>
+										</div>
+									</a>
+								</div>
+								<div class="grid-social-box col-lg-3 col-sm-12 mt-3">
+									<a style="background-color: #f0f0f0" href="#" class="sub-facebook twitter"><span class="fa fa-book"
+											aria-hidden="true"></span>
+										<div class="soc-info">
+											<span class="sub_social_info sub_social_info_counter">Libroservo</span>
+											<span class="sub_social_info sub_social_info_name">{{$infos[0]->libroservo}}</span>
+										</div>
+									</a>
+								</div>
+								<div class="grid-social-box col-lg-3 col-sm-12 mt-3">
+									<a style="background-color: #f0f0f0" href="#" class="sub-facebook twitter"><span class="fa fa-coffee"
+											aria-hidden="true"></span>
+										<div class="soc-info">
+											<span class="sub_social_info sub_social_info_counter">Mangheblo</span>
+											<span class="sub_social_info sub_social_info_name">{{$infos[0]->mangheblo}}</span>
+										</div>
+									</a>
+								</div>
+								<div class="grid-social-box col-lg-3 col-sm-12 mt-3">
+									<a style="background-color: yellow" href="#" class="sub-facebook twitter"><span class="fa fa-bed"
+											aria-hidden="true"></span>
+										<div class="soc-info">
+											<span class="sub_social_info sub_social_info_counter">Dormeblo</span>
+											<span class="sub_social_info sub_social_info_name">{{$infos[0]->dormeblo}}</span>
+										</div>
+									</a>
+								</div>
+								<div class="grid-social-box col-lg-3 col-sm-12 mt-3">
+									<a style="background-color: orange" href="#" class="sub-facebook twitter"><span class="fa fa-users"
+											aria-hidden="true"></span>
+										<div class="soc-info">
+											<span class="sub_social_info sub_social_info_counter">Kursejo</span>
+											<span class="sub_social_info sub_social_info_name">{{$infos[0]->kursejoklasochambro}}</span>
+										</div>
+									</a>
+								</div>
+								<div class="grid-social-box col-lg-3 col-sm-112 mt-3">
+									<a style="background-color: #f0f0f0" href="#" class="sub-facebook twitter"><span class="fa fa-phone"
+											aria-hidden="true"></span>
+										<div class="soc-info">
+											<span class="sub_social_info sub_social_info_counter">Telefono</span>
+											<span class="sub_social_info sub_social_info_name">{{$infos[0]->Telefono}}</span>
+										</div>
+									</a>
+								</div>
+								<div class="grid-social-box col-lg-3 col-sm-10 mt-3">
+									<a style="background-color: #f0f0f0" href="#" class="sub-facebook twitter"><span class="fa fa-meetup"
+											aria-hidden="true"></span>
+										<div class="soc-info">
+											<span class="sub_social_info sub_social_info_counter">Specifaj trajtoj</span>
+											<span class="sub_social_info sub_social_info_name">{{$infos[0]->trajto}}</span>
+										</div>
+									</a>
+								</div>
+								<div class="grid-social-box col-lg-3 col-sm-10 mt-3">
+									<a style="background-color:yellow" href="#" class="sub-facebook twitter"><span class="fa fa-envelope"
+											aria-hidden="true"></span>
+										<div class="soc-info">
+											<span class="sub_social_info sub_social_info_counter">Kontaktadreso</span>
+											<span class="sub_social_info sub_social_info_name">{{$infos[0]->Kontaktadreso}}</span>
+										</div>
+									</a>
+								</div>
+								<div class="grid-social-box col-lg-3 col-sm-12 mt-3">
+									<a style="background-color: orange" href="#" class="sub-facebook twitter"><span class="fa fa-meetup"
+											aria-hidden="true"></span>
+										<div class="soc-info">
+											<span class="sub_social_info sub_social_info_counter">Agado</span>
+											<span class="sub_social_info sub_social_info_name">{{$infos[0]->agado}}</span>
+										</div>
+									</a>
+								</div>
+								<div class="grid-social-box col-lg-3 col-sm-12 mt-3">
+									<a style="background-color: #f0f0f0" href="#" class="sub-facebook twitter"><span class="fa fa-twitter"
+											aria-hidden="true"></span>
+										<div class="soc-info">
+											<span class="sub_social_info sub_social_info_counter">14,507</span>
+											<span class="sub_social_info sub_social_info_name">Followers</span>
+										</div>
+									</a>
+								</div>
+								<div class="grid-social-box col-lg-3 col-sm-12 mt-3">
+									<a style="background-color: #f0f0f0" href="#" class="sub-facebook twitter"><span class="fa fa-window-maximize"
+											aria-hidden="true"></span>
+										<div class="soc-info">
+											<span class="sub_social_info sub_social_info_counter">Retejo</span>
+											<span class="sub_social_info sub_social_info_name">{{$infos[0]->retejo}}</span>
+										</div>
+									</a>
+								</div>
+								<div class="grid-social-box col-lg-3 col-sm-12 mt-3">
+									<a style="background-color: yellow" href="#" class="sub-facebook twitter"><span class="fa fa-hacker-news"
+											aria-hidden="true"></span>
+										<div class="soc-info">
+											<span class="sub_social_info sub_social_info_counter">Jaro</span>
+											<span class="sub_social_info sub_social_info_name">Jaro</span>
+										</div>
+									</a>
+								</div>
+								<div class="grid-social-box col-lg-3 col-sm-12 mt-3">
+									<a style="background-color: orange" href="#" class="sub-facebook twitter"><span class="fa fa-twitter"
+											aria-hidden="true"></span>
+										<div class="soc-info">
+											<span class="sub_social_info sub_social_info_counter">Kiel atingi</span>
+											<span class="sub_social_info sub_social_info_name">{{$email[0]->email}}</span>
+										</div>
+									</a>
+								</div>
+								
+								<!--/social-media-->
+							</div>
+						</div>
+						
+					
+					</div>
+					<!--end info-->
 					<div class="mag-hny-content my-lg-5 pt-lg-5">
 						<h3 class="hny-title">Sekvu nin <span>on</span></h3>
 						<!--/social-media-->

@@ -18,9 +18,9 @@ class UserAfishoj extends Migration
         $table->string('id_user');
         $table->string('center');
         $table->string('title');
-        $table->string('description1');
-        $table->string('description2');
-        $table->string('description3');
+        $table->text('description1');
+        $table->text('description2');
+        $table->text('description3');
         $table->string('file1');
         $table->string('file2');
         $table->string('file3');

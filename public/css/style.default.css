@@ -1779,7 +1779,7 @@ nav#sidebar.shrinked a[aria-expanded="true"]::after {
 }
 
 .form-control-label {
-  color: #777;
+  color: #fff;
 }
 
 button,

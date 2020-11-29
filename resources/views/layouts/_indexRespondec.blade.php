@@ -189,7 +189,7 @@
           @if(Auth::user()->logo=="default.png")
           <img style=" border-radius: 50%;" class="round" width="60" height="60" avatar="{{Auth::user()->centro}}">
           @else
-        <div class="avatar"><img src="{{asset('storage/member_profile/'.Auth::user()->logo)}}" alt="" class="img-fluid rounded-circle"></div>
+        <div class="avatar"><img src="{{asset('storage/actuality_photos/'.Auth::user()->logo)}}" alt="" class="img-fluid rounded-circle"></div>
           @endif
         
           
@@ -285,7 +285,7 @@
           <div class="footer__block block no-margin-bottom">
             <div class="container-fluid text-center">
               <!-- Please do not remove the backlink to us unless you support us at https://bootstrapious.com/donate. It is part of the license conditions. Thank you for understanding :)-->
-               <p class="no-margin-bottom">2020 &copy; Esperanto-centrojn. Ĉiuj rajtoj rezervitaj. Realigita per <a target="_blank" href="">Mireille Grosjean, Prezidanto de ilei kaj Gobi Ayssinie Ahonon, Softvara inĝeniero</a>.</p>
+               <p class="no-margin-bottom">2020 &copy; Esperanto-centrojn. Ĉiuj rajtoj rezervitaj. Realigita per <a target="_blank" href=""></a>.</p>
             </div>
           </div>
         </footer>

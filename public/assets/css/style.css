@@ -4,6 +4,198 @@
 
 
 
+  
+  
+  
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+  }
+  ul .booking-card {
+    position: relative;
+    width: 300px;
+    display: flex;
+    flex: 0 0 300px;
+    flex-direction: column;
+    margin: 20px;
+    margin-bottom: 30px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    overflow: hidden;
+    background-position: center center;
+    background-size: cover;
+    text-align: center;
+    color: #0a4870;
+    transition: .3s;
+  }
+  ul .booking-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(10, 72, 112, 0);
+    transition: .3s;
+  }
+  ul .booking-card .book-container {
+    height: 200px;
+  }
+  ul .booking-card .book-container .content {
+    position: relative;
+    opacity: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    transform: translateY(-200px);
+    transition: .3s;
+  }
+  ul .booking-card .book-container .content .btn {
+    border: 3px solid white;
+    padding: 10px 15px;
+    background: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 1.3em;
+    color: white;
+    cursor: pointer;
+    transition: .3s;
+  }
+  ul .booking-card .book-container .content .btn:hover {
+    background: white;
+    border: 0px solid white;
+    color: #0a4870;
+  }
+  ul .booking-card .informations-container {
+    flex: 1 0 auto;
+    padding: 20px;
+    background: #f0f0f0;
+    transform: translateY(206px);
+    transition: .3s;
+  }
+  ul .booking-card .informations-container .title {
+    position: relative;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    font-size: 1.2em;
+  }
+  ul .booking-card .informations-container .title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    width: 50px;
+    margin: auto;
+    background: #0a4870;
+  }
+  ul .booking-card .informations-container .price .gobi {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+  }
+  ul .booking-card .informations-container .price .icon {
+    margin-right: 10px;
+  }
+  ul .booking-card .informations-container .more-information {
+    opacity: 0;
+    transition: .3s;
+  }
+  ul .booking-card .informations-container .more-information .info-and-date-container {
+    display: flex;
+  }
+  ul .booking-card .informations-container .more-information .info-and-date-container .box  .gobi{
+    flex: 1 0;
+    padding: 15px;
+    margin-top: 20px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    background: white;
+    font-weight: bold;
+    font-size: 0.9em;
+  }
+  ul .booking-card .informations-container .more-information .info-and-date-container .box .icon {
+    margin-bottom: 5px;
+  }
+  ul .booking-card .informations-container .more-information .info-and-date-container .box.info {
+    color: #ec992c;
+    margin-right: 10px;
+  }
+  ul .booking-card .informations-container .more-information .disclaimer {
+    margin-top: 20px;
+    font-size: 0.8em;
+    color: #7d7d7d;
+  }
+  ul .booking-card:hover::before {
+    background: rgba(10, 72, 112, 0.6);
+  }
+  ul .booking-card:hover .book-container .content {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+  ul .booking-card:hover .informations-container {
+    transform: translateY(0px);
+  }
+  ul .booking-card:hover .informations-container .more-information {
+    opacity: 1;
+  }
+  
+  @media (max-width: 768px) {
+    
+    ul .booking-card .book-container .content {
+      opacity: 0;
+      transform: translateY(0px);
+    }
+    ul .booking-card .informations-container {
+      transform: translateY(0px);
+    }
+    ul .booking-card .informations-container .more-information {
+      opacity: 0;
+    }
+  }
+
+  @media (max-width:375px){
+    .pagination{
+        flex-wrap: nowrap;
+    }
+
+   ul .disclaimer{
+        display: none;
+    }
+    ul .informations-container{
+        margin-top: 60%;
+    }
+  }
+  .credits {
+    display: table;
+    background: #0a4870;
+    color: white;
+    line-height: 25px;
+    margin: 10px auto;
+    padding: 20px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    text-align: center;
+  }
+  .credits a {
+    color: #e3ebf1;
+  }
+  
+  h1 {
+    margin: 10px 20px;
+  }
+  
+
 .comment-wrapper .panel-body {
     max-height:650px;
     overflow:auto;
@@ -136,11 +328,11 @@ li.social-icons a span {
 /* Background color change on Hover */
 
 .menu li a:hover {
-    color: #feac00;
+    color: #ff5e59;
 }
 
 .menu li.active a {
-    color: #feac00;
+    color: #ff5e59;
 }
 
 /* Hide Dropdowns by Default
@@ -456,7 +648,7 @@ li>a:only-child:after {
 #slide2:checked~div .fake-radio .radio-btn:nth-child(2),
 #slide3:checked~div .fake-radio .radio-btn:nth-child(3),
 #slide4:checked~div .fake-radio .radio-btn:nth-child(4) {
-    background: #feac00;
+    background: #ff5e59;
 }
 
 .radio-btn {
@@ -495,7 +687,7 @@ li>a:only-child:after {
 
     0%,
     33.32333333333334% {
-        background: #feac00;
+        background: #ff5e59;
     }
 
     33.333333333333336%,
@@ -617,8 +809,8 @@ li>a:only-child:after {
 }
 
 .btn:hover {
-    background: #feac00;
-    border: 2px solid #feac00;
+    background: #ff5e59;
+    border: 2px solid #ff5e59;
     color: #333;
     transition: .5s ease-in;
     -webkit-transition: .5s ease-in;
@@ -628,15 +820,15 @@ li>a:only-child:after {
 }
 
 .btn.more {
-    background: #feac00;
-    border: 2px solid #feac00;
+    background: #ff5e59;
+    border: 2px solid #ff5e59;
     color: #222;
 }
 
 .btn.more.black:hover {
     background: #212529;
     border: 2px solid #212529;
-    color: #feac00;
+    color: #ff5e59;
 }
 
 .wthree-w3ls {
@@ -780,7 +972,7 @@ p.sub-tittle {
 }
 
 .pink {
-    color: #feac00;
+    color: #ff5e59;
 }
 
 h3.tittle-w3ls,
@@ -1047,7 +1239,7 @@ span.decription {
 
 h6.date {
     font-size: 0.8em;
-    color: #feac00;
+    color: #ff5e59;
 }
 
 /*-- //blogs--*/
@@ -1110,9 +1302,9 @@ h6.date {
 }
 
 .con-gd button.btn {
-    background: #feac00;
-    border: 2px solid #feac00;
-    color: #222;
+    background: #ff5e59;
+    border: 2px solid #ff5e59;
+    color: #fff;
     cursor: pointer;
     padding: 13px 0;
     width: 100%;
@@ -1121,7 +1313,7 @@ h6.date {
 .con-gd button.btn:hover {
     background: #212529;
     border: 2px solid #212529;
-    color: #feac00;
+    color: #ff5e59;
 }
 
 p.news-para {
@@ -1129,6 +1321,13 @@ p.news-para {
     font-size: 1.1em;
     font-weight: 600;
     color: #555;
+}
+.agado{
+ 
+    max-width: 100%;
+    max-height: 100%;
+
+
 }
 
 /*--placeholder-color--*/
@@ -1248,7 +1447,7 @@ ol.breadcrumb li {
 }
 
 ol.breadcrumb li a {
-    color: #feac00;
+    color: #ff5e59;
 }
 
 .breadcrumb-item.active {
@@ -1342,7 +1541,7 @@ h4.title-hny {
 }
 
 .social-icons-footer ul li a:hover {
-    color: #feac00;
+    color: #ff5e59;
 }
 
 .comments-grid-right h4 {
@@ -1358,7 +1557,7 @@ h4.title-hny {
 }
 
 .comments-grid-right ul li a {
-    color: #feac00;
+    color: #ff5e59;
 }
 
  
@@ -1820,7 +2019,7 @@ footer,
 }
 
 .footer-grids h5 span {
-    color: #feac00;
+    color: #ff5e59;
 }
 
 .footer-grids p,
@@ -1856,7 +2055,7 @@ footer,
 }
 
 .footer-grids button.btn {
-    background: #feac00;
+    background: #ff5e59;
     color: #fff;
     font-size: 14px;
     letter-spacing: 1px;

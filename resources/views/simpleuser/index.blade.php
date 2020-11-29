@@ -8,7 +8,7 @@
 			<p class="sub-tittle mt-3 mb-4">Tiu retejo prezentas la Esperanto-centrojn en la tuta mondo. Ĝi estas starigita de
 				Universala Esperanto Asocio UEA kaj Internacia Ligo de Esperantistaj Instruistoj
 				ILEI kune. Ĝi ebligas ekkoni ĉiujn centrojn, iliajn agadojn, ofertojn, ecojn.</p>
-			<a class="btn more black" href="" role="button">Legu pli</a>
+			<a class="btn more black" href="{{route('loginPage')}}" style="color: white;" role="button">Ensalutu vin</a>
 		</div>
 	</div>
 </section>
@@ -57,7 +57,7 @@
 										class="meta-author text-uppercase">
 									<span class="author-date">{{date('d-m-Y', strtotime($picture->created_at))}}</span>
 								</div>
-								<a href="#" class="read-more btn mt-3">Legu pli</a>
+								<a href="{{url('/info/token='.$picture->id_user)}}" class="read-more btn mt-3">Legu pli</a>
 							</div>
 							<div class="maghny-gd-1 col-md-6">
 								<div class="maghny-grid">
@@ -78,7 +78,7 @@
 										class="meta-author text-uppercase" 
 									<span class="author-date">{{date('d-m-Y', strtotime($picture->created_at))}}</span>
 								</div>
-								<a href="#" class="read-more btn mt-3">Legu pli</a>
+								<a href="{{url('/info/token='.$picture->id_user)}}" class="read-more btn mt-3">Legu pli</a>
 							</div>
 						</div>
 					</div>
@@ -94,6 +94,9 @@
 						<!--/mag-left-grid-1-->
 						<div class="maghny-grids-inf row">
 							@foreach ($agadoj as $agado)
+							@foreach ($aga  as $agas)
+								
+							
 							<div class="maghny-gd-1 col-lg-4 col-md-6">
 								<div class="maghny-grid">
 									<figure class="effect-lily">
@@ -110,14 +113,13 @@
 								<h5><a href="#">
 									{{$agado->desc}}</a></h5>
 
-								<div class="mag-post-meta mt-3"><a href="#"><img src="assets/images/admin.jpg"
+								<div class="mag-post-meta mt-3"><a href="#"><img src="{{ asset('storage/actuality_photos/'.$agas->logo)}}"
 											class="img-fluid rounded-circle admin-img" alt=""></a> <span
-										class="meta-author"><span>By&nbsp;</span><a href="#" class="author-name">John
-											Brain</a> </span>
+								class="meta-author"><span>Posti&nbsp;</span><a href="#" class="author-name">{{$agas->centro}}</a> </span>
 									<span class="author-date">{{date('d-m-Y', strtotime($agado->created_at))}}</span>
 								</div>
 							</div>
-							
+							@endforeach
 							@endforeach
 							
 						</div>
@@ -354,7 +356,7 @@
 								<h5><a href="#">
 								{{$centro->vortoj}}</a></h5>
  
-								<div style="margin-bottom: 10%;" class="mag-post-meta"><a href="{{url('/info/token='.$centro->id)}}" class="btn more black">Legu Pli</a>
+								<div style="margin-bottom: 10%;" class="mag-post-meta"><a href="{{url('/info/token='.$centro->id)}}" style="color: white" class="btn more black">Legu Pli</a>
 								<span class="author-date">{{date('m-d-Y',strtotime($centro->created_at))}}</span>
 									
 								</div>
@@ -544,6 +546,9 @@
 					<div class="mag-hny-content my-lg-5 mb-5">
 						<h3 class="hny-title">Listoj de <span>Agadprogramojn</span></h3>
 						@foreach($allagadoj as $allagado)
+						@foreach ($agases as $agase)
+							
+						
 						<div class="maghny-grids-inf row">
 							<div class="mag-post-thumb col-md-6">
 								<a href="#"><img src="{{ asset('storage/actuality_photos/'.$allagado->file1)}}" class="img-fluid" alt=""></a>
@@ -554,7 +559,7 @@
 									<h4 class="mag-post-head">
 									{{$allagado->title}}</h4>
 								</a>
-								<div class="mag-post-meta mt-3"><a href="#"><img src="assets/images/admin.jpg"
+								<div class="mag-post-meta mt-3"><a href="#"><img src="{{ asset('storage/actuality_photos/'.$agase->logo)}}"
 											class="img-fluid rounded-circle admin-img admin-img1" alt=""></a> <span
 										class="meta-author"> <span>By&nbsp;</span><a href="#" class="author-name"> John
 											Brain</a> </span>
@@ -568,23 +573,23 @@
 
 						</div>
 						@endforeach
-					
+						@endforeach
 
 					</div>
 					<!--//mag-hny-content-3-->
 					<!--//mag-left-grid-5-->
 					<div class="mag-hny-content my-5">
-						<h3 class="hny-title">Centraj  <span>Eventoj</span></h3>
+						<h3 class="hny-title">UEA/ILEI <span> Eventoj</span></h3>
 						<!--/mag-left-grid-1-->
 						<div class="maghny-grids-inf row">
 							<div class="maghny-gd-1 col-md-6">
 								<div class="maghny-grid mb-3">
-									<a href="#"><img class="img-fluid" src="assets/images/slides/images/JoCa Kotonuo en korto.JPG" alt=""></a>
+									<a href="#"><img class="img-fluid" src="{{asset('assets/images/slides/images/JoCa Kotonuo en korto.JPG')}}" alt=""></a>
 								</div>
 								<h5><a href="#">
 									seminario pri virina gvidado...</a></h5>
 								<p>Vivamus a ligula quam. Ut blandit eu leo non suscipit. Duis feugiat tortor sed.</p>
-								<div class="mag-post-meta"><a href="#"><img src="assets/images/admin.jpg"
+								<div class="mag-post-meta"><a href="#"><img src="{{asset('assets/images/slides/images/JoCa Kotonuo en korto.JPG')}}"
 											class="img-fluid rounded-circle admin-img admin-img1" alt=""></a> <span
 										class="meta-author"><span>Centro JoCa&nbsp;</span><a href="#" class="author-name">John
 											Brain</a> </span>
@@ -593,12 +598,12 @@
 							</div>
 							<div class="maghny-gd-1 col-md-6">
 								<div class="maghny-grid mb-3">
-									<a href="#"><img class="img-fluid" src="assets/images/slides/images/UEA Roterdamo movebalaj shrankoj.JPG" alt=""></a>
+									<a href="#"><img class="img-fluid" src="{{asset('assets/images/slides/images/UEA Roterdamo movebalaj shrankoj.JPG')}}" alt=""></a>
 								</div>
 								<h5><a href="#">
 										UEA Reoterdamo movebalaj shrankoj....</a></h5>
 								<p>Vivamus a ligula quam. Ut blandit eu leo non suscipit. Duis feugiat tortor sed.</p>
-								<div class="mag-post-meta"><a href="#"><img src="assets/images/admin.jpg"
+								<div class="mag-post-meta"><a href="#"><img src="{{asset('assets/images/slides/images/UEA Roterdamo movebalaj shrankoj.JPG')}}"
 											class="img-fluid rounded-circle admin-img admin-img1" alt=""></a><span
 										class="meta-author"><span>By&nbsp;</span><a href="#" class="author-name"> John
 											Brain</a> </span>
@@ -609,12 +614,12 @@
 						<div class="maghny-grids-inf row">
 							<div class="maghny-gd-1 col-md-6">
 								<div class="maghny-grid mb-3">
-									<a href="#"><img class="img-fluid" src="assets/images/slides/images/JoCa Kotonuo en korto.JPG" alt=""></a>
+									<a href="#"><img class="img-fluid" src="{{('assets/images/slides/images/JoCa Kotonuo en korto.JPG')}}" alt=""></a>
 								</div>
 								<h5><a href="#">
 									seminario pri virina gvidado...</a></h5>
 								<p>Vivamus a ligula quam. Ut blandit eu leo non suscipit. Duis feugiat tortor sed.</p>
-								<div class="mag-post-meta"><a href="#"><img src="assets/images/admin.jpg"
+								<div class="mag-post-meta"><a href="#"><img src="{{('assets/images/slides/images/JoCa Kotonuo en korto.JPG')}}"
 											class="img-fluid rounded-circle admin-img admin-img1" alt=""></a> <span
 										class="meta-author"><span>Centro JoCa&nbsp;</span><a href="#" class="author-name">John
 											Brain</a> </span>
@@ -623,12 +628,12 @@
 							</div>
 							<div class="maghny-gd-1 col-md-6">
 								<div class="maghny-grid mb-3">
-									<a href="#"><img class="img-fluid" src="assets/images/slides/images/UEA Roterdamo movebalaj shrankoj.JPG" alt=""></a>
+									<a href="#"><img class="img-fluid" src="{{asset('assets/images/slides/images/UEA Roterdamo movebalaj shrankoj.JPG')}}" alt=""></a>
 								</div>
 								<h5><a href="#">
 										UEA Reoterdamo movebalaj shrankoj....</a></h5>
 								<p>Vivamus a ligula quam. Ut blandit eu leo non suscipit. Duis feugiat tortor sed.</p>
-								<div class="mag-post-meta"><a href="#"><img src="assets/images/admin.jpg"
+								<div class="mag-post-meta"><a href="#"><img src="{{asset('assets/images/slides/images/UEA Roterdamo movebalaj shrankoj.JPG')}}"
 											class="img-fluid rounded-circle admin-img admin-img1" alt=""></a><span
 										class="meta-author"><span>By&nbsp;</span><a href="#" class="author-name"> John
 											Brain</a> </span>
@@ -726,118 +731,26 @@
 					//health-->
 					<!--/mag-hny-content-4-->
 					<div class="mag-hny-content my-lg-5">
-						<h3 class="hny-title">membroj  <span>de estraro</span></h3>
+						<h3 class="hny-title">bildoj<span>de chiuj centroj</span></h3>
 						<!--  Demos -->
 						<div id="demos">
 							<div class="owl-carousel owl-theme grid-col-4">
+
+								@foreach ($tofs as $tof)
 								<div class="item">
 									<a href="#link">
 										<div class="gallery-grid">
 											<div class="content">
 												<div class="content-overlay"></div>
-												<img src="assets/images/grid1.jpg" class="image-two img-fluid">
+												<img src="{{ asset('storage/actuality_photos/'.$tof->logo)}}" class="image-two img-fluid">
 
 											</div>
 										</div>
 
 									</a>
-								</div>
-								<div class="item">
-									<a href="#link">
-										<div class="gallery-grid">
-											<div class="content">
-												<div class="content-overlay"></div>
-												<img src="assets/images/grid2.jpg" class="image-two img-fluid">
-
-											</div>
-										</div>
-
-									</a>
-								</div>
-								<div class="item">
-									<a href="#link">
-										<div class="gallery-grid">
-											<div class="content">
-												<div class="content-overlay"></div>
-												<img src="assets/images/grid3.jpg" class="image-two img-fluid">
-
-											</div>
-										</div>
-
-									</a>
-								</div>
-								<div class="item">
-									<a href="#link">
-										<div class="gallery-grid">
-											<div class="content">
-												<div class="content-overlay"></div>
-												<img src="assets/images/grid6.jpg" class="image-two img-fluid">
-
-											</div>
-										</div>
-
-									</a>
-								</div>
-								<div class="item">
-									<a href="#link">
-										<div class="gallery-grid">
-											<div class="content">
-												<div class="content-overlay"></div>
-												<img src="assets/images/grid7.jpg" class="image-two img-fluid">
-
-											</div>
-										</div>
-
-									</a>
-								</div>
-								<div class="item">
-									<a href="#link">
-										<div class="gallery-grid">
-											<div class="content">
-												<div class="content-overlay"></div>
-												<img src="assets/images/grid8.jpg" class="image-two img-fluid">
-
-											</div>
-										</div>
-
-									</a>
-								</div>
-								<div class="item">
-									<a href="#link">
-										<div class="gallery-grid">
-											<div class="content">
-												<div class="content-overlay"></div>
-												<img src="assets/images/grid1.jpg" class="image-two img-fluid">
-
-											</div>
-										</div>
-
-									</a>
-								</div>
-								<div class="item">
-									<a href="#link">
-										<div class="gallery-grid">
-											<div class="content">
-												<div class="content-overlay"></div>
-												<img src="assets/images/grid3.jpg" class="image-two img-fluid">
-
-											</div>
-										</div>
-
-									</a>
-								</div>
-								<div class="item">
-									<a href="#link">
-										<div class="gallery-grid">
-											<div class="content">
-												<div class="content-overlay"></div>
-												<img src="assets/images/grid2.jpg" class="image-two img-fluid">
-
-											</div>
-										</div>
-
-									</a>
-								</div>
+								</div>	
+								@endforeach
+						
 							</div>
 						</div>
 					</div>
@@ -938,7 +851,7 @@
 									</div>
 									<div class="mag-post-details col-9">
 										<h4 class="mag-post-cate">
-											<a href="#">Fashion</a> </h4>
+											<a href="#">Eventoj</a> </h4>
 
 
 									</div>
@@ -953,7 +866,7 @@
 									</div>
 									<div class="mag-post-details align-items-center col-9">
 										<h4 class="mag-post-cate">
-											<a href="#">Culture</a>
+											<a href="#">Agadprogramojn</a>
 										</h4>
 
 									</div>
@@ -961,18 +874,7 @@
 
 
 
-								<div class="post-item-grid align-items-center row mb-4">
-									<div class="mag-post-thumb col-3 pl-0">
-
-										<a href="#"><img src="assets/images/m12.jpg" class="img-fluid" alt=""></a>
-									</div>
-									<div class="mag-post-details col-9">
-										<h4 class="mag-post-cate">
-											<a href="#">LifeStyle</a>
-										</h4>
-
-									</div>
-								</div>
+								
 								<div class="post-item-grid align-items-center row mb-4">
 									<div class="mag-post-thumb col-3 pl-0">
 										<a href="#"><img src="assets/images/m9.jpg" class="img-fluid" alt=""></a>
@@ -980,7 +882,7 @@
 									</div>
 									<div class="mag-post-details col-9">
 										<h4 class="mag-post-cate">
-											<a href="#">Food</a>
+											<a href="#">Videoj</a>
 										</h4>
 
 
@@ -989,17 +891,7 @@
 								</div>
 
 
-								<div class="post-item-grid align-items-center row mb-4">
-									<div class="mag-post-thumb col-3 pl-0">
-										<a href="#"><img src="assets/images/m13.jpg" class="img-fluid" alt=""></a>
-
-									</div>
-									<div class="mag-post-details col-9">
-										<h4 class="mag-post-cate">
-											<a href="#">Business</a>
-										</h4>
-									</div>
-								</div>
+								
 
 							</div>
 						</div>
@@ -1017,7 +909,7 @@
 							<div class="mag-small-post">
 								@foreach ($videoj as $video)
 								<div class="post-video-grid">
-									<video  class="agado" width="350" height="240" controls>
+									<video  class="agado" width="" height="" controls>
 										<source src="{{asset('storage/actuality_photos/'.$video->videos)}}" type="video/mp4">
 										<source src="movie.ogg" type="video/ogg">
 									  Your browser does not support the video tag.
@@ -1032,119 +924,48 @@
 						</div>
 						<div class="side-bar-hny-recent mb-5">
 							<h4 class="mag-side-title">Popularaj<span> Afiŝoj </span></h4>
+
 							<div class="mag-small-post">
+								@foreach ($popularaj as $populara)
 								<div class="post-item-grid row mb-4">
 									<div class="mag-post-thumb col-3">
 
-										<h6 class="num-text">01</h6>
+									<h6 class="num-text">{{$populara->id}}</h6>
 									</div>
 									<div class="mag-post-details col-9">
 										<h4 class="mag-post-title">
-											<a href="#">Eta skribo koncerne ciu esperanto centro kaj diversajoj....</a>
+											<a href="#">{{$populara->title}}....</a>
 										</h4>
 
 
 									</div>
 								</div>
+								@endforeach
+								
 
-
-
-								<div class="post-item-grid row mb-4">
-									<div class="mag-post-thumb col-3">
-										<h6 class="num-text">02</h6>
-
-									</div>
-									<div class="mag-post-details col-9">
-										<h4 class="mag-post-title">
-											<a href="#">Eta skribo koncerne ciu esperanto centro kaj diversajoj....</a>
-										</h4>
-
-									</div>
-								</div>
-
-
-
+								@foreach ($popularaj2 as $populara2)
 								<div class="post-item-grid row mb-4">
 									<div class="mag-post-thumb col-3">
 
-										<h6 class="num-text">03</h6>
+										<h6 class="num-text">{{$populara2->id}}</h6>
 									</div>
 									<div class="mag-post-details col-9">
 										<h4 class="mag-post-title">
-											<a href="#">Eta skribo koncerne ciu esperanto centro kaj diversajoj....</a>
+											<a href="#">{{$populara2->title}}....</a>
 										</h4>
-
-									</div>
-								</div>
-
-
-
-								<div class="post-item-grid row mb-4">
-									<div class="mag-post-thumb col-3">
-										<h6 class="num-text">04</h6>
-
-									</div>
-									<div class="mag-post-details col-9">
-										<h4 class="mag-post-title">
-											<a href="#">Eta skribo koncerne ciu esperanto centro kaj diversajoj....</a>
-										</h4>
-
 
 
 									</div>
 								</div>
+								@endforeach
 
-
-								<div class="post-item-grid row mb-4">
-									<div class="mag-post-thumb col-3">
-										<h6 class="num-text">05</h6>
-
-									</div>
-									<div class="mag-post-details col-9">
-										<h4 class="mag-post-title">
-											<a href="#">Eta skribo koncerne ciu esperanto centro kaj diversajoj....</a>
-										</h4>
-
-
-
-									</div>
-								</div>
-
-								<div class="post-item-grid row mb-4">
-									<div class="mag-post-thumb col-3">
-										<h6 class="num-text">06</h6>
-
-									</div>
-									<div class="mag-post-details col-9">
-										<h4 class="mag-post-title">
-											<a href="#">Eta skribo koncerne ciu esperanto centro kaj diversajoj....</a>
-										</h4>
-
-
-
-									</div>
-								</div>
-
-								<div class="post-item-grid row mb-4">
-									<div class="mag-post-thumb col-3">
-										<h6 class="num-text">07</h6>
-
-									</div>
-									<div class="mag-post-details col-9">
-										<h4 class="mag-post-title">
-											<a href="#">Eta skribo koncerne ciu esperanto centro kaj diversajoj....</a>
-										</h4>
-
-
-
-									</div>
-								</div>
 
 							</div>
 						</div>
 						<div class="side-bar-hny-recent mb-5">
 							<h4 class="mag-side-title">Lastatempaj <span>Komentoj</span></h4>
 							<div class="mag-small-post">
+								@foreach ($comments as $comment)
 								<div class="post-item-grid row mb-3">
 									<div class="mag-post-thumb-img col-3">
 										<a href="#"><img src="assets/images/t4.jpg" class="img-fluid" alt=""></a>
@@ -1154,58 +975,10 @@
 										<h4 class="mag-post-cate mb-2">
 											<a href="#">Anna Delpan</a> </h4>
 
-										<p>Vivamus a ligula quam. Ut blandit eu leo non suscipit.</p>
+										<p>{{$comment->message}}</p>
 									</div>
 								</div>
-
-
-
-								<div class="post-item-grid row mb-3">
-									<div class="mag-post-thumb-img col-3">
-										<a href="#"><img src="assets/images/t1.jpg" class="img-fluid" alt=""></a>
-
-									</div>
-									<div class="mag-post-details col-9">
-										<h4 class="mag-post-cate mb-2">
-											<a href="#"> Daniel Doe</a>
-										</h4>
-										<p>Vivamus a ligula quam. Ut blandit eu leo non suscipit.</p>
-
-									</div>
-								</div>
-
-
-
-								<div class="post-item-grid row mb-3">
-									<div class="mag-post-thumb-img col-3">
-										<a href="#"><img src="assets/images/t2.jpg" class="img-fluid" alt=""></a>
-
-									</div>
-									<div class="mag-post-details col-9">
-										<h4 class="mag-post-cate mb-2">
-											<a href="#">Steve Smith</a> </h4>
-
-										<p>Vivamus a ligula quam. Ut blandit eu leo non suscipit.</p>
-
-									</div>
-								</div>
-
-
-
-								<div class="post-item-grid row mb-3">
-									<div class="mag-post-thumb-img col-3">
-										<a href="#"><img src="assets/images/t3.jpg" class="img-fluid" alt=""></a>
-
-									</div>
-									<div class="mag-post-details col-9">
-										<h4 class="mag-post-cate mb-2">
-											<a href="#">John Smith</a>
-										</h4>
-
-										<p>Vivamus a ligula quam. Ut blandit eu leo non suscipit.</p>
-
-									</div>
-								</div>
+								@endforeach
 
 
 

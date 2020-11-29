@@ -2,7 +2,7 @@
 <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet">
 
 @section('content')
-<section class="no-padding-top">
+<section  class="no-padding-top">
   <div class="container-fluid">
     <div class="row">
       <!-- Basic Form-->
@@ -51,7 +51,7 @@
               
               <div class="form-group  file-upload-wrapper">
                   <label  class="form-control-label">Foto</label> <br>
-                <input type="file" name="file" id="input-file-now" class="file-upload" />
+                <input style="max-width: 100%;"  type="file" name="file" id="input-file-now" class="file-upload" />
                 @if($errors->has('file'))
                   <p style="color: green;" class="text-red">{{ $errors->first('file') }}</p>
                   

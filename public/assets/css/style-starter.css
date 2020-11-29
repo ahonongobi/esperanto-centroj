@@ -4961,12 +4961,12 @@ h2.hny-food-title {
   line-height: 36px;
 }
 
-.w3l-mag-main .grid-social-box a {
+.w3l-mag-main .grid-social-box  a {
   display: flex;
   align-items: center;
 }
 
-.w3l-mag-main .grid-social-box a:hover {
+.w3l-mag-main .grid-social-box  a:hover {
   opacity: 0.9;
 }
 
@@ -5007,7 +5007,7 @@ h2.hny-food-title {
   transition: 0.3s ease;
 }
 
-.w3l-mag-main .grid-social-box span.fa {
+.w3l-mag-main .grid-social-box  span.fa {
   display: block;
   width: 48px;
   height: 48px;
@@ -5518,7 +5518,7 @@ h2.hny-food-title {
     margin-bottom: 2em;
   }
 
-  .w3l-mag-main .grid-social-box {
+  .w3l-mag-main .grid-social-box  {
     margin-bottom: 10px;
   }
 
@@ -5634,12 +5634,12 @@ h2.hny-food-title {
 }
 
 @media (max-width: 569px) {
-  .w3l-mag-main .grid-social-box {
+  .w3l-mag-main .grid-social-box  {
     margin-bottom: 10px;
-    float: left;
-    width: 50%;
+    
   }
 }
+
 
 /**
  * Owl Carousel v2.3.4
@@ -5938,7 +5938,7 @@ h2.hny-food-title {
 }
 
 .w3l-footer-66 .footer-inner-main {
-  background: #020004;
+  background:  #081430;
 }
 
 .w3l-footer-66 .footer-top .sub-one-left h6,

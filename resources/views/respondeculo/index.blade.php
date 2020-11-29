@@ -1,4 +1,5 @@
 @extends('layouts/_indexRespondec')
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 @section('content')
 <section style="" class="no-padding-bottom">
@@ -16,8 +17,8 @@
             
           <div>
             <div class="d-flex ml-3">
-              <button  type="submit" class="btn btn-secondary mt-2 mr-2" style="margin-left:1px;"><i class="fa fa-trash"></i>forigi</button>
-              <button type="submit" class="btn btn-warning mt-2" style="margin-left:1px;"><i class="fa fa-edit"></i>Modifii</button>
+              <button  type="submit" onclick="return confirm('Chu vi certas?')" href="{{url('delete'.'/'.$post->id)}}" class="btn btn-secondary mt-2 mr-2" style="margin-left:1px;"><i class="fa fa-trash"></i>forigi</button>
+              <a  onclick="return confirm('Chu vi certas?')" class="btn btn-warning mt-2" href="{{url('update'.'/'.$post->id)}}" style="margin-left:1px;"><i class="fa fa-edit"></i>Modifii</a>
             </div>
           </div>
         </div>
@@ -74,8 +75,8 @@
           </video> 
          
             <div class="d-flex ml-3">
-              <button  type="submit" class="btn btn-secondary mt-2 mr-2" style="margin-left:1px;"><i class="fa fa-trash"></i>forigi</button>
-              <button type="submit" class="btn btn-warning mt-2" style="margin-left:1px;"><i class="fa fa-edit"></i>Modifii</button>
+              <button  type="submit" onclick="return confirm('Chu vi certas?')" href="{{url('delete'.'/'.$UseVideo->id)}}" class="btn btn-secondary mt-2 mr-2" style="margin-left:1px;"><i class="fa fa-trash"></i>forigi</button>
+              <button onclick="alerte2()" type="submit" class="btn btn-warning mt-2" style="margin-left:1px;"><i class="fa fa-edit"></i>Modifii</button>
             </div>
           
         </div>
@@ -94,4 +95,11 @@
     <div class="row d-flex justify-content-center">{!! $UseVideoj->appends(Request::all())->links() !!}</div>
   
 </section>
+<script>
+  function alerte2(){
+      swal('Ups!','Bonvolu forigi la video kaj elshutu ghin se vi volas modifii ghin. Dankon por via komprenemo.','warning');
+
+     
+  }
+</script>
 @endsection

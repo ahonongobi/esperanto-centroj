@@ -62,4 +62,6 @@ Route::post('/likes',[LikesController::class,'likes']);
 Route::post('/avatar',[UpdateavatarController::class,'update'])->name('avatar');
 
 Route::get('/delete/{id}',[DeleteUpdateController::class,'delete']);
+Route::post('/update/{id}',[DeleteUpdateController::class,'update']);
+Route::get('/update/{id}',[DeleteUpdateController::class,'updateView']);
 

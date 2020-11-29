@@ -20,7 +20,7 @@ class UpdateavatarController extends Controller
             $profile_photo_path = $req->file('avatar');
             $filename = time().'.'.$profile_photo_path->getClientOriginalExtension();
             //$req->profile_photo_path->storeAs('member_profile', $profile_photo_path, 'public');
-            Image::make($profile_photo_path)->resize(262,262)->save(public_path('/storage/member_profile/' .$filename));
+            Image::make($profile_photo_path)->resize(262,262)->save(public_path('/storage/actuality_photos/' .$filename));
             //$req->profile_photo_path->storeAs(public_path('/storage/member_profile/', $filename));
                                                     
             //Auth::user()->update(['profile_photo_path' => $filename]);
