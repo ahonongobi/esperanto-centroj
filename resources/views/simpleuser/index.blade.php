@@ -8,7 +8,7 @@
 			<p class="sub-tittle mt-3 mb-4">Tiu retejo prezentas la Esperanto-centrojn en la tuta mondo. Ĝi estas starigita de
 				Universala Esperanto Asocio UEA kaj Internacia Ligo de Esperantistaj Instruistoj
 				ILEI kune. Ĝi ebligas ekkoni ĉiujn centrojn, iliajn agadojn, ofertojn, ecojn.</p>
-			<a class="btn more black" href="{{route('loginPage')}}" style="color: white;" role="button">Ensalutu vin</a>
+			<a class="btn more black" href="{{route('loginPage')}}" style="color: white;" role="button"> <i class="fa fa-user"></i> Ensalutu</a>
 		</div>
 	</div>
 </section>
@@ -57,7 +57,7 @@
 										class="meta-author text-uppercase">
 									<span class="author-date">{{date('d-m-Y', strtotime($picture->created_at))}}</span>
 								</div>
-								<a href="{{url('/info/token='.$picture->id_user)}}" class="read-more btn mt-3">Legu pli</a>
+								<a href="{{url('/info/token='.$picture->id_user)}}" class="read-more btn mt-3">Legu <span style="text-transform: lowercase;">pli</span><i fa fa-plus></i></a>
 							</div>
 							<div class="maghny-gd-1 col-md-6">
 								<div class="maghny-grid">
@@ -78,7 +78,7 @@
 										class="meta-author text-uppercase" 
 									<span class="author-date">{{date('d-m-Y', strtotime($picture->created_at))}}</span>
 								</div>
-								<a href="{{url('/info/token='.$picture->id_user)}}" class="read-more btn mt-3">Legu pli</a>
+								<a href="{{url('/info/token='.$picture->id_user)}}" class="read-more btn mt-3">Legu <span style="text-transform: lowercase;">pli</span><i fa fa-plus></i></a>
 							</div>
 						</div>
 					</div>
@@ -354,9 +354,9 @@
 									</figure>
 								</div>
 								<h5><a href="#">
-								{{$centro->vortoj}}</a></h5>
+								</a></h5>
  
-								<div style="margin-bottom: 10%;" class="mag-post-meta"><a href="{{url('/info/token='.$centro->id)}}" style="color: white" class="btn more black">Legu Pli</a>
+								<div style="margin-bottom: 10%;" class="mag-post-meta"><a href="{{url('/info/token='.$centro->id)}}" style="color: white" class="btn more black">Legu pli <i class="fa fa-plus"></i></a>
 								<span class="author-date">{{date('m-d-Y',strtotime($centro->created_at))}}</span>
 									
 								</div>
@@ -494,48 +494,25 @@
 					<div style="margin-top: 10%;" class="mag-hny-content my-lg-5 mb-5">
 						<h3 class="hny-title">Plej<span>ŝatata</span></h3>
 						<div class="fashny-grids-inf row">
+							@foreach ($likes as $like)
 							<div class="fashion-gd-1 col-lg-4 col-6">
 								<div class="fas-gallery-grid">
 									<a href="#">
 										<div class="content">
 											<div class="content-overlay"></div>
-											<img src="assets/images/grid11.jpg" class="img-fluid" alt="">
+											<img src="{{ asset('storage/actuality_photos/'.$like->images)}}" class="img-fluid" alt="">
 											<div class="content-details fadeIn-bottom">
-												<h4 class="content-title">Food</h4>
+											<h4 class="content-title">{{date('m-d-Y',strtotime($like->created_at))}}</h4>
 
 											</div>
 										</div>
 									</a>
 								</div>
 							</div>
-							<div class="fashion-gd-1 col-lg-4 col-6">
-								<div class="fas-gallery-grid">
-									<a href="#">
-										<div class="content">
-											<div class="content-overlay"></div>
-											<img src="assets/images/grid12.jpg" class="img-fluid" alt="">
-											<div class="content-details fadeIn-bottom">
-												<h4 class="content-title">Fashions</h4>
-
-											</div>
-										</div>
-									</a>
-								</div>
-							</div>
-							<div class="fashion-gd-1 col-lg-4 col-6">
-								<div class="fas-gallery-grid">
-									<a href="#">
-										<div class="content">
-											<div class="content-overlay"></div>
-											<img src="assets/images/grid13.jpg" class="img-fluid" alt="">
-											<div class="content-details fadeIn-bottom">
-												<h4 class="content-title">Celebrities</h4>
-
-											</div>
-										</div>
-									</a>
-								</div>
-							</div>
+							@endforeach
+							
+							
+							
 
 						</div>
 
@@ -549,7 +526,7 @@
 						@foreach ($agases as $agase)
 							
 						
-						<div class="maghny-grids-inf row">
+						<div class="maghny-grids-inf row  mt-3">
 							<div class="mag-post-thumb col-md-6">
 								<a href="#"><img src="{{ asset('storage/actuality_photos/'.$allagado->file1)}}" class="img-fluid" alt=""></a>
 
@@ -561,12 +538,11 @@
 								</a>
 								<div class="mag-post-meta mt-3"><a href="#"><img src="{{ asset('storage/actuality_photos/'.$agase->logo)}}"
 											class="img-fluid rounded-circle admin-img admin-img1" alt=""></a> <span
-										class="meta-author"> <span>By&nbsp;</span><a href="#" class="author-name"> John
-											Brain</a> </span>
+								class="meta-author"> <span>By&nbsp;</span><a href="#" class="author-name">{{$agase->centro}}</a> </span>
 									<span class="author-date">{{date('d-m-Y', strtotime($allagado->created_at))}}</span>
 								</div>
 							<p class="para my-3">{{$allagado->desc}}</p>
-								<a href="#" class="read-more btn">Legu pli</a>
+								<a href="{{url('/info/token='.$allagado->id_user)}}" class="read-more btn">Legu pli</a>
 
 							</div>
 
@@ -645,7 +621,7 @@
 					<!--//mag-left-grid-5-->
 					<!--/social-->
 					<div class="mag-hny-content my-5">
-						<h3 class="hny-title">Sekvu nin <span> on</span></h3>
+						<h3 class="hny-title">Sekvu nin <span></span></h3>
 						<!--/social-media-->
 						<div class="mag-small-post my-lg-3">
 							<div class="social-media-icons row">
@@ -731,7 +707,7 @@
 					//health-->
 					<!--/mag-hny-content-4-->
 					<div class="mag-hny-content my-lg-5">
-						<h3 class="hny-title">bildoj<span>de chiuj centroj</span></h3>
+						<h3 class="hny-title">bildoj <span>de chiuj centroj</span></h3>
 						<!--  Demos -->
 						<div id="demos">
 							<div class="owl-carousel owl-theme grid-col-4">
@@ -760,7 +736,7 @@
 				<div class="mag-content-right-hny col-lg-4">
 					<aside>
 						<div class="side-bar-hny-recent mb-5">
-							<h4 class="mag-side-title">Plej <span>Vidita</span></h4>
+							<h4 class="mag-side-title">Esperanto <span> muzeoj</span></h4>
 							<div class="mag-small-post">
 								<div class="post-item-grid row mb-4">
 									<div class="mag-post-thumb col-4">
@@ -1021,10 +997,14 @@
 						<p>NI ŜATAS DIVASI LASTAJN NOVA OFOJN DE ESPERANTO</p>
 						<h2>ABONU NUN!</h2>
 
-						<form action="#" method="post" class="newsletter-form mt-md-5">
+					<form action="{{url('subscribe')}}" method="post" class="newsletter-form mt-md-5">
+						@csrf
 							<div class="form-input">
 								<input type="email" name="email" class="form-control"
 									placeholder="Enter your email address" required="">
+									@if($errors->has('email'))
+	          			<p style="color: green;" class="text-red">{{ $errors->first('email') }}</p>
+			         @endif
 							</div>
 							<div class="form-input mt-md-4 mt-3"><button class="btn">ABONU</button></div>
 						</form>

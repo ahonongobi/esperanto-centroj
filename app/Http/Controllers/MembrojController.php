@@ -8,7 +8,9 @@ use App\Models\Informoj;
 use App\Models\User;
 use App\Models\UseVideoj;
 use App\Models\PostAfiche;
+use App\Models\UserAfishoj;
 use Image;
+use DB;
 use Illuminate\Support\Facades\Auth;
 
 class MembrojController extends Controller
@@ -53,7 +55,22 @@ class MembrojController extends Controller
     public function indexInfor(){
         $UseVideojCount = UseVideoj::where('id_user',Auth::user()->id)->count();
         $postsCount = PostAfiche::where('id_user',Auth::user()->id)->count();
-        return view('respondeculo/gravaj',compact('UseVideojCount','postsCount'));
+        $UserAfishoj = UserAfishoj::where('id_user',Auth::user()->id)->count();
+
+        $alreadyExist = Informoj::where('id_user',Auth::user()->id)->count();
+        $centroInformoj = DB::select("SELECT * FROM informojs WHERE id_user=?",[
+            Auth::user()->id,
+        ]);
+        
+        if($alreadyExist==0){
+            return view('respondeculo/gravaj',compact('UseVideojCount','postsCount','UserAfishoj'));
+
+        }
+        else{
+            return view('respondeculo/gravaj2',compact('UseVideojCount','postsCount','centroInformoj','UserAfishoj'));
+
+        }
+        
     }
 
 
@@ -61,6 +78,7 @@ class MembrojController extends Controller
         request()->validate([
             'name'=>['required','string'],
             'lieu'=>['required','string'],
+            'lando'=>['required','string'],
             'bibliothque'=>['required','string'],
             'mangheblo'=>['required','string'],
             'libroservo'=>['required','string'],
@@ -74,12 +92,15 @@ class MembrojController extends Controller
             'retejo'=>['required','string'],
         ]);
 
-        $informoj = new Informoj();
+        $alreadyExist = Informoj::where('id_user',Auth::user()->id)->count();
+        if( $alreadyExist==0)
+        {
+            $informoj = new Informoj();
         $informoj->id_user = Auth::user()->id;
         $informoj->center = Auth::user()->centro;
         $informoj->name = $req2->name;
         $informoj->lokejo = $req2->lieu;
-
+        $informoj->lando = $req2->lando;
         $informoj->bibliothque = $req2->bibliothque;
         $informoj->mangheblo = $req2->mangheblo;
         $informoj->libroservo = $req2->libroservo;
@@ -95,10 +116,40 @@ class MembrojController extends Controller
         $informoj->save();
         
         $notification = array(
-            'message'=>'Via agado estas bone publikitaj',
+            'message'=>'Viaj informoj estas bone registrata',
             'alert-type'=>'success'
            );
         return back()->with($notification);
+        }
+        else{
+            $informoj = new Informoj();
+            $update = DB::update("UPDATE informojs SET center=?,name=?,lando=?,lokejo=?,bibliothque=?,mangheblo=?,libroservo=?,
+            dormeblo=?,kursejoklasochambro=?,jaro=?,Telefono =?,trajto=?,agado=?,Kontaktadreso =?,retejo=? WHERE id_user=?
+            ",[
+                $informoj->center = Auth::user()->centro,
+                $informoj->name = $req2->name,
+                $informoj->lando = $req2->lando,
+
+                $informoj->lokejo = $req2->lieu,
+                $informoj->bibliothque = $req2->bibliothque,
+                $informoj->mangheblo = $req2->mangheblo,
+                $informoj->libroservo = $req2->libroservo,
+                $informoj->dormeblo = $req2->domo,
+                $informoj->kursejoklasochambro = $req2->kursejoklasochambro,
+                $informoj->jaro = $req2->jaro,
+                $informoj->Telefono = $req2->Telefono,
+                $informoj->trajto = $req2->trajto,
+                $informoj->agado = $req2->agado,
+                $informoj->Kontaktadreso = $req2->Kontaktadreso,
+                $informoj->retejo = $req2->retejo,
+                Auth::user()->id,
+            ]);
+            $notification = array(
+                'message'=>'Informoj bone ghisdatigitaj',
+                'alert-type'=>'success'
+               );
+            return back()->with($notification);
+        }
     }
 
 }

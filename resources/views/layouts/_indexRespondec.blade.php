@@ -50,13 +50,13 @@
             <!-- Sidebar Toggle Btn-->
             <button class="sidebar-toggle"><i class="fa fa-long-arrow-left"></i></button>
           </div>
-          <div class="right-menu list-inline no-margin-bottom">    
+          <!-- <div class="right-menu list-inline no-margin-bottom">    
             <div class="list-inline-item"><a href="#" class="search-open nav-link"><i class="icon-magnifying-glass-browser"></i></a></div>
             <div class="list-inline-item dropdown"><a id="navbarDropdownMenuLink1" href="http://example.com" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link messages-toggle"><i class="icon-email"></i><span class="badge dashbg-1">5</span></a>
               <div aria-labelledby="navbarDropdownMenuLink1" class="dropdown-menu messages"><a href="#" class="dropdown-item message d-flex align-items-center">
                   <!--<div class="profile"><img src="img/avatar-3.jpg" alt="..." class="img-fluid">
                     <div class="status online"></div>
-                  </div>-->
+                  </div>
                   
                   <div class="content">   <strong class="d-block">Nadia Halsey</strong><span class="d-block">lorem ipsum dolor sit amit</span><small class="date d-block">9:30am</small></div></a><a href="#" class="dropdown-item message d-flex align-items-center">
                   <div class="profile"><img src="img/avatar-2.jpg" alt="..." class="img-fluid">
@@ -72,22 +72,22 @@
                   </div>
                   <div class="content">   <strong class="d-block">Sara Wood</strong><span class="d-block">lorem ipsum dolor sit amit</span><small class="date d-block">10:30pm</small></div></a><a href="#" class="dropdown-item text-center message"> <strong>See All Messages <i class="fa fa-angle-right"></i></strong></a></div>
             </div>
-            <!-- Tasks-->
-            <div class="list-inline-item dropdown"><a id="navbarDropdownMenuLink2" href="http://example.com" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link tasks-toggle"><i class="icon-new-file"></i><span class="badge dashbg-3">9</span></a>
+            Tasks-->
+            <div class="list-inline-item dropdown"><a id="navbarDropdownMenuLink2" href="http://example.com" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link tasks-toggle"><i class="icon-new-file"></i><span class="badge dashbg-3">5</span></a>
               <div aria-labelledby="navbarDropdownMenuLink2" class="dropdown-menu tasks-list"><a href="#" class="dropdown-item">
-                  <div class="text d-flex justify-content-between"><strong>Task 1</strong><span>40% complete</span></div>
+              <div class="text d-flex justify-content-between"><strong>Centro:</strong><span>{{Auth::user()->centro}}</span></div>
                   <div class="progress">
                     <div role="progressbar" style="width: 40%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" class="progress-bar dashbg-1"></div>
                   </div></a><a href="#" class="dropdown-item">
-                  <div class="text d-flex justify-content-between"><strong>Task 2</strong><span>20% complete</span></div>
+                  <div class="text d-flex justify-content-between"><strong>Respondeculo</strong><span>{{Auth::user()->email}}</span></div>
                   <div class="progress">
                     <div role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" class="progress-bar dashbg-3"></div>
                   </div></a><a href="#" class="dropdown-item">
-                  <div class="text d-flex justify-content-between"><strong>Task 3</strong><span>70% complete</span></div>
+                  <div class="text d-flex justify-content-between"><strong>Profilo</strong><span>100% complete{{Auth::user()->state}}</span></div>
                   <div class="progress">
                     <div role="progressbar" style="width: 70%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" class="progress-bar dashbg-2"></div>
                   </div></a><a href="#" class="dropdown-item">
-                  <div class="text d-flex justify-content-between"><strong>Task 4</strong><span>30% complete</span></div>
+                  <div class="text d-flex justify-content-between"><strong>Elektu bildo kaj shanghu</strong><span></span></div>
                   <div class="progress">
                     <div role="progressbar" style="width: 30%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" class="progress-bar dashbg-4"></div>
                   </div></a><a href="#" class="dropdown-item">
@@ -99,7 +99,7 @@
                   <div class="progress">
                     <div role="progressbar" style="width: 65%" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100" class="progress-bar dashbg-1"></div>
                   </div></a><a href="#" class="dropdown-item text-center"> <strong>
-                    <button type="submit">Change avatar</button>
+                    <button type="submit">Changhu profilo</button>
                    
                     <i class="fa fa-angle-right"></i></strong></a>
                   </form>
@@ -254,7 +254,7 @@
                     <div class="title">
                       <div class="icon"><i class="icon-paper-and-pencil"></i></div><strong>Agadoj</strong>
                     </div>
-                    <div class="number dashtext-3">140</div>
+                    <div class="number dashtext-3">10</div>
                   </div>
                   <div class="progress progress-template">
                     <div role="progressbar" style="width: 55%" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100" class="progress-bar progress-bar-template dashbg-3"></div>
@@ -267,7 +267,7 @@
                     <div class="title">
                       <div class="icon"><i class="icon-writing-whiteboard"></i></div><strong>Anoncoj</strong>
                     </div>
-                    <div class="number dashtext-4">41</div>
+                  <div class="number dashtext-4">122</div>
                   </div>
                   <div class="progress progress-template">
                     <div role="progressbar" style="width: 35%" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100" class="progress-bar progress-bar-template dashbg-4"></div>

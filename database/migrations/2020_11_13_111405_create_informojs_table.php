@@ -19,6 +19,7 @@ class CreateInformojsTable extends Migration
             $table->string('center');
             $table->string('name');
             $table->string('lokejo');
+            $table->string('lando');
             $table->string('bibliothque');
             $table->string('mangheblo');
             $table->string('libroservo');

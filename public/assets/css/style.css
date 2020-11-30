@@ -55,7 +55,7 @@
     transform: translateY(-200px);
     transition: .3s;
   }
-  ul .booking-card .book-container .content .btn {
+  ul .booking-card .book-container .content  {
     border: 3px solid white;
     padding: 10px 15px;
     background: none;
@@ -308,7 +308,7 @@ nav a {
     padding: 0 14px;
     font-weight: 600;
     margin: 0 0.5em;
-    text-transform: uppercase;
+    
 }
 
 
@@ -741,7 +741,7 @@ li>a:only-child:after {
 
 /* background images for banner */
 .banner-w3pvt-1 {
-    background: url(../images/slides/CDELI_La_Chaux-de-Fonds.jpg) no-repeat top;
+    background: url(../images/slides/imageonline-co-add-text1.png) no-repeat top;
     background-size: cover;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -751,7 +751,7 @@ li>a:only-child:after {
 }
 
 .banner-w3pvt-2 {
-    background: url(../images/slides/GREZILJON.jpg) no-repeat center;
+    background: url(../images/slides/imageonline-co-add-textGrezil.png) no-repeat center;
     background-size: cover;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -761,7 +761,7 @@ li>a:only-child:after {
 }
 
 .banner-w3pvt-3 {
-    background: url(../images/slides/roterdamo.jpg) no-repeat center;
+    background: url(../images/slides/roterdamo.png) no-repeat center;
     background-size: cover;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -803,7 +803,7 @@ li>a:only-child:after {
     color: #fff;
     font-size: 16px;
     letter-spacing: 1px;
-    text-transform: capitalize;
+    
     display: inline-block;
 
 }

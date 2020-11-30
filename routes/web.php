@@ -12,8 +12,9 @@ use App\Http\Controllers\CentroAgado;
 use App\Http\Controllers\RespondeculoController;
 use App\Http\Controllers\DeleteUpdateController;
 use App\Http\Controllers\CommentController;
-use App\Http\Controllers\LikesController;
+use App\Http\Controllers\LikeController;
 use App\Http\Controllers\UpdateavatarController;
+use App\Http\Controllers\SubscribeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -64,4 +65,5 @@ Route::post('/avatar',[UpdateavatarController::class,'update'])->name('avatar');
 Route::get('/delete/{id}',[DeleteUpdateController::class,'delete']);
 Route::post('/update/{id}',[DeleteUpdateController::class,'update']);
 Route::get('/update/{id}',[DeleteUpdateController::class,'updateView']);
-
+Route::get('/likes/{id}/{id_user}/{image}',[LikeController::class,'store']);
+Route::post('/subscribe',[SubscribeController::class,'store']);

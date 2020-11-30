@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Likes;
 use DB;
 class IndexController extends Controller
 {
@@ -15,8 +16,8 @@ class IndexController extends Controller
           
 
         foreach($agadoj as $agado){
-            $aga = DB::select('SELECT * FROM users WHERE id=?',[
-                $agado->id_user,
+           $aga = DB::select('SELECT * FROM users WHERE id=?',[
+               $agado->id_user,
             ]);
 
         }
@@ -34,6 +35,15 @@ class IndexController extends Controller
         $popularaj2 = DB::select('SELECT * FROM post_afiches ORDER BY id DESC LIMIT 3');
         $comments = DB::select('SELECT * FROM comments ORDER BY id DESC LIMIT 3');
         $tofs = User::all();
-        return view('simpleuser/index' , compact('pictures','agadoj','allagadoj','centroj','videoj','popularaj','popularaj2','comments','tofs','aga','agases'));
+        $likes =  DB::select('SELECT * FROM likes ORDER BY id DESC LIMIT 3');
+        $centroCout = User::all()->count();
+        $countlandoj = DB::table('informojs')
+        ->distinct()
+        ->count('lando');
+        $amatoroj = DB::table('likes')
+        ->distinct()
+        ->count('centre_id');
+        
+        return view('simpleuser/index' , compact('pictures','agadoj','allagadoj','centroj','videoj','popularaj','popularaj2','comments','tofs','likes','centroCout','aga','agases','countlandoj','amatoroj'));
     }
 }

@@ -16,6 +16,10 @@
   <link href="//fonts.googleapis.com/css?family=Playfair+Display:400,400i,700&display=swap" rel="stylesheet">
   <link href="//fonts.googleapis.com/css?family=Montserrat:300,300i,400,600,700,800&display=swap" rel="stylesheet">
   <!-- Template CSS -->
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet">
+
+
   <meta name="csrf-token" content="{{ csrf_token() }}" />
 
 
@@ -255,7 +259,7 @@
 							<a href="blog-single" class="read-more btn mt-3">Legu pli</a>
 							<a  style="margin-left: 60%;" href="#komment" class=""><img width="32" height="32" src="{{asset('assets/images/slides/images/chat.png')}}" alt="" srcset=""></a>
 						<input type="hidden" name="token" id="token2" value="{{csrf_token()}}">
-							<a style="margin-left: 40px; cursor:pointer" id="ajaxbtn"  class=""><img  src="{{asset('assets/images/slides/images/like_variation.png')}}" alt="" srcset=""></a>
+						<a style="margin-left: 40px; cursor:pointer" id="ajaxbtn" href="{{url('likes/'.$recentpost->id.'/'.$id.'/'.$recentpost->file1)}}"  class=""><img  src="{{asset('assets/images/slides/images/like_variation.png')}}" alt="" srcset=""></a>
 							
 						</div>
 					</div>
@@ -328,10 +332,14 @@
 					<!--//mag-hny-content-6-->
 					<!--/social-->
 					<!-- infos -->
+
 					<div class="mag-hny-content my-lg-5 pt-lg-5">
 						<h3 class="hny-title">Specifajoj <span></span></h3>
 						<!--/social-media-->
-						
+						@if($countInfo==0)
+							<p><center>Ne ankoaraux</center></p>
+
+						@else
 						<div class="mag-small-post my-lg-3 my-4">
 							<div class="social-media-icons row">
 								
@@ -340,7 +348,7 @@
 											aria-hidden="true"></span>
 										<div  class="soc-info">
 											<span class="sub_social_info sub_social_info_counter">Nomo</span>
-										<span class="sub_social_info sub_social_info_name">{{$infos[0]->center}}</span>
+										<span class="sub_social_info sub_social_info_name"> {{$infos[0]->center}}</span>
 										</div>
 									</a>
 								</div>
@@ -474,12 +482,12 @@
 								<!--/social-media-->
 							</div>
 						</div>
-						
+						@endif
 					
 					</div>
 					<!--end info-->
 					<div class="mag-hny-content my-lg-5 pt-lg-5">
-						<h3 class="hny-title">Sekvu nin <span>on</span></h3>
+						<h3 class="hny-title">Sekvu nin <span></span></h3>
 						<!--/social-media-->
 						<div class="mag-small-post my-lg-3 my-4">
 							<div class="social-media-icons row">
@@ -775,6 +783,28 @@
 	});
 		
 	</script>
+	<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <script>
+        @if(Session::has('message')){
+            var type= "{{Session::get('alert-type','info')}}";
+            switch(type){
+              case'info':
+              toastr.info("{{Session::get('message')}}");
+              break;
+              case'warning':
+              toastr.warning("{{Session::get('message')}}");
+              break;
+              case'success':
+              toastr.success("{{Session::get('message')}}");
+              break;
+            } 
+          } 
+          
+           
+  
+        @endif
+        
+	  </script>
  
 </body>
 

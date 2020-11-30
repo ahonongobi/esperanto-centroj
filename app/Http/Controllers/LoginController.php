@@ -66,6 +66,33 @@ class LoginController extends Controller
         $allagadoj = DB::select('SELECT * FROM post_afiches');
         $centroj = DB::select('SELECT * FROM users');
         $videoj = DB::select('SELECT * FROM use_videojs ORDER BY id DESC LIMIT 2');
-        return view('simpleuser/index',compact('pictures','agadoj','allagadoj','centroj','videoj'));
+
+        foreach($agadoj as $agado){
+            $aga = DB::select('SELECT * FROM users WHERE id=?',[
+                $agado->id_user,
+             ]);
+ 
+         }
+
+         
+        foreach($allagadoj as $allagadojn){
+            $agases = DB::select('SELECT * FROM users WHERE id=?',[
+                $allagadojn->id_user,
+            ]);
+          }
+        $likes =  DB::select('SELECT * FROM likes ORDER BY id DESC LIMIT 3');
+        $centroCout = User::all()->count();
+        $countlandoj = DB::table('informojs')
+        ->distinct()
+        ->count('lando');
+        $amatoroj = DB::table('likes')
+        ->distinct()
+        ->count('centre_id');
+        $tofs = User::all();
+        $popularaj = DB::select('SELECT * FROM Centerpost ORDER BY id DESC LIMIT 3');
+        $popularaj2 = DB::select('SELECT * FROM post_afiches ORDER BY id DESC LIMIT 3');
+        $comments = DB::select('SELECT * FROM comments ORDER BY id DESC LIMIT 3');
+
+        return view('simpleuser/index',compact('pictures','agadoj','allagadoj','centroj','videoj','centroCout','countlandoj','amatoroj','aga','agases','likes','tofs','popularaj','popularaj2','comments'));
     }
 }

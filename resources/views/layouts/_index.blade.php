@@ -19,6 +19,7 @@ Espaeranto
   <!-- Template CSS -->
 
 
+
 </head>
 
 <body>
@@ -122,28 +123,28 @@ Espaeranto
             </div>
             <!-- banner-hny-info -->
             <div class="banner-hny-info">
-                <h3>Esperanto centroj
+                <h3>Esperanto-centroj
                    </h3> <br>
                 <div class="top-buttons mx-auto text-center mt-md-5 mt-3">
                     <a href="{{route('loginPage')}}" style="color: white;" class="btn more mr-2"><i class="fa fa-user"></i> Ensalutu</a>
-                <a href="{{route('contact')}}" class="btn">Kontaktu Nin</a>
+                <a href="{{route('contact')}}" class="btn"><i class="fa fa-send"></i> Kontaktu <span style="text-transform: lowercase;">nin</span></a>
                 </div>
                 <div class="d-flex hny-stats-inf">
                     <div class="col-md-4 stats_w3pvt_counter_grid mt-3">
                         <div class="d-md-flex justify-content-center">
-                            <h5 class="counter">30</h5>
+                        <h5 class="counter">{{$centroCout}}</h5>
                             <p class="para-w3pvt">Centroj</p>
                         </div>
                     </div>
                     <div class="col-md-4 stats_w3pvt_counter_grid mt-3">
                         <div class="d-md-flex justify-content-center">
-                            <h5 class="counter">150 </h5>
-                            <p class="para-w3pvt"> Landoj</p>
+                        <h5 class="counter">{{$countlandoj}}</h5>
+                            <p class="para-w3pvt">Landoj</p>
                         </div>
                     </div>
                     <div class="col-md-4 stats_w3pvt_counter_grid mt-3">
                         <div class="d-md-flex justify-content-center">
-                            <h5 class="counter">899</h5>
+                        <h5 class="counter">{{$amatoroj}}</h5>
                             <p class="para-w3pvt">Amatoroj</p>
                         </div>
                     </div>
@@ -394,64 +395,42 @@ Espaeranto
                     </div>
                 </div>
                 <div class="sub-two-right col-lg-4 col-md-6 my-md-0 my-5">
-                    <h6>Editor Pics</h6>
+                    <h6>Lastaj afishoj</h6>
+                    @foreach ($agadoj as $agado)
+							@foreach ($aga  as $agas)
                     <div class="row editor-pics mb-3">
                         <div class="col-3 item-pic">
-                            <img src="assets/images/m4.jpg" class="img-fluid" alt="">
+                            <img src="{{ asset('storage/actuality_photos/'.$agado->file1)}}" class="img-fluid" alt="">
 
                         </div>
                         <div class="col-9 item-details">
                             <a href="#">
-                                <h5 class="inner">More Than 120 ER Visits Linked To Synthetic WordPress In
-                                    NYC...</h5>
+                            <h5 class="inner">{{substr($agado->desc,0,20)}}...</h5>
                             </a>
-                            <div class="td-post-date">Jan 22, 2019</div>
+                            <div class="td-post-date">{{date('d-m-Y', strtotime($agado->created_at))}}</div>
                         </div>
 
                     </div>
-                    <div class="row editor-pics mb-3">
-                        <div class="col-3 item-pic">
-                            <img src="assets/images/m1.jpg" class="img-fluid" alt="">
-
-                        </div>
-                        <div class="col-9 item-details">
-                            <a href="#">
-                                <h5 class="inner">More Than 120 ER Visits Linked To Synthetic WordPress In
-                                    NYC...</h5>
-                            </a>
-                            <div class="td-post-date">Jan 22, 2019</div>
-                        </div>
-
-                    </div>
-                    <div class="row editor-pics mb-3">
-                        <div class="col-3 item-pic">
-                            <img src="assets/images/m3.jpg" class="img-fluid" alt="">
-
-                        </div>
-                        <div class="col-9 item-details">
-                            <a href="#">
-                                <h5 class="inner">More Than 120 ER Visits Linked To Synthetic WordPress In
-                                    NYC...</h5>
-                            </a>
-                            <div class="td-post-date">Jan 22, 2019</div>
-                        </div>
-
-                    </div>
+                    @endforeach
+                    @endforeach
+                    
+                    
 
                 </div>
 
                 <div class="sub-one-left col-lg-4 col-md-6 mt-lg-0 mt-md-5">
-                    <h6>Information</h6>
+                    <h6>Cefhpagho</h6>
                     <div class="columns-2 d-flex">
                         <ul class="footer-sub-gd mr-5">
-                            <li><a href="#">Celebrities</a></li>
-                            <li><a href="#">Fashion</a></li>
-                            <li><a href="lifestyle.html">Lifestyle</a></li>
-                            <li><a href="#">Blog Page</a></li>
+                            <li><a href="#">Kontaktu nin</a></li> |
+                            <li><a href="#">Pri ni</a></li> |
+                            <li><a href="#">Ensaluti | </a></li>
+                            <li><a href="#">Registrigi | </a></li>
+                            <li><a href="#">Author</a></li>
                         </ul>
                         <ul class="footer-sub-gd">
-                            <li><a href="#">Login</a></li>
-                            <li><a href="#">Signup</a></li>
+                            <li><a href="#">Ensaluti</a></li>
+                            <li><a href="#">Registrigi</a></li>
                             <li><a href="#">Author</a></li>
                             <li><a href="#">Comments</a></li>
                         </ul>
@@ -499,7 +478,7 @@ Espaeranto
            document.body.innerHTML += '\
            <div class="cookieconsent" style="position:fixed;padding:20px;left:0;bottom:0;background-color:#000;color:#FFF;text-align:center;width:100%;z-index:99999;">\
             Ĉi tiu retejo uzas kuketojn por plibonigi viajn preferojn. Daŭrante foliumi ĉi tiun retejon, vi konsentas ilian uzon. \
-               <a class="btn more black" href="#">Mi komprenas</a>\
+               <a class="btn more black text-white" href="#">Mi komprenas</a>\
            </div>\
            ';
            document.querySelector('.cookieconsent a').onclick = function(e) {
@@ -518,6 +497,7 @@ Espaeranto
 
 </footer>
 <!--//footer-66 -->
+  
 </body>
 
 </html>
