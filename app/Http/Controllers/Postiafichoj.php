@@ -21,6 +21,7 @@ class Postiafichoj extends Controller
          $post->desc= $req->input('description');
          $post->id_user = Auth::user()->id;
          $post->center = Auth::user()->centro;
+         $post->logo = Auth::user()->logo;
 
          if($req->hasFile('file')){
             $file1 = $req->file('file');

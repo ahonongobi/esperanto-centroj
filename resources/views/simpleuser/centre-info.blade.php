@@ -123,23 +123,24 @@
 					  
 					
 					<div class="informations-container">
-					  <h2 class="title">Je suis moi aussi un billet</h2>
+						<h2 class="title">Priskriboj pri la afisoj</h2>
+						<h2 class="title"><i class="fa fa-arrow-down"></i></h2>
 					  <p class="sub-title">{{$gobi->description1}}</p>
-					  <p class="price"><svg class="icon" style="width:24px;height:24px" viewBox="0 0 24 24">
+					  <!--<p class="price"><svg class="icon" style="width:24px;height:24px" viewBox="0 0 24 24">
 					<path fill="currentColor" d="M3,6H21V18H3V6M12,9A3,3 0 0,1 15,12A3,3 0 0,1 12,15A3,3 0 0,1 9,12A3,3 0 0,1 12,9M7,8A2,2 0 0,1 5,10V14A2,2 0 0,1 7,16H17A2,2 0 0,1 19,14V10A2,2 0 0,1 17,8H7Z" />
-				</svg>De 0 à 35 €</p>
+				</svg></p> -->
 					  <div class="more-information">
 						<div class="info-and-date-container">
 						  <div class="box info">
-							<svg class="icon" style="width:24px;height:24px" viewBox="0 0 24 24">
+							<!--<svg class="icon" style="width:24px;height:24px" viewBox="0 0 24 24">
 					  <path fill="currentColor" d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z" />
-				  </svg>
+				  </svg> -->
 							<p></p>
 						  </div>
 						  <div class="box date">
-							<svg class="icon" style="width:24px;height:24px" viewBox="0 0 24 24">
+							<!--<svg class="icon" style="width:24px;height:24px" viewBox="0 0 24 24">
 					  <path fill="currentColor" d="M19,19H5V8H19M16,1V3H8V1H6V3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3H18V1M17,12H12V17H17V12Z" />
-				  </svg>
+				  </svg> -->
 							<p></p>
 						  </div>
 						</div>
@@ -156,29 +157,30 @@
 
 						<p style="height: 5%"></p>
 					<h2 class="title">{{$gobi->title}}</h2>
-						<p class="sub-title">Et moi je suis un 2ème sous-titre</p>
+						<p class="sub-title"></p>
 					  </div>
 					  
 					
 					<div class="informations-container">
-					  <h2 class="title">Je suis moi aussi un billet</h2>
-					  <p class="sub-title">{{$gobi->description1}}</p>
-					  <p class="price"><svg class="icon" style="width:24px;height:24px" viewBox="0 0 24 24">
+						<h2 class="title">Priskriboj pri la afisoj</h2>
+						<h2 class="title"><i class="fa fa-arrow-down"></i></h2>
+					  <p class="sub-title"></p>
+					  <!--<p class="price"><svg class="icon" style="width:24px;height:24px" viewBox="0 0 24 24">
 					<path fill="currentColor" d="M3,6H21V18H3V6M12,9A3,3 0 0,1 15,12A3,3 0 0,1 12,15A3,3 0 0,1 9,12A3,3 0 0,1 12,9M7,8A2,2 0 0,1 5,10V14A2,2 0 0,1 7,16H17A2,2 0 0,1 19,14V10A2,2 0 0,1 17,8H7Z" />
-				</svg>De 0 à 35 €</p>
+				</svg></p> -->
 					  <div class="more-information">
 						<div class="info-and-date-container">
 						  <div class="box info">
-							<svg class="icon" style="width:24px;height:24px" viewBox="0 0 24 24">
+							<!--<svg class="icon" style="width:24px;height:24px" viewBox="0 0 24 24">
 					  <path fill="currentColor" d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z" />
-				  </svg>
-							<p>Parlement de Bretagne à RENNES</p>
+				  </svg> -->
+							<p></p>
 						  </div>
 						  <div class="box date">
-							<svg class="icon" style="width:24px;height:24px" viewBox="0 0 24 24">
+					<!--<svg class="icon" style="width:24px;height:24px" viewBox="0 0 24 24">
 					  <path fill="currentColor" d="M19,19H5V8H19M16,1V3H8V1H6V3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3H18V1M17,12H12V17H17V12Z" />
-				  </svg>
-							<p>À partir du Dimanche 3 Juin 2020</p>
+				  </svg> -->
+							<p></p>
 						  </div>
 						</div>
 					<p class="disclaimer">{{$gobi->description2}}</p>
@@ -193,28 +195,29 @@
 
 						<p style="height: 5%"></p>
 					<h2 class="title">{{$gobi->title}}</h2>
-						<p class="sub-title">Et moi je suis un 2ème sous-titre</p>
+						<p class="sub-title"></p>
 					  </div>
 					  
 					
 					<div class="informations-container">
-					  <h2 class="title">Je suis moi aussi un billet</h2>
-					  <p class="sub-title">{{$gobi->description1}}</p>
-					  <p class="price"><svg class="icon" style="width:24px;height:24px" viewBox="0 0 24 24">
+					  <h2 class="title">Priskriboj pri la afisoj</h2>
+					  <h2 class="title"><i class="fa fa-arrow-down"></i></h2>
+					  <p class="sub-title"></p>
+					  <!--<p class="price"><svg class="icon" style="width:24px;height:24px" viewBox="0 0 24 24">
 					<path fill="currentColor" d="M3,6H21V18H3V6M12,9A3,3 0 0,1 15,12A3,3 0 0,1 12,15A3,3 0 0,1 9,12A3,3 0 0,1 12,9M7,8A2,2 0 0,1 5,10V14A2,2 0 0,1 7,16H17A2,2 0 0,1 19,14V10A2,2 0 0,1 17,8H7Z" />
-				</svg>De 0 à 35 €</p>
+				</svg>De 0 à 35 €</p> -->
 					  <div class="more-information">
 						<div class="info-and-date-container">
 						  <div class="box info">
-							<svg class="icon" style="width:24px;height:24px" viewBox="0 0 24 24">
+							<!--<svg class="icon" style="width:24px;height:24px" viewBox="0 0 24 24">
 					  <path fill="currentColor" d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z" />
-				  </svg>
+				  </svg> -->
 							<p>Parlement de Bretagne à RENNES</p>
 						  </div>
 						  <div class="box date">
-							<svg class="icon" style="width:24px;height:24px" viewBox="0 0 24 24">
+							<!--<svg class="icon" style="width:24px;height:24px" viewBox="0 0 24 24">
 					  <path fill="currentColor" d="M19,19H5V8H19M16,1V3H8V1H6V3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3H18V1M17,12H12V17H17V12Z" />
-				  </svg>
+				  </svg> -->
 							<p>À partir du Dimanche 3 Juin 2020</p>
 						  </div>
 						</div>
@@ -232,10 +235,10 @@
 		   <div class="row pagination d-flex justify-content-center">{!! $allpost->appends(Request::all())->links() !!}</div>
 
 			<div class="banner-bottom-sechny py-md-4">
-				<h3 class="hny-title text-center"> Freŝaj<span> novaĵoj</span></h3>
+				<h3 class="hny-title text-center">Freŝaj<span> novaĵoj</span></h3>
 				@if($count2==0)
 			         <center><p>Ne havas novajn agadprogramojn</p></center>
-				@endif
+				@else
 				<div class="ban-content-inf row py-lg-3">
                       @foreach ($recentposts as $recentpost)
 					  <div class="maghny-gd-1 col-md-6">
@@ -266,6 +269,7 @@
 					  @endforeach
 					
 				</div>
+				@endif
 			</div>
 			<div class="blog-inner-grids py-md-4">
 				<div class="mag-content-left-hny">
@@ -275,29 +279,29 @@
 						
 							@if($count2==0)
 						<center><p>Ne havas novajn agadprogramojn</p></center>
-					        @endif
+					       @else
 						<div class="maghny-grids-inf row">
 							@foreach ($allposts as $allpost)
 							<div class="maghny-gd-1 col-lg-4 col-md-6">
 								<div class="maghny-grid">
 									<figure class="effect-lily">
-										<img class="img-fluid" src="{{ asset('storage/actuality_photos/'.$recentpost->file1)}}" alt="">
+										<img class="img-fluid" src="{{ asset('storage/actuality_photos/'.$allpost->file1)}}" alt="">
 
 									</figure>
 								</div>
 								<h5><a href="#">
 								{{$allpost->title}}</a></h5>
 								<p>{{$allpost->desc}}</p>
-								<div class="mag-post-meta"><a href="#"><img src="{{asset('assets/images/admin.jpg')}}"
+								<div class="mag-post-meta"><a href="#"><img src="{{ asset('storage/actuality_photos/'.$allpost->file1)}}"
 											class="img-fluid rounded-circle admin-img admin-img1" alt=""></a> <span
-										class="meta-author"><span>By&nbsp;</span><a href="#" class="author-name">John
-											Brain</a> </span>
+								class="meta-author"><span>By&nbsp;</span><a href="#" class="author-name">{{$allpost->center}}</a> </span>
 										<span class="author-date">{{date('d-m-Y',strtotime($allpost->created_at))}}</span>
 								</div>
 							</div>
 							@endforeach
 							
 					</div>
+					@endif
 					<div class="row pagination d-flex justify-content-center">{!! $allposts->appends(Request::all())->links() !!}</div>
 
 					<!--//mag-left-grid-2-->
@@ -308,7 +312,7 @@
 						<h3 class="hny-title">Videoj<span>Kategorioj</span></h3>
 						@if($count3==0)
 						<center><p>Ne havas novajn agadprogramojn</p></center>
-					        @endif
+					       @else
 						<div class="row">
 							@foreach ($videos as $video)
 							<div class="col-lg-4 col-12">
@@ -326,6 +330,7 @@
 
 						  
 						</div>
+						@endif
 					  </div>
 					  <div class="row pagination d-flex justify-content-center">{!! $videos->appends(Request::all())->links() !!}</div>
 
@@ -568,7 +573,7 @@
 										@foreach ($comments as $comment)
 										<li class="media">
 											<a href="#" class="pull-left">
-												<img style="border-radius: 50%;" src="https://bootdey.com/img/Content/user_1.jpg" alt="" class="img-circle">
+												<img style="border-radius: 50%;" src="{{asset('storage/actuality_photos/'.$respondeculo[0]->logo)}}" alt="" class="img-circle">
 											</a>
 											<div class="media-body">
 												<span class="text-muted pull-right">
@@ -717,7 +722,7 @@
         <div class="container">
             <div class="copyright-footer text-center">
 
-                <p>© 2020 Esperanto-centrojn. Ĉiuj rajtoj rezervitaj.| Realigita de 
+                <p>© <script> document.write(new Date().getFullYear()); </script> Esperanto-centrojn. Ĉiuj rajtoj rezervitaj.| Realigita de 
 					<a href="#" target="_blank">Mireille Grosjean, Prezidanto de ilei kaj Gobi Ayssinie Ahonon, Softvara inĝeniero</a>
                 </p>
             </div>

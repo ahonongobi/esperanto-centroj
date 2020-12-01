@@ -15,14 +15,28 @@ class RespondeculoController extends Controller
         $UseVideojCount = UseVideoj::where('id_user',Auth::user()->id)->count();
         $postsCount = PostAfiche::where('id_user',Auth::user()->id)->count();
         $UserAfishoj = UserAfishoj::where('id_user',Auth::user()->id)->count();
-        return view('respondeculo/eventoj',compact('UseVideojCount','postsCount','UserAfishoj'));
+        $admin = membroj::where('id_user',Auth::user()->id)->count();
+
+        return view('respondeculo/eventoj',compact('UseVideojCount','postsCount','UserAfishoj','admin'));
+    }
+
+    public function displayed(){
+        $UseVideojCount = UseVideoj::where('id_user',Auth::user()->id)->count();
+        $postsCount = PostAfiche::where('id_user',Auth::user()->id)->count();
+        $UserAfishoj = UserAfishoj::where('id_user',Auth::user()->id)->count();
+        $admin = membroj::where('id_user',Auth::user()->id)->count();
+ 
+        $posts = UserAfishoj::where('id_user',Auth::user()->id)->paginate(2);
+        return view('respondeculo/agadoj',compact('posts','UseVideojCount','postsCount','UserAfishoj','admin'));
     }
 
     public function aldoni(){
         $UseVideojCount = UseVideoj::where('id_user',Auth::user()->id)->count();
         $postsCount = PostAfiche::where('id_user',Auth::user()->id)->count();
         $UserAfishoj = UserAfishoj::where('id_user',Auth::user()->id)->count();
-        return view('respondeculo/aldoni',compact('UseVideojCount','postsCount','UserAfishoj'));
+        $admin = membroj::where('id_user',Auth::user()->id)->count();
+ 
+        return view('respondeculo/aldoni',compact('UseVideojCount','postsCount','UserAfishoj','admin'));
     }
 
     public function videoj(){
@@ -30,14 +44,18 @@ class RespondeculoController extends Controller
         $postsCount = PostAfiche::where('id_user',Auth::user()->id)->count();
         $UseVideoj = UseVideoj::where('id_user',Auth::user()->id)->paginate(3);
         $UserAfishoj = UserAfishoj::where('id_user',Auth::user()->id)->count();
-        return view('respondeculo/videoj',compact('UseVideojCount','postsCount','UseVideoj','UserAfishoj'));
+        $admin = membroj::where('id_user',Auth::user()->id)->count();
+
+        return view('respondeculo/videoj',compact('UseVideojCount','postsCount','UseVideoj','UserAfishoj','admin'));
     }
 
     public function anoncoj(){
         $UseVideojCount = UseVideoj::where('id_user',Auth::user()->id)->count();
         $postsCount = PostAfiche::where('id_user',Auth::user()->id)->count();
         $UserAfishoj = UserAfishoj::where('id_user',Auth::user()->id)->count();
-        return view('respondeculo/anoncoj',compact('UseVideojCount','postsCount','UserAfishoj'));
+        $admin = membroj::where('id_user',Auth::user()->id)->count();
+
+        return view('respondeculo/anoncoj',compact('UseVideojCount','postsCount','UserAfishoj','admin'));
     }
     public function respondeculo(){
         $posts = PostAfiche::where('id_user',Auth::user()->id)->paginate(3,['*'],'posts');
@@ -46,6 +64,10 @@ class RespondeculoController extends Controller
         $UseVideojCount = UseVideoj::where('id_user',Auth::user()->id)->count();
         $membroj = membroj::where('id_user',Auth::user()->id)->get();
         $UserAfishoj = UserAfishoj::where('id_user',Auth::user()->id)->count();
-        return view('respondeculo/index',compact('posts','UseVideoj','membroj','UseVideojCount','postsCount','UserAfishoj'));
+        $admin = membroj::where('id_user',Auth::user()->id)->count();
+
+        return view('respondeculo/index',compact('posts','UseVideoj','membroj','UseVideojCount','postsCount','UserAfishoj','admin'));
     }
+
+    
 }

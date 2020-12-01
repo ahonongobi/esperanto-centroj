@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Models\PostAfiche;
 use App\Models\UseVideoj;
 use App\Models\membroj;
+use App\Models\UserAfishoj;
 use DB;
 class LoginController extends Controller
 {
@@ -24,8 +25,9 @@ class LoginController extends Controller
         $UseVideoj = UseVideoj::where('id_user',Auth::user()->id)->paginate(3);
         $UseVideojCount = UseVideoj::where('id_user',Auth::user()->id)->count();
         $membroj = membroj::where('id_user',Auth::user()->id)->get();
-
-        return view('respondeculo/index',compact('posts','UseVideoj','membroj','UseVideojCount','postsCount'));
+        $UserAfishoj = UserAfishoj::where('id_user',Auth::user()->id)->count();
+        $admin = membroj::where('id_user',Auth::user()->id)->count();
+        return view('respondeculo/index',compact('posts','UseVideoj','membroj','UseVideojCount','postsCount','UserAfishoj','admin'));
     }
 
     public function loginUser(Request $req) {
@@ -62,9 +64,12 @@ class LoginController extends Controller
         Auth::logout();
         $pictures = DB::select('SELECT * FROM Centerpost ORDER BY id DESC LIMIT 3');
         $agadoj = DB::select('SELECT * FROM post_afiches ORDER BY id DESC LIMIT 3');
+        
 
-        $allagadoj = DB::select('SELECT * FROM post_afiches');
-        $centroj = DB::select('SELECT * FROM users');
+        $allagadoj= PostAfiche::paginate(3,['*'],'agado');
+        //$allagadoj = DB::select('SELECT * FROM post_afiches');
+        $centroj = User::paginate(9);
+        //$centroj = DB::select('SELECT * FROM users');
         $videoj = DB::select('SELECT * FROM use_videojs ORDER BY id DESC LIMIT 2');
 
         foreach($agadoj as $agado){

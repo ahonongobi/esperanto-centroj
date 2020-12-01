@@ -62,8 +62,10 @@ Route::post('/ajax',[CommentController::class,'ajaxpost']);
 Route::post('/likes',[LikesController::class,'likes']);
 Route::post('/avatar',[UpdateavatarController::class,'update'])->name('avatar');
 
+Route::get('/delete2/{id}',[DeleteUpdateController::class,'delete2']);
 Route::get('/delete/{id}',[DeleteUpdateController::class,'delete']);
 Route::post('/update/{id}',[DeleteUpdateController::class,'update']);
 Route::get('/update/{id}',[DeleteUpdateController::class,'updateView']);
 Route::get('/likes/{id}/{id_user}/{image}',[LikeController::class,'store']);
 Route::post('/subscribe',[SubscribeController::class,'store']);
+Route::get('/agadoj',[RespondeculoController::class,'displayed'])->name('agadoj');

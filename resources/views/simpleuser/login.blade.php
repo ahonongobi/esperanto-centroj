@@ -46,13 +46,10 @@
 	</div>
 	<!-- //bg effect -->
 	<!-- title -->
-    <h1>Ensaluta areo</h1>
-    <h1>
-        <i class="fas fa-arrow-left"></i>
-    </h1>
+   
 	<!-- //title -->
 	<!-- content -->
-	<div class="sub-main-w3">
+	<div style="margin-top: 10%;" class="sub-main-w3">
 	<form action="{{route('login')}}" method="post">
 		@csrf
 			<h2>Ensalutu Nun
@@ -88,7 +85,7 @@
 						</label>
 					</li>
 					<li>
-						<a href="#">Ĉu vi forgesis la pasvorton?</a>
+						<a href="{{route('contact')}}">Ĉu vi forgesis la pasvorton?</a>
 					</li>
 				</ul>
 			</div>

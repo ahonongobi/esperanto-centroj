@@ -31,7 +31,7 @@ Espaeranto
                 <!-- nav -->
                 <nav class="wthree-w3ls">
                     <div id="logo">
-                        <h1> <a class="navbar-brand px-0 mx-0" href="index.html">ILEI/UEA
+                        <h1> <a class="navbar-brand px-0 mx-0" href="/">ILEI/UEA
                             </a>
                         </h1>
                     </div>
@@ -422,15 +422,15 @@ Espaeranto
                     <h6>Cefhpagho</h6>
                     <div class="columns-2 d-flex">
                         <ul class="footer-sub-gd mr-5">
-                            <li><a href="#">Kontaktu nin</a></li> |
+                        <li><a href="{{route('contact')}}">Kontaktu nin</a></li> |
                             <li><a href="#">Pri ni</a></li> |
-                            <li><a href="#">Ensaluti | </a></li>
-                            <li><a href="#">Registrigi | </a></li>
-                            <li><a href="#">Author</a></li>
+                        <li><a href="{{url('logon')}}">Ensaluti | </a></li>
+                        <li><a href="{{url('register')}}">Registrigi | </a></li>
+                            <li><a href="#">Confidenciality</a></li>
                         </ul>
                         <ul class="footer-sub-gd">
-                            <li><a href="#">Ensaluti</a></li>
-                            <li><a href="#">Registrigi</a></li>
+                            <li><a href="{{url('logon')}}">Ensaluti</a></li>
+                            <li><a href="{{url('register')}}">Registrigi</a></li>
                             <li><a href="#">Author</a></li>
                             <li><a href="#">Comments</a></li>
                         </ul>
@@ -443,7 +443,7 @@ Espaeranto
         <div class="container">
             <div class="copyright-footer text-center">
 
-                <p>© 2020 Esperanto-centrojn. Ĉiuj rajtoj rezervitaj.| Realigita de 
+                <p>© <script> document.write(new Date().getFullYear()); </script> Esperanto-centrojn. Ĉiuj rajtoj rezervitaj.| Realigita de 
 					<a href="#" target="_blank">Mireille Grosjean, Prezidanto de ilei kaj Gobi Ayssinie Ahonon, Softvara inĝeniero</a>
                 </p>
             </div>

@@ -17,8 +17,8 @@
             
           <div>
             <div class="d-flex ml-3">
-              <button  type="submit" onclick="return confirm('Chu vi certas?')" href="{{url('delete'.'/'.$post->id)}}" class="btn btn-secondary mt-2 mr-2" style="margin-left:1px;"><i class="fa fa-trash"></i>forigi</button>
-              <a  onclick="return confirm('Chu vi certas?')" class="btn btn-warning mt-2" href="{{url('update'.'/'.$post->id)}}" style="margin-left:1px;"><i class="fa fa-edit"></i>Modifii</a>
+              <button  type="submit" onclick="return confirm('Chu vi certas?')" href="{{url('delete'.'/'.$post->id)}}" class="btn btn-secondary mt-2 mr-2" style="margin-left:1px;"><i style="color: #e95f71;font-size:20px;" class="fa fa-trash"></i>forigi</button>
+              <a  onclick="return confirm('Chu vi certas?')" class="btn btn-warning mt-2 text-white" href="{{url('update'.'/'.$post->id)}}" style="margin-left:1px;"><i class="fa fa-edit"></i>Modifii</a>
             </div>
           </div>
         </div>
@@ -75,8 +75,8 @@
           </video> 
          
             <div class="d-flex ml-3">
-              <button  type="submit" onclick="return confirm('Chu vi certas?')" href="{{url('delete'.'/'.$UseVideo->id)}}" class="btn btn-secondary mt-2 mr-2" style="margin-left:1px;"><i class="fa fa-trash"></i>forigi</button>
-              <button onclick="alerte2()" type="submit" class="btn btn-warning mt-2" style="margin-left:1px;"><i class="fa fa-edit"></i>Modifii</button>
+              <button  type="submit" onclick="return confirm('Chu vi certas?')" href="{{url('delete'.'/'.$UseVideo->id)}}" class="btn btn-secondary mt-2 mr-2" style="margin-left:1px;"><i style="color:#e95f71" class="fa fa-trash"></i>forigi</button>
+              <button onclick="alerte2()" type="submit" class="btn btn-warning mt-2 text-white" style="margin-left:1px;"><i style="color: red" class="fa fa-edit"></i>Modifii</button>
             </div>
           
         </div>

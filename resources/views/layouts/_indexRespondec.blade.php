@@ -21,7 +21,7 @@
     <!-- Custom stylesheet - for your changes-->
     <link rel="stylesheet" href="{{asset('css/custom.css')}}">
     <!-- Favicon-->
-    <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet">
+   <!-- <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet">-->
 
     <link rel="shortcut icon" href="{{asset('img/favicon.ico')}}">
     <!-- Tweaks for older IEs--><!--[if lt IE 9]>
@@ -83,7 +83,7 @@
                   <div class="progress">
                     <div role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" class="progress-bar dashbg-3"></div>
                   </div></a><a href="#" class="dropdown-item">
-                  <div class="text d-flex justify-content-between"><strong>Profilo</strong><span>100% complete{{Auth::user()->state}}</span></div>
+                  <div class="text d-flex justify-content-between"><strong>Profilo</strong><span>100% {{Auth::user()->state}}</span></div>
                   <div class="progress">
                     <div role="progressbar" style="width: 70%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" class="progress-bar dashbg-2"></div>
                   </div></a><a href="#" class="dropdown-item">
@@ -202,10 +202,10 @@
         <ul class="list-unstyled">
                 <li class="active"><a href="/respondeculo"> <i class="icon-home"></i>Ĉefpaĝo</a></li>
                  <li><a href="{{route('informojInfo')}}"><i class="fa fa-exclamation-triangle"></i>Gravaj informoj</a></li>
-                <li><a href="#agadojn"> <i class="icon-grid"></i>Agadprogramoj </a></li>
+                <li><a href="{{route('agadoj')}}"> <i class="icon-grid"></i>Agadprogramoj </a></li>
                 <li><a href="{{route('videoj')}}"> <i class="fa fa-bar-chart"></i>Videoj</a></li>
-                <li><a href="{{route('eventoj')}}"> <i class="icon-padnote"></i>Posti eventoj </a></li>
-                <li><a href="{{route('anoncoj')}}"> <i class="icon-padnote"></i>Posti anoncoj </a></li>
+                <li><a href="{{route('eventoj')}}"> <i class="icon-padnote"></i>Enretigi eventoj </a></li>
+                <li><a href="{{route('anoncoj')}}"> <i class="icon-padnote"></i>Enretigi anoncoj </a></li>
                 <li><a href="{{route('aldoni')}}"> <i class="fa fa-plus"></i>Aldoni Estrarano</a></li>
                 <li><a href="{{route('aldoni')}}"> <i class="fa fa-plus"></i>Aldoni Membrighoj</a></li>
                 <li><a href="{{route('logout')}}"> <i class="icon-logout"></i>elsaluti </a></li>
@@ -254,7 +254,7 @@
                     <div class="title">
                       <div class="icon"><i class="icon-paper-and-pencil"></i></div><strong>Agadoj</strong>
                     </div>
-                    <div class="number dashtext-3">10</div>
+                  <div class="number dashtext-3">{{$UserAfishoj}}</div>
                   </div>
                   <div class="progress progress-template">
                     <div role="progressbar" style="width: 55%" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100" class="progress-bar progress-bar-template dashbg-3"></div>
@@ -265,9 +265,9 @@
                 <div class="statistic-block block">
                   <div class="progress-details d-flex align-items-end justify-content-between">
                     <div class="title">
-                      <div class="icon"><i class="icon-writing-whiteboard"></i></div><strong>Anoncoj</strong>
+                      <div class="icon"><i class="icon-writing-whiteboard"></i></div><strong>Administrantoj</strong>
                     </div>
-                  <div class="number dashtext-4">122</div>
+                  <div class="number dashtext-4">{{$admin}}</div>
                   </div>
                   <div class="progress progress-template">
                     <div role="progressbar" style="width: 35%" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100" class="progress-bar progress-bar-template dashbg-4"></div>
@@ -285,7 +285,7 @@
           <div class="footer__block block no-margin-bottom">
             <div class="container-fluid text-center">
               <!-- Please do not remove the backlink to us unless you support us at https://bootstrapious.com/donate. It is part of the license conditions. Thank you for understanding :)-->
-               <p class="no-margin-bottom">2020 &copy; Esperanto-centrojn. Ĉiuj rajtoj rezervitaj. Realigita per <a target="_blank" href=""></a>.</p>
+               <p class="no-margin-bottom"><script> document.write(new Date().getFullYear()); </script> &copy; Esperanto-centrojn. Ĉiuj rajtoj rezervitaj<a target="_blank" href=""></a>.</p>
             </div>
           </div>
         </footer>
@@ -405,27 +405,7 @@
     <script src="{{asset('vendor/jquery-validation/jquery.validate.min.js')}}"></script>
     <script src="{{asset('js/charts-home.js')}}"></script>
     <script src="{{asset('js/front.js')}}"></script>
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
-    <script>
-        @if(Session::has('message')){
-            var type= "{{Session::get('alert-type','info')}}";
-            switch(type){
-              case'info':
-              toastr.info("{{Session::get('message')}}");
-              break;
-              case'warning':
-              toastr.warning("{{Session::get('message')}}");
-              break;
-              case'success':
-              toastr.success("{{Session::get('message')}}");
-              break;
-            } 
-          } 
-          
-           
-  
-        @endif
-        
-	  </script>
+    <!--<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>-->
+    
   </body>
 </html>

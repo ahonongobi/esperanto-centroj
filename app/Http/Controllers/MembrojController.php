@@ -56,18 +56,18 @@ class MembrojController extends Controller
         $UseVideojCount = UseVideoj::where('id_user',Auth::user()->id)->count();
         $postsCount = PostAfiche::where('id_user',Auth::user()->id)->count();
         $UserAfishoj = UserAfishoj::where('id_user',Auth::user()->id)->count();
-
+        $admin = membroj::where('id_user',Auth::user()->id)->count();
         $alreadyExist = Informoj::where('id_user',Auth::user()->id)->count();
         $centroInformoj = DB::select("SELECT * FROM informojs WHERE id_user=?",[
             Auth::user()->id,
         ]);
         
         if($alreadyExist==0){
-            return view('respondeculo/gravaj',compact('UseVideojCount','postsCount','UserAfishoj'));
+            return view('respondeculo/gravaj',compact('UseVideojCount','postsCount','UserAfishoj','admin'));
 
         }
         else{
-            return view('respondeculo/gravaj2',compact('UseVideojCount','postsCount','centroInformoj','UserAfishoj'));
+            return view('respondeculo/gravaj2',compact('UseVideojCount','postsCount','centroInformoj','UserAfishoj','admin'));
 
         }
         

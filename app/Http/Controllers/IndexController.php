@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\PostAfiche;
 use App\Models\Likes;
 use DB;
 class IndexController extends Controller
@@ -22,14 +23,15 @@ class IndexController extends Controller
 
         }
 
-        
-        $allagadoj = DB::select('SELECT * FROM post_afiches');
+        $allagadoj= PostAfiche::paginate(3,['*'],'agado');
+        //$allagadoj = DB::select('SELECT * FROM post_afiches');
         foreach($allagadoj as $allagadojn){
             $agases = DB::select('SELECT * FROM users WHERE id=?',[
                 $allagadojn->id_user,
             ]);
           }
-        $centroj = DB::select('SELECT * FROM users');
+        $centroj = User::paginate(9);
+        //$centroj = DB::select('SELECT * FROM users');
         $videoj = DB::select('SELECT * FROM use_videojs ORDER BY id DESC LIMIT 2');
         $popularaj = DB::select('SELECT * FROM Centerpost ORDER BY id DESC LIMIT 3');
         $popularaj2 = DB::select('SELECT * FROM post_afiches ORDER BY id DESC LIMIT 3');

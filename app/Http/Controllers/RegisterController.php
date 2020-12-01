@@ -28,7 +28,7 @@ class RegisterController extends Controller
         $user->password = bcrypt($req->password);
         $user->save();
         $notification = array(
-            'message'=>'votre inscription a bien été envoyé'."<a href=''>Chi tie</a>",
+            'message'=>'Via registrado estas bone sendita',
             'alert-type'=>'success'
            );
         return back()->with($notification);

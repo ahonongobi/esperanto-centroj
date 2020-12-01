@@ -11,13 +11,13 @@
       <!-- Basic Form-->
       <div class="col-lg-6">
         <div class="block">
-          <div class="title"><strong class="d-block">Update</strong><span class="d-block">vi povas posti tri fotoj kaj priskriboj.</span></div>
+          <div class="title"><strong class="d-block">Update</strong><span class="d-block">Notu: estas kiel facebook. se vi volas modifi la bildojn, vi bezonas forigi la poston.</span></div>
           <div class="block-body">
-          <form action="{{url('update'.'/'.$UserAfishoj[0]->id)}}" method="POST" enctype="multipart/form-data">
+          <form action="{{url('update'.'/'.$UserAfishojn[0]->id)}}" method="POST" enctype="multipart/form-data">
               @csrf
               <div class="form-group">
                 <label class="form-control-label">Titolo</label>
-              <input type="text" name="title" value="{{$UserAfishoj[0]->title}}" placeholder="Titolo " vak class="form-control">
+              <input type="text" name="title" value="{{$UserAfishojn[0]->title}}" placeholder="Titolo " vak class="form-control">
                 @if($errors->has('title'))
 	          			<p style="color: green;" class="text-red">{{ $errors->first('title') }}</p>
 			         @endif
@@ -25,7 +25,7 @@
               <div class="form-group">       
                 <label class="form-control-label">Priskriboj 1</label>
                 <textarea name="description1" value="" placeholder="Priskriboj pri la bildo 1" class="form-control" id="" cols="30" rows="">
-                  {{$UserAfishoj[0]->description1}}
+                  {{$UserAfishojn[0]->description1}}
                 </textarea>
                 @if($errors->has('description1'))
 	          			<p style="color: green;" class="text-red">{{ $errors->first('description1') }}</p>
@@ -34,7 +34,7 @@
               <div class="form-group">       
                   <label class="form-control-label">Priskriboj 2</label>
                   <textarea name="description2" value=""  class="form-control" id="" cols="30" rows="">
-                    {{$UserAfishoj[0]->description2}}
+                    {{$UserAfishojn[0]->description2}}
                   </textarea>
                   @if($errors->has('description2'))
 	          			<p style="color: green;" class="text-red">{{ $errors->first('description2') }}</p>
@@ -44,9 +44,9 @@
                   <label class="form-control-label">Priskriboj 3</label>
                   
                   <textarea name="description3" value="" placeholder="Priskriboj pri la bildo 3" class="form-control" id="" cols="30" rows="">
-                    {{$UserAfishoj[0]->description3}}
+                    {{$UserAfishojn[0]->description3}}
                   </textarea>
-                  @if($errors->has('description1'))
+                  @if($errors->has('description3'))
 	          			<p style="color: green;" class="text-red">{{ $errors->first('description3') }}</p>
 			         @endif
                 </div>

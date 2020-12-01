@@ -20,6 +20,7 @@ class CreatePostAfichesTable extends Migration
             $table->string('title');
             $table->string('desc');
             $table->string('file1');
+            $table->string('logo');
             $table->timestamps();
         });
     }

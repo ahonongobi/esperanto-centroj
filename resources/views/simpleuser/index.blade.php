@@ -113,9 +113,9 @@
 								<h5><a href="#">
 									{{$agado->desc}}</a></h5>
 
-								<div class="mag-post-meta mt-3"><a href="#"><img src="{{ asset('storage/actuality_photos/'.$agas->logo)}}"
+								<div class="mag-post-meta mt-3"><a href="#"><img src="{{ asset('storage/actuality_photos/'.$agado->logo)}}"
 											class="img-fluid rounded-circle admin-img" alt=""></a> <span
-								class="meta-author"><span>Posti&nbsp;</span><a href="#" class="author-name">{{$agas->centro}}</a> </span>
+								class="meta-author"><span>Posti&nbsp;</span><a href="#" class="author-name">{{$agado->center}}</a> </span>
 									<span class="author-date">{{date('d-m-Y', strtotime($agado->created_at))}}</span>
 								</div>
 							</div>
@@ -366,6 +366,8 @@
 						</div>
 					
 					</div>
+					<div class="row pagination d-flex justify-content-center">{!! $centroj->appends(Request::all())->links() !!}</div>
+
 					
 					<!--//mag-hny-content-1-->
 					<!--/mag-hny-content-3
@@ -492,7 +494,7 @@
 					<!--//mag-hny-content-3-->
 					<!--/mag-left-grid-6-->
 					<div style="margin-top: 10%;" class="mag-hny-content my-lg-5 mb-5">
-						<h3 class="hny-title">Plej<span>ŝatata</span></h3>
+						<h3 class="hny-title">Plej <span> ŝatata</span></h3>
 						<div class="fashny-grids-inf row">
 							@foreach ($likes as $like)
 							<div class="fashion-gd-1 col-lg-4 col-6">
@@ -536,9 +538,9 @@
 									<h4 class="mag-post-head">
 									{{$allagado->title}}</h4>
 								</a>
-								<div class="mag-post-meta mt-3"><a href="#"><img src="{{ asset('storage/actuality_photos/'.$agase->logo)}}"
+								<div class="mag-post-meta mt-3"><a href="#"><img src="{{ asset('storage/actuality_photos/'.$allagado->logo)}}"
 											class="img-fluid rounded-circle admin-img admin-img1" alt=""></a> <span
-								class="meta-author"> <span>By&nbsp;</span><a href="#" class="author-name">{{$agase->centro}}</a> </span>
+								class="meta-author"> <span>By&nbsp;</span><a href="#" class="author-name">{{$allagado->center}}</a> </span>
 									<span class="author-date">{{date('d-m-Y', strtotime($allagado->created_at))}}</span>
 								</div>
 							<p class="para my-3">{{$allagado->desc}}</p>
@@ -552,6 +554,8 @@
 						@endforeach
 
 					</div>
+					<div class="row pagination d-flex justify-content-center">{!! $allagadoj->appends(Request::all())->links() !!}</div>
+
 					<!--//mag-hny-content-3-->
 					<!--//mag-left-grid-5-->
 					<div class="mag-hny-content my-5">
@@ -711,21 +715,28 @@
 						<!--  Demos -->
 						<div id="demos">
 							<div class="owl-carousel owl-theme grid-col-4">
+                             @foreach ($tofs as $toff)
+							 <div class="item">
+								<a href="#link">
+									<div class="gallery-grid">
+										<div class="content">
+											<div class="content-overlay"></div>
+											<img src="assets/images/grid1.jpg" class="image-two img-fluid">
 
-								@foreach ($tofs as $tof)
-								<div class="item">
-									<a href="#link">
-										<div class="gallery-grid">
-											<div class="content">
-												<div class="content-overlay"></div>
-												<img src="{{ asset('storage/actuality_photos/'.$tof->logo)}}" class="image-two img-fluid">
-
-											</div>
 										</div>
+									</div>
 
-									</a>
-								</div>	
-								@endforeach
+								</a>
+							</div>
+							 @endforeach
+								
+								
+								
+								
+								
+								
+								
+								
 						
 							</div>
 						</div>
@@ -910,7 +921,7 @@
 									</div>
 									<div class="mag-post-details col-9">
 										<h4 class="mag-post-title">
-											<a href="#">{{$populara->title}}....</a>
+											<a href="{{url('/info/token='.$populara->id_user)}}">{{$populara->title}}....</a>
 										</h4>
 
 
@@ -927,7 +938,7 @@
 									</div>
 									<div class="mag-post-details col-9">
 										<h4 class="mag-post-title">
-											<a href="#">{{$populara2->title}}....</a>
+											<a href="{{url('/info/token='.$populara2->id_user)}}">{{$populara2->title}}....</a>
 										</h4>
 
 
@@ -949,9 +960,9 @@
 									</div>
 									<div class="mag-post-details col-9">
 										<h4 class="mag-post-cate mb-2">
-											<a href="#">Anna Delpan</a> </h4>
+											<a href="{{url('/info/token='.$comment->centre_id)}}">{{$comment->center}}</a> </h4>
 
-										<p>{{$comment->message}}</p>
+										<p>{{substr($comment->message,0,100)}}....</p>
 									</div>
 								</div>
 								@endforeach
@@ -962,22 +973,29 @@
 						</div>
 						
 						<div class="side-bar-hny-recent mb-5">
-							<h4 class="mag-side-title">Ne  <span>maltrafu tiuj</span></h4>
+							<h4 class="mag-side-title">Salut-Vortoj<span> de ILEI</span></h4>
 							<div class="mag-small-post dont-miss-grids-inf">
 								<div class="maghny-gd-1">
-									<div class="maghny-grid mb-3 dont-miss">
-										<a href="#"><img class="img-fluid" src="assets/images/m5.jpg" alt=""></a>
-									</div>
+									
 									<h5><a href="#">
-											Eta skribo koncerne ciu esperanto centro kaj diversajoj....</a></h5>
-									<p>Vivamus a ligula quam. Ut blandit eu leo non suscipit. Duis feugiat tortor sed.
+										Salut-Vortoj de ilei</a></h5>
+									<p>ESPERANTO-CENTROJ	
+										EO-centroj estas nestoj, kernoj, koviloj, inkubatoroj, bredejoj, kreskigejoj por « produkti » novajn esperantistojn kaj progresigi niajn movadanojn. 
+										EO-centroj estas lokoj por lerni, studi, kunveni, progresi, malkovri, amikiĝi, malfermi sin al la mondo.
+										ILEI, La LIGO de Esperantistaj Instruistoj, estas tre feliĉa, ke ekzistas nun retejo, kiu kolektas donitaĵojn pri tiuj EO-centroj, kiu prezentas ilin, cele al interŝanĝo de spertoj kaj progresigo de ĉiuj tiaj kunvenejoj.
+										La LIGO tre elkore dankas al ĉiuj personoj, kiuj prizorgas tiajn centrojn, mastrumas ilin, vivtenas ilin, organizas iliajn aktivecojn, per sia tempo, energio, kapabloj kaj mono.
+										Vivu multaj grandaj kaj fortaj EO-centroj en la tuta mondo !
+										Mireille Grosjean
+										Prezidanto de ILEI
+										Kotonuo, Benino, 2020-12-15
+										La retejo estas prizorgita de Gobi Parfait Abyssinie Ahonon kaj Mireille Grosjean.
 									</p>
-									<div class="mag-post-meta"><a href="#"><img src="assets/images/admin.jpg"
+									<div class="mag-post-meta"><a href="#"><img src="{{asset('assets/images/slides/UEA.JPG')}}"
 												class="img-fluid rounded-circle admin-img admin-img1" alt=""></a> <span
-											class="meta-author"><span>By&nbsp;</span><a href="#"
-												class="author-name">John
-												Brain</a> </span>
-										<span class="author-date">Jan 5, 2020</span>
+											class="meta-author"><span>skribu&nbsp;</span><a href="#"
+												class="author-name">ILEI
+												Komitato</a> </span>
+										<span class="author-date">Nov 10, 2020</span>
 									</div>
 								</div>
 								
@@ -1001,9 +1019,9 @@
 						@csrf
 							<div class="form-input">
 								<input type="email" name="email" class="form-control"
-									placeholder="Enter your email address" required="">
+									placeholder="Entajpu via retadreso">
 									@if($errors->has('email'))
-	          			<p style="color: green;" class="text-red">{{ $errors->first('email') }}</p>
+	          			<p style="color: red;" class="text-red">{{ $errors->first('email') }}</p>
 			         @endif
 							</div>
 							<div class="form-input mt-md-4 mt-3"><button class="btn">ABONU</button></div>
@@ -1021,7 +1039,7 @@
 	<script>
 		$(document).ready(function () {
 			$('.owl-carousel').owlCarousel({
-				loop: true,
+				//loop: true,
 				margin: 0,
 				responsiveClass: true,
 				autoplay: true,
