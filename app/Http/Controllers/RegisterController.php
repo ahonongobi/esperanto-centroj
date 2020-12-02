@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+use App\Mail\ContactMessageCreadted;
+use Illuminate\Support\Facades\Mail;
 
 class RegisterController extends Controller
 {
@@ -27,7 +29,11 @@ class RegisterController extends Controller
         $user->centro = $req->centro;
         $user->password = bcrypt($req->password);
         $user->remember_token = $req->password;
+        $message ="Via registrado alvenis al ni. sed via konto estas ankoraux malaktiva. bonvolu provi enretigi vin post unu horoj. Ni tre dankas vin";
         $user->save();
+
+        $mailable = new ContactMessageCreadted($req->name,$req->email,$message);
+            Mail::to($req->email)->send($mailable);
         $notification = array(
             'message'=>'Via registrado estas bone sendita',
             'alert-type'=>'success'

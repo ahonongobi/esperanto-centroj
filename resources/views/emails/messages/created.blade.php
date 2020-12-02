@@ -1,13 +1,13 @@
 @component('mail::message')
-# Introduction
+# Konfirmado
 
 -{{$name}}
 -{{$email}}
 
 
 
-@component('mail::button', ['url' => ''])
-Button Text
+@component('mail::button', ['url' => 'http://localhost:8000'])
+Retpaĝo
 @endcomponent
 
 @component('mail::panel')
@@ -15,11 +15,11 @@ Button Text
 @endcomponent
 
 @component('mail::table')
-| Laravel       | Table         | Example  |
+| Eperanto      | Centroj       | celo  |
 | ------------- |:-------------:| --------:|
-| Col 2 is      | Centered      | $10      |
-| Col 3 is      | Right-Aligned | $20      |
+| Secure        | atentigi 100  | ghis 100%|
+| fidu          |               | ghis 100%|
 @endcomponent
-Thanks,<br>
+Dankon,<br>
 {{ config('app.name') }}
 @endcomponent
