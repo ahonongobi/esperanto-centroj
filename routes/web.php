@@ -37,7 +37,7 @@ Route::get('/eventoj',[RespondeculoController::class,'eventoj'])->name('eventoj'
 Route::get('/aldoni',[RespondeculoController::class,'aldoni'])->name('aldoni');
 Route::get('/videoj',[RespondeculoController::class,'videoj'])->middleware('auth')->name('videoj');
 Route::get('/anoncoj',[RespondeculoController::class,'anoncoj'])->name('anoncoj');
-Route::get('/respondeculo',[RespondeculoController::class,'respondeculo'])->name('respondeculo');
+Route::get('/respondeculo',[RespondeculoController::class,'respondeculo'])->name('respondeculo')->middleware('auth');
 
 Route::post('/register',[RegisterController::class,'store'])->name('register');
 Route::get('/register',[RegisterController::class,'loginPage'])->name('registerpage');
@@ -68,4 +68,6 @@ Route::post('/update/{id}',[DeleteUpdateController::class,'update']);
 Route::get('/update/{id}',[DeleteUpdateController::class,'updateView']);
 Route::get('/likes/{id}/{id_user}/{image}',[LikeController::class,'store']);
 Route::post('/subscribe',[SubscribeController::class,'store']);
-Route::get('/agadoj',[RespondeculoController::class,'displayed'])->name('agadoj');
+Route::get('/agadoj',[RespondeculoController::class,'displayed'])->name('agadoj')->middleware('auth');
+
+Route::get("/guest",[LoginController::class,'guest']);

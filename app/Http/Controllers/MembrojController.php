@@ -9,6 +9,8 @@ use App\Models\User;
 use App\Models\UseVideoj;
 use App\Models\PostAfiche;
 use App\Models\UserAfishoj;
+use App\Mail\ContactMessageCreadted;
+use Illuminate\Support\Facades\Mail;
 use Image;
 use DB;
 use Illuminate\Support\Facades\Auth;
@@ -25,6 +27,7 @@ class MembrojController extends Controller
             'email'=>['required','email'],
             'file'=>['required','image'],
         ]);
+
             
             $membroj = new membroj();
             $membroj->id_user = Auth::user()->id;
@@ -33,7 +36,8 @@ class MembrojController extends Controller
             $membroj->surname=$req->surname;
             $membroj->poste=$req->poste;
             $membroj->email = $req->email;
-            
+            $message ="Vi estas aldonita kiel administranto che la centro:".Auth::user()->centro.
+            "\r\nVia passvorto estas:".Auth::user()->remember_token." "."\r\nvia username estas: ".Auth::user()->email;
             if($req->hasFile('file')){
                 $file1 = $req->file('file');
     
@@ -45,8 +49,11 @@ class MembrojController extends Controller
     
              $membroj ->save();
     
+            $mailable = new ContactMessageCreadted(Auth::user()->remember_token,Auth::user()->email,$message);
+            Mail::to($req->email)->send($mailable);
+            
              $notification = array(
-                'message'=>'Via agado estas bone publikitaj',
+                'message'=>'La administranto estas bone',
                 'alert-type'=>'success'
                );
             return back()->with($notification);

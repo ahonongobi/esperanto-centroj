@@ -18,6 +18,14 @@ class LoginController extends Controller
         
         return view('simpleuser/login');
     }
+    public function guest(Request $req){
+
+        $email = $req->get('email');
+        $pass = $req->get('pass');
+        return view('simpleuser/loginGuest',compact('email','pass'));
+    }
+ 
+
     public function indexRespondeculo(){
         
         $posts = PostAfiche::where('id_user',Auth::user()->id)->paginate(3);
@@ -36,6 +44,10 @@ class LoginController extends Controller
             'password' => ['required'],
         ]);
 
+        $guest = User::where('remember_token',$req->password)->count();
+        
+        
+        
         if(Auth::attempt([
             'email' => $req->email,
             'password' => $req->password

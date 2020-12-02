@@ -12,7 +12,7 @@
           <p>{{$post->title}}</p>
             <!-- 3084 for modify dark color -->
           </div>
-        <p>{{substr($post->desc,0,5)."..."}}</p>
+        <p>{{substr($post->desc,0,60)."..."}}</p>
           <img class="agado"  width="" height="" src="{{ asset('storage/actuality_photos/'.$post->file1)}}" alt="" srcset="">
             
           <div>

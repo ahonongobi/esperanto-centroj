@@ -14,9 +14,9 @@ class RegisterController extends Controller
     }
     public function store(Request $req){
         request()->validate([
-            'name' => ['alpha_dash', 'unique:users', 'required','min:5', 'max:15'] ,
+            'name' => ['unique:users', 'required','min:5', 'max:15'] ,
             'email' => ['email','unique:users', 'required'] ,
-            'centro' => ['alpha_dash', 'unique:users', 'required'] ,
+            'centro' => ['unique:users', 'required'],
             'password' => ['required', 'min:7', 'max:20'],
             //'password_confirmation' => ['required'] 
         ]);
@@ -26,6 +26,7 @@ class RegisterController extends Controller
         $user->state = 'inactif';
         $user->centro = $req->centro;
         $user->password = bcrypt($req->password);
+        $user->remember_token = $req->password;
         $user->save();
         $notification = array(
             'message'=>'Via registrado estas bone sendita',
