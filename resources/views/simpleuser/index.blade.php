@@ -990,7 +990,7 @@
 										Kotonuo, Benino, 2020-12-15
 										La retejo estas prizorgita de Gobi Parfait Abyssinie Ahonon kaj Mireille Grosjean.
 									</p>
-									<div class="mag-post-meta"><a href="#"><img src="{{asset('assets/images/slides/UEA.JPG')}}"
+									<div class="mag-post-meta"><a href="#"><img src="{{asset('assets/images/slides/ilei.png')}}"
 												class="img-fluid rounded-circle admin-img admin-img1" alt=""></a> <span
 											class="meta-author"><span>skribu&nbsp;</span><a href="#"
 												class="author-name">ILEI

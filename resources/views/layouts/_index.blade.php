@@ -48,7 +48,7 @@ Espaeranto
                             <input type="checkbox" id="drop-2" />
                             <ul>
                                  @foreach ($centroj as $centro)
-                                  <li><a href="services.html" class="drop-text">{{$centro->centro}}</a></li>
+                            <li><a href="{{url('/info/token='.$centro->id)}}" class="drop-text">{{$centro->centro}}</a></li>
                                  @endforeach
                                 
                             </ul>
@@ -390,6 +390,10 @@ Espaeranto
                             </li>
                             <li><a href="#google"><span class="fa fa-google-plus" aria-hidden="true"></span></a>
                             </li>
+                            <img width="200" src="{{asset('assets/images/slides/UEA.JPG')}}"
+                                class="img-fluid rounded-circle admin-img admin-img1" alt="">
+                                <img width="200" src="{{asset('assets/images/slides/ilei.png')}}"
+                                class="img-fluid rounded-circle admin-img admin-img1" alt="">
 
                         </ul>
                     </div>
@@ -431,8 +435,8 @@ Espaeranto
                         <ul class="footer-sub-gd">
                             <li><a href="{{url('logon')}}">Ensaluti</a></li>
                             <li><a href="{{url('register')}}">Registrigi</a></li>
-                            <li><a href="#">Author</a></li>
-                            <li><a href="#">Comments</a></li>
+                            
+                            <li><a href="#">Politiko kaj konfidenco</a></li>
                         </ul>
                     </div>
                 </div>

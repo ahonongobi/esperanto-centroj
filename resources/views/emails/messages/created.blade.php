@@ -6,7 +6,7 @@
 
 
 
-@component('mail::button', ['url' => 'http://localhost:8000'])
+@component('mail::button', ['url' => 'https://esperanto-centroj.info'])
 Retpaĝo
 @endcomponent
 

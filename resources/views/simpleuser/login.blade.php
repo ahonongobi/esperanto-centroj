@@ -3,7 +3,7 @@
 <html lang="zxx">
 
 <head>
-	<title>Effect Login Form Responsive Widget Template :: w3layouts</title>
+	<title> Esperanto centroj | Enreitgi</title>
 	<!-- Meta tag Keywords -->
 	<link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet">
 

@@ -3,13 +3,13 @@
 <html lang="zxx">
 
 <head>
-	<title>Effect Login Form Responsive Widget Template :: w3layouts</title>
+	<title> Esperanto centroj | Registrigi</title>
 	<!-- Meta tag Keywords -->
 	<link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet">
 
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta charset="UTF-8" />
-	<meta name="keywords" content="Effect Login Form Responsive Widget,Login form widgets, Sign up Web forms , Login signup Responsive web form,Flat Pricing table,Flat Drop downs,Registration Forms,News letter Forms,Elements"
+	<meta name="keywords" content="Esperanto centroj,Esperanto, centroj,ilei,uea,zamenhof"
     />
     
     
