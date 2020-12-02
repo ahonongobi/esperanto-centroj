@@ -54,7 +54,8 @@
     </div>
     @endforeach
     
-    
+    <div class="row d-flex justify-content-center">{!! $membroj->appends(Request::all())->links() !!}</div>
+
     
   </div>
 </section>

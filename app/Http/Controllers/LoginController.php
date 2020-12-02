@@ -32,7 +32,7 @@ class LoginController extends Controller
         $postsCount = PostAfiche::where('id_user',Auth::user()->id)->count();
         $UseVideoj = UseVideoj::where('id_user',Auth::user()->id)->paginate(3);
         $UseVideojCount = UseVideoj::where('id_user',Auth::user()->id)->count();
-        $membroj = membroj::where('id_user',Auth::user()->id)->get();
+        $membroj = membroj::where('id_user',Auth::user()->id)->paginate(4,['*'],'admin');
         $UserAfishoj = UserAfishoj::where('id_user',Auth::user()->id)->count();
         $admin = membroj::where('id_user',Auth::user()->id)->count();
         return view('respondeculo/index',compact('posts','UseVideoj','membroj','UseVideojCount','postsCount','UserAfishoj','admin'));
