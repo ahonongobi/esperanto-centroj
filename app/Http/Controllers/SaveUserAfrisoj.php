@@ -119,29 +119,61 @@ class SaveUserAfrisoj extends Controller
     public  function uploadVideoj(Request $request){
 
         request()->validate([
+            //file only videos
+            'file' => 'required|mimes:mp4,mov,ogg,qt |max:20000',
             'desc' => ['required'] ,
 
 
         ]);
+        //$postvideo  = new UseVideoj();
+        //$postvideo->id_user = Auth::user()->id;
+        //$postvideo->key_centre = Auth::user()->key_centre;
+        //$postvideo->center = Auth::user()->centro;
+        //$postvideo->desc = $request->input('desc');
         $postvideo  = new UseVideoj();
         $postvideo->id_user = Auth::user()->id;
         $postvideo->key_centre = Auth::user()->key_centre;
         $postvideo->center = Auth::user()->centro;
         $postvideo->desc = $request->input('desc');
 
-        $name = time().'.'.request()->file->getClientOriginalExtension();
+        if($request->hasFile('file'))
+            {
+                $file1 = $request->file('file');
 
-        $request->file->move(public_path('storage/actuality_photos/'), $name);
 
 
-        $postvideo  = new UseVideoj();
-        $postvideo->id_user = Auth::user()->id;
-        $postvideo->center = Auth::user()->centro;
-        $postvideo->desc = $request->input('desc');
-        $postvideo->videos = $name;
-        $postvideo->save();
+                //$collection = collect([1, 2, 3, 4, 5, ]);
 
-        return response()->json(['success'=>'Successfully uploaded.']);
+                $filename1 = 2*time().'.'.$file1->getClientOriginalExtension();
+                //make($file1)->save(public_path('/storage/actuality_photos/' .$filename1));
+                $path = public_path().'/storage/actuality_photos/';
+
+                $file1->move($path,$filename1);
+                //$file1->move_uploaded_file($filename1,$path);
+                $postvideo->videos = $filename1;
+
+
+            }
+        //$name = time().'.'.request()->file->getClientOriginalExtension();
+
+        //$request->file->move(public_path('storage/actuality_photos/'), $name);
+
+
+        
+        
+        if($postvideo->save()){
+            $notification = array(
+                'message'=>'Via agado estas bone publikitaj',
+                'alert-type'=>'success'
+               );
+        } else{
+            $notification = array(
+                'message'=>'Via agado estas bone publikitaj',
+                'alert-type'=>'success'
+               );
+        }
+
+        
     }
 }
 
