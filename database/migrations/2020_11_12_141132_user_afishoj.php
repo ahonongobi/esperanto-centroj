@@ -15,6 +15,7 @@ class UserAfishoj extends Migration
     {
         Schema::create('Centerpost', function (Blueprint $table) {
         $table->id();
+        $table->integer('key_centre');
         $table->string('id_user');
         $table->string('center');
         $table->string('title');

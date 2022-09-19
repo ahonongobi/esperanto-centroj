@@ -9,4 +9,6 @@ class Informoj extends Model
 {
     use HasFactory;
     protected $table = 'informojs';
+
+    
 }

@@ -15,7 +15,7 @@ class LoginController extends Controller
     //
     public function loginIndex(){
 
-        
+
         return view('simpleuser/login');
     }
     public function guest(Request $req){
@@ -24,10 +24,10 @@ class LoginController extends Controller
         $pass = $req->get('pass');
         return view('simpleuser/loginGuest',compact('email','pass'));
     }
- 
+
 
     public function indexRespondeculo(){
-        
+
         $posts = PostAfiche::where('id_user',Auth::user()->id)->paginate(3);
         $postsCount = PostAfiche::where('id_user',Auth::user()->id)->count();
         $UseVideoj = UseVideoj::where('id_user',Auth::user()->id)->paginate(3);
@@ -45,9 +45,9 @@ class LoginController extends Controller
         ]);
 
         $guest = User::where('remember_token',$req->password)->count();
-        
-        
-        
+
+
+
         if(Auth::attempt([
             'email' => $req->email,
             'password' => $req->password
@@ -57,18 +57,18 @@ class LoginController extends Controller
                 return redirect('wi-zkl10_va/'.Auth::user()->email);
             } elseif(Auth::user()->state=="inactif"){
                 $notif = array(
-                    'message'=>'Votre compte est encore inactif',
+                    'message'=>'Via konto estas ankoraŭ neaktiva',
                     'alert-type'=>'warning'
-               ); 
+               );
                 return back()->with($notif);
             }
         }else{
             $notification = array(
-                'message'=>'Email ou mot de passe incorrect',
+                'message'=>'Malĝusta retpoŝto aŭ pasvorto',
                 'alert-type'=>'warning'
-           ); 
+           );
             return back()->with($notification);
-    
+
         }
 
     }
@@ -76,7 +76,7 @@ class LoginController extends Controller
         Auth::logout();
         $pictures = DB::select('SELECT * FROM Centerpost ORDER BY id DESC LIMIT 3');
         $agadoj = DB::select('SELECT * FROM post_afiches ORDER BY id DESC LIMIT 3');
-        
+
 
         $allagadoj= PostAfiche::paginate(3,['*'],'agado');
         //$allagadoj = DB::select('SELECT * FROM post_afiches');
@@ -88,10 +88,10 @@ class LoginController extends Controller
             $aga = DB::select('SELECT * FROM users WHERE id=?',[
                 $agado->id_user,
              ]);
- 
+
          }
 
-         
+
         foreach($allagadoj as $allagadojn){
             $agases = DB::select('SELECT * FROM users WHERE id=?',[
                 $allagadojn->id_user,
@@ -110,6 +110,43 @@ class LoginController extends Controller
         $popularaj2 = DB::select('SELECT * FROM post_afiches ORDER BY id DESC LIMIT 3');
         $comments = DB::select('SELECT * FROM comments ORDER BY id DESC LIMIT 3');
 
-        return view('simpleuser/index',compact('pictures','agadoj','allagadoj','centroj','videoj','centroCout','countlandoj','amatoroj','aga','agases','likes','tofs','popularaj','popularaj2','comments'));
+        return redirect('/')->with('pictures',$pictures)->with('agadoj',$agadoj)->with('aga',$aga)->with('allagadoj',$allagadoj)->with('agases',$agases)->with('likes',$likes)->with('centroj',$centroj)->with('videoj',$videoj)->with('centroCout',$centroCout)->with('countlandoj',$countlandoj)->with('amatoroj',$amatoroj)->with('tofs',$tofs)->with('popularaj',$popularaj)->with('popularaj2',$popularaj2)->with('comments',$comments);
+       // return view('simpleuser/index',compact('pictures','agadoj','allagadoj','centroj','videoj','centroCout','countlandoj','amatoroj','aga','agases','likes','tofs','popularaj','popularaj2','comments'));
+    }
+
+    public function verified($email){
+        $characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $pin = mt_rand(1000000, 9999999)
+    . mt_rand(1000000, 9999999)
+    . $characters[rand(0, strlen($characters) - 1)];
+
+// shuffle the result
+        $string = str_shuffle($pin);
+        $state = "actif";
+
+        $remember_token_update = DB::update('UPDATE users SET remember_token=?, state =? WHERE email=?',[
+            $string,
+            $state,
+            $email,
+        ]);
+
+
+        if($remember_token_update){
+            $notification = array(
+                'message'=>'Via konto estas konfirmita. Ensalutu nun.',
+                'alert-type'=>'success'
+               );
+
+            return redirect('/logon')->with($notification);
+        }
+        else {
+            $notification = array(
+                'message'=>'Via konto ne estas kontrolita. Bonvolu reprovi poste.',
+                'alert-type'=>'warning'
+               );
+            return redirect('/logon')->with($notification);
+        }
+
+
     }
 }

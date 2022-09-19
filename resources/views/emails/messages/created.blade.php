@@ -6,8 +6,8 @@
 
 
 
-@component('mail::button', ['url' => 'https://esperanto-centroj.info'])
-Retpaĝo
+@component('mail::button', ['url' => 'http://localhost:8080/email-verification/'.$email])
+Konfirmu vin
 @endcomponent
 
 @component('mail::panel')

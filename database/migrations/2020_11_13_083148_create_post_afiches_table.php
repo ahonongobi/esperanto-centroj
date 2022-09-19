@@ -15,6 +15,7 @@ class CreatePostAfichesTable extends Migration
     {
         Schema::create('post_afiches', function (Blueprint $table) {
             $table->id();
+            $table->integer('key_centre');
             $table->string('id_user');
             $table->string('center');
             $table->string('title');

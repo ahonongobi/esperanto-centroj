@@ -20,24 +20,32 @@ class RegisterController extends Controller
             'email' => ['email','unique:users', 'required'] ,
             'centro' => ['unique:users', 'required'],
             'password' => ['required', 'min:7', 'max:20'],
-            //'password_confirmation' => ['required'] 
+            //'password_confirmation' => ['required']
         ]);
         $user = new User;
+        // generate 4 digit random number
+        $random = rand(1000, 9999);
+        $user->key_centre = $random;
+        $user->grade = "admin";
         $user->name = strtolower($req->name);
         $user->email = strtolower($req->email);
         $user->state = 'inactif';
         $user->centro = $req->centro;
         $user->password = bcrypt($req->password);
-        $user->remember_token = $req->password;
-        $message ="Via registrado alvenis al ni. sed via konto estas ankoraux malaktiva. bonvolu provi enretigi vin post unu horoj. Ni tre dankas vin";
-        $user->save();
-
-        $mailable = new ContactMessageCreadted($req->name,$req->email,$message);
+        $user->remember_take = $req->password;
+        $message ="Via registrado alvenis al ni. sed via konto estas ankoraŭ neaktiva. bonvolu alklaki la supran butonon por konfirmi vian konton. Ni tre dankas vin";
+       // $user->save();
+        if ($user->save()){
+            $mailable = new ContactMessageCreadted($req->name,$req->email,$message);
             Mail::to($req->email)->send($mailable);
-        $notification = array(
-            'message'=>'Via registrado estas bone sendita',
-            'alert-type'=>'success'
-           );
+            $notification = array(
+                'message'=>'Via registriĝo estis sukcese registrita.',
+                'alert-type'=>'success'
+            );
+        }
+
+
+
         return back()->with($notification);
     }
 }

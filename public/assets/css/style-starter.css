@@ -8422,6 +8422,7 @@ button,
 [type="reset"],
 [type="submit"] {
   -webkit-appearance: button;
+  color: #fff;
 }
 
 button:not(:disabled),

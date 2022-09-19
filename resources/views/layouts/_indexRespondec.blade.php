@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-  <head> 
+  <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Esperanto centroj </title>
@@ -28,8 +28,9 @@
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
   </head>
+
   <body>
-    <header class="header">   
+    <header class="header">
       <nav class="navbar navbar-expand-lg">
         <div class="search-panel">
           <div class="search-inner d-flex align-items-center justify-content-center">
@@ -46,18 +47,20 @@
           <div class="navbar-header">
             <!-- Navbar Header--><a href="/respondeculo" class="navbar-brand">
               <div class="brand-text brand-big visible text-uppercase"><strong class="text-primary">ILEI</strong><strong>/UEA</strong></div>
-              <div class="brand-text brand-sm"><strong class="text-primary">D</strong><strong>A</strong></div></a>
-            <!-- Sidebar Toggle Btn-->
-            <button class="sidebar-toggle"><i class="fa fa-long-arrow-left"></i></button>
+              <div class="brand-text brand-sm"><strong class="text-primary">E</strong><strong>O</strong></div></a>
+            <!-- Sidebar Toggle Btn
+            <button class="sidebar-toggle"><i class="fa fa-long-arrow-left"></i></button> -->
+            <button class="sidebar-toggle"><i class="fa fa-bars"></i></button>
+
           </div>
-          <!-- <div class="right-menu list-inline no-margin-bottom">    
+          <!-- <div class="right-menu list-inline no-margin-bottom">
             <div class="list-inline-item"><a href="#" class="search-open nav-link"><i class="icon-magnifying-glass-browser"></i></a></div>
             <div class="list-inline-item dropdown"><a id="navbarDropdownMenuLink1" href="http://example.com" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link messages-toggle"><i class="icon-email"></i><span class="badge dashbg-1">5</span></a>
               <div aria-labelledby="navbarDropdownMenuLink1" class="dropdown-menu messages"><a href="#" class="dropdown-item message d-flex align-items-center">
                   <!--<div class="profile"><img src="img/avatar-3.jpg" alt="..." class="img-fluid">
                     <div class="status online"></div>
                   </div>
-                  
+
                   <div class="content">   <strong class="d-block">Nadia Halsey</strong><span class="d-block">lorem ipsum dolor sit amit</span><small class="date d-block">9:30am</small></div></a><a href="#" class="dropdown-item message d-flex align-items-center">
                   <div class="profile"><img src="img/avatar-2.jpg" alt="..." class="img-fluid">
                     <div class="status away"></div>
@@ -100,7 +103,7 @@
                     <div role="progressbar" style="width: 65%" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100" class="progress-bar dashbg-1"></div>
                   </div></a><a href="#" class="dropdown-item text-center"> <strong>
                     <button type="submit">Changhu profilo</button>
-                   
+
                     <i class="fa fa-angle-right"></i></strong></a>
                   </form>
               </div>
@@ -171,8 +174,8 @@
             </div> ->
             <!-- Megamenu end     -->
             <!-- Languages dropdown    -->
-            <div class="list-inline-item dropdown"><a id="languages" rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link language dropdown-toggle"><img src="img/flags/16/Esperanto.png" alt="English"><span class="d-none d-sm-inline-block text-white">Esperanto</span></a>
-              <div aria-labelledby="languages" class="dropdown-menu"><a rel="nofollow" href="#" class="dropdown-item"> <img src="img/flags/16/DE.png" alt="English" class="mr-2 text-white"><span>German</span></a><a rel="nofollow" href="#" class="dropdown-item"> <img src="img/flags/16/FR.png" alt="English" class="mr-2 text-white"><span>French  </span></a></div>
+            <div class="list-inline-item dropdown"><a id="languages" rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link language dropdown-toggle"><img src="img/flags/16/Esperanto.png" alt=""><span class="d-none d-sm-inline-block text-white">Esperanto</span></a>
+              <div aria-labelledby="languages" class="dropdown-menu"><a rel="nofollow" href="#" class="dropdown-item"> <img src="img/flags/16/Esperanto.png" alt="eo" class="mr-2 text-white"><span>Esperanto-centroj</span></a><a rel="nofollow" href="#" class="dropdown-item"><!-- <img src="img/flags/16/FR.png" alt="English" class="mr-2 text-white"> <span>French  </span>--></a></div>
             </div>
             <!-- Log out               -->
             <div class="list-inline-item logout">                   <a id="logout" href="{{route('logout')}}" class="nav-link text-white">Elsaluti <i class="icon-logout"></i></a></div>
@@ -191,11 +194,11 @@
           @else
         <div class="avatar"><img src="{{asset('storage/actuality_photos/'.Auth::user()->logo)}}" alt="" class="img-fluid rounded-circle"></div>
           @endif
-        
-          
+
+
           <div class="title">
           <h1 class="h5">{{Auth::user()->centro}}</h1>
-            <p>Softvara developer</p>
+            <p>{{Auth::user()->email}}</p>
           </div>
         </div>
         <!-- Sidebar Navidation Menus--><span class="heading">Main</span>
@@ -207,16 +210,16 @@
                 <li><a href="{{route('eventoj')}}"> <i class="icon-padnote"></i>Enretigi eventoj </a></li>
                 <li><a href="{{route('anoncoj')}}"> <i class="icon-padnote"></i>Enretigi anoncoj </a></li>
                 <li><a href="{{route('aldoni')}}"> <i class="fa fa-plus"></i>Aldoni Estrarano</a></li>
-                <li><a href="{{route('aldoni')}}"> <i class="fa fa-plus"></i>Aldoni Membrighoj</a></li>
+                <li><a href="{{route('agadoj')}}"> <i class="fa fa-plus"></i>Lastaj aldonoj</a></li>
                 <li><a href="{{route('logout')}}"> <i class="icon-logout"></i>elsaluti </a></li>
         </ul><span class="heading">Esperanto</span>
-        
+
       </nav>
       <!-- Sidebar Navigation end-->
       <div class="page-content">
         <div class="page-header">
           <div class="container-fluid">
-            <h2 class="h5 no-margin-bottom">Uzanto Instrumentpanelo(Dashboard)</h2>
+            <h2 class="h5 no-margin-bottom">Ilaro por respondeculoj</h2>
           </div>
         </div>
         <section class="no-padding-top no-padding-bottom">
@@ -265,7 +268,7 @@
                 <div class="statistic-block block">
                   <div class="progress-details d-flex align-items-end justify-content-between">
                     <div class="title">
-                      <div class="icon"><i class="icon-writing-whiteboard"></i></div><strong>Administrantoj</strong>
+                      <div class="icon"><i class="icon-writing-whiteboard"></i></div><strong>Respondeculoj</strong>
                     </div>
                   <div class="number dashtext-4">{{$admin}}</div>
                   </div>
@@ -277,15 +280,15 @@
             </div>
           </div>
         </section>
-        
-   
+
+
         @yield('content')
 
         <footer class="footer">
           <div class="footer__block block no-margin-bottom">
             <div class="container-fluid text-center">
               <!-- Please do not remove the backlink to us unless you support us at https://bootstrapious.com/donate. It is part of the license conditions. Thank you for understanding :)-->
-               <p class="no-margin-bottom"><script> document.write(new Date().getFullYear()); </script> &copy; Esperanto-centrojn. Ĉiuj rajtoj rezervitaj<a target="_blank" href=""></a>.</p>
+               <p class="no-margin-bottom"><script> document.write(new Date().getFullYear()); </script> &copy; Esperanto-centroj. Ĉiuj rajtoj rezervitaj<a target="_blank" href=""></a>.</p>
             </div>
           </div>
         </footer>
@@ -406,6 +409,6 @@
     <script src="{{asset('js/charts-home.js')}}"></script>
     <script src="{{asset('js/front.js')}}"></script>
     <!--<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>-->
-    
+
   </body>
 </html>

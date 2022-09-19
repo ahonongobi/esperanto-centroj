@@ -21,7 +21,7 @@ class CreateMembrojsTable extends Migration
             $table->string('surname');
             $table->string('poste');
             $table->string('email');
-            $table->string('photo');
+            $table->string('photo')->nullable();
             $table->timestamps();
         });
     }

@@ -25,10 +25,11 @@ class MembrojController extends Controller
             'poste'=>['required','string'],
             'numero'=>['required','string'],
             'email'=>['required','email'],
-            'file'=>['required','image'],
+
+           // 'file'=>['required','image'],
         ]);
 
-            
+
             $membroj = new membroj();
             $membroj->id_user = Auth::user()->id;
             $membroj->center = Auth::user()->centro;
@@ -36,28 +37,63 @@ class MembrojController extends Controller
             $membroj->surname=$req->surname;
             $membroj->poste=$req->poste;
             $membroj->email = $req->email;
+            $membroj->numero = $req->numero;
+            //generate 4 digit random number : rand(1000,9999)
+            $password = rand(1000,9999);
             $message ="Vi estas aldonita kiel administranto che la centro:".Auth::user()->centro.
-            "\r\nVia passvorto estas:".Auth::user()->remember_token." "."\r\nvia username estas: ".Auth::user()->email;
+            "\r\nVia passvorto estas:".$password." "."\r\nvia username estas: ".$req->email;
             if($req->hasFile('file')){
                 $file1 = $req->file('file');
-    
+
                 $filename1 = 2*time().'.'.$file1->getClientOriginalExtension();
                 Image::make($file1)->save(public_path('/storage/actuality_photos/' .$filename1));
-    
+
                 $membroj->photo = $filename1;
              }
-    
-             $membroj ->save();
-    
-            $mailable = new ContactMessageCreadted(Auth::user()->remember_token,Auth::user()->email,$message);
-            Mail::to($req->email)->send($mailable);
-            
-             $notification = array(
-                'message'=>'La administranto estas bone',
-                'alert-type'=>'success'
-               );
-            return back()->with($notification);
-            
+
+             $Countmembroj = membroj::where('id_user',Auth::user()->id)->count();
+
+             if($Countmembroj >= 3){
+                $notification = array(
+                    'message'=>'Vi jam aldonis tri respondeculoj',
+                    'alert-type'=>'warning'
+                   );
+                return back()->with($notification);
+             }
+             else{
+                $membroj ->save();
+                // save also in the user table
+                 // random 4 digit number
+                 $random = rand(1000,9999);
+                $user = new user();
+                $user->centro = 'Membro_'.$random.'_'.Auth::user()->centro;
+                $user->name = $req->name." ".$req->surname;
+                $user->email = $req->email;
+                $user->key_centre = Auth::user()->key_centre;
+                $user->grade = 'membro';
+                $user->password = bcrypt($password);
+                $user->remember_take = $password;
+                $user->state = 'actif';
+                // count if the user is already in the user table$
+                $CountUser = User::where('email',$req->email)->count();
+                if($CountUser == 0){
+                    $user->save();
+
+                }
+
+
+
+                //$mailable = new ContactMessageCreadted(Auth::user()->remember_token,Auth::user()->email,$message);
+               // Mail::to($req->email)->send($mailable);
+
+                 $notification = array(
+                    'message'=>'La respondeculo estas bone aldonita',
+                    'alert-type'=>'success'
+                   );
+                return back()->with($notification);
+             }
+
+
     }
     public function indexInfor(){
         $UseVideojCount = UseVideoj::where('id_user',Auth::user()->id)->count();
@@ -68,7 +104,7 @@ class MembrojController extends Controller
         $centroInformoj = DB::select("SELECT * FROM informojs WHERE id_user=?",[
             Auth::user()->id,
         ]);
-        
+
         if($alreadyExist==0){
             return view('respondeculo/gravaj',compact('UseVideojCount','postsCount','UserAfishoj','admin'));
 
@@ -77,7 +113,7 @@ class MembrojController extends Controller
             return view('respondeculo/gravaj2',compact('UseVideojCount','postsCount','centroInformoj','UserAfishoj','admin'));
 
         }
-        
+
     }
 
 
@@ -119,9 +155,9 @@ class MembrojController extends Controller
         $informoj->agado = $req2->agado;
         $informoj->Kontaktadreso = $req2->Kontaktadreso;
         $informoj->retejo = $req2->retejo;
-        
+
         $informoj->save();
-        
+
         $notification = array(
             'message'=>'Viaj informoj estas bone registrata',
             'alert-type'=>'success'

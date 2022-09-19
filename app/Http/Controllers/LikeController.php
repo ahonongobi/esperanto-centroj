@@ -23,14 +23,14 @@ class LikeController extends Controller
             $likes->save();
             
             $notification = array(
-                'message'=>'shato aldonis',
+                'message'=>'Ŝato aldonis.',
                 'alert-type'=>'success'
                );
             return back()->with($notification);
         }
         else{
             $notification = array(
-                'message'=>'Vi ne plus povas shati',
+                'message'=>'Vi ne plus povas Ŝati tion.',
                 'alert-type'=>'warning'
                );
             return back()->with($notification);

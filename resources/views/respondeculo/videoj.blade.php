@@ -1,72 +1,89 @@
-@extends('layouts/_indexRespondec')
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+@extends('layouts/_indexRespondecx')
 @section('content')
-<section id="agadojn" class="margin-bottom-sm">
-  <div class="row d-flex justify-content-center">{!! $UseVideoj->appends(Request::all())->links() !!}</div>
-  <div class="container-fluid">
-    <div class="row d-flex align-items-stretch">
-      
-      @foreach ($UseVideoj as $UseVideo)
-      <div class="col-lg-4">
-        <div class="stats-with-chart-1 block">
-        <div class="title"> <strong class="d-block">{{$UseVideo->title}}</strong><span class="d-block">{{$UseVideo->desc}}</span></div>
-          <video  class="agado" width="" height="" controls>
-            <source src="{{ asset('storage/actuality_photos/'.$UseVideo->videos)}}" type="video/mp4">
-            <source src="movie.ogg" type="video/ogg">
-          Your browser does not support the video tag.
-          </video> 
-         
-            <div class="d-flex ml-3">
-            <a  type="submit" onclick="return confirm('Chu vi certas?')" href="{{url('delete'.'/'.$UseVideo->id)}}" class="btn btn-secondary mt-2 mr-2" style="margin-left:1px;"><i class="fa fa-trash"></i> forigi</a>
-            <a type="submit" onclick="alerte2()" class="btn btn-warning mt-2" style="margin-left:1px;"><i class="fa fa-edit"></i>Modifii</a>
-            </div>
-          
-        </div>
-      </div>
-      @endforeach
-     
-      
-      
-    </div>
-    
-  </div>
-  
-</section>
-<section>
-  
-    
-  
-</section>
-<script>
-  document.querySelector('.alertes').addEventListener('click',success);
-  
-  function alerte2(){
-      //swal('Ups!','Vous avez pas d abonnement ','warning');
+    <div class="content-page">
+        <div class="content">
 
-      swal({
-     title: "Deleted!",
-     text: "Your row has been deleted.",
-     button: "Close", // Text on button
-     icon: "success", //built in icons: success, warning, error, info
-     timer: 3000, //timeOut for auto-close
-      buttons: {
-        confirm: {
-          text: "OK",
-          value: true,
-          visible: true,
-          className: "",
-          closeModal: true
-        },
-        cancel: {
-          text: "Cancel",
-          value: false,
-          visible: true,
-          className: "",
-          closeModal: true,
+            <!-- Start Content-->
+            <!-- container -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <h2 style="margin-left: 10%" class="">
+                            </strong><span class="d-block">Enretigi video</span>
+                        </h2>
+                        <div class="container">
+                            <div class="block">
+                                <div class="block-body">
+                                    <form id="fileUploadForm" method="POST" action="{{route('uploadVideo')}}" enctype="multipart/form-data">
+                                        @csrf
+
+
+                                        <div class="form-group mt-3">
+                                            <label for="">Priskriboj </label>
+                                            <textarea name="desc" value="{{old('desc')}}" id="myTextarea2" placeholder="Textarea" class="form-control quill-editors">
+                                           <p>Saluton Mondo!</p>
+                                            <p>Iu komenca <strong>grasa</strong> teksto</p>
+                                            <p><br></p>
+                                        </textarea>
+                                            @if($errors->has('desc'))
+                                                <p style="color: green;" class="text-red">{{ $errors->first('desc') }}</p>
+                                            @endif
+                                        </div>
+
+
+
+                                        <div class="form-group mb-3">
+                                            <label for="">Bildo 1(Trenu kaj faligi bildon/Alklaku por enmeti)</label>
+                                            <input style="max-width: 100%;" type="file" name="file" value="{{old('file')}}" id="input-file-now" data-plugins="dropify" data-height="200"  />
+                                            @if($errors->has('file'))
+                                                <p style="color: green;" class="text-red">{{ $errors->first('file') }}</p>
+                                            @endif
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="progress">
+                                                <div class="progress-bar progress-bar-striped progress-bar-animated bg-danger" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div>
+                                            </div>
+                                        </div>
+                                        <div class="mt-3">
+                                            <button type="submit" style="background-color: #e95f71;" class="btn btn-primary"><i class="fa fa-send"></i>sendi</button>
+
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div> <!-- end card-->
+            </div><!-- end col -->
+        </div>
+        <!-- end row -->
+    </div> <!-- content -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <script>
+            @if(Session::has('message')){
+            var type= "{{Session::get('alert-type','info')}}";
+            switch(type){
+                case'info':
+                    toastr.info("{{Session::get('message')}}");
+                    break;
+                case'warning':
+                    toastr.warning("{{Session::get('message')}}");
+                    break;
+                case'success':
+                    toastr.success("{{Session::get('message')}}");
+                    break;
+            }
         }
-      }
-     });
-  }
-</script>
+
+
+
+        @endif
+
+    </script>
+
+
 @endsection
+

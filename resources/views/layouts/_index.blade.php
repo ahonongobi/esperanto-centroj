@@ -18,7 +18,7 @@ Espaeranto
   <link href="//fonts.googleapis.com/css?family=Montserrat:300,300i,400,600,700,800&display=swap" rel="stylesheet">
   <!-- Template CSS -->
 
-
+   
 
 </head>
 
@@ -39,8 +39,8 @@ Espaeranto
                     <label for="drop" class="toggle">Menu</label>
                     <input type="checkbox" id="drop" />
                     <ul class="menu mr-auto">
-                        <li class="active"><a href="#">ĉefpaĝo</a></li>
-                        <li><a href="about.html">Pri ni</a></li>
+                        <li class="active"><a href="#">Ĉefpaĝo</a></li>
+                        <li><a href="prini">Pri ni</a></li>
                         <li>
                             <!-- First Tier Drop Down -->
                             <label for="drop-2" class="toggle toggle-2">Centroj <span class="fa fa-angle-down" aria-hidden="true"></span> </label>
@@ -83,15 +83,22 @@ Espaeranto
                 <div class="images-inner">
                     <div class="image-slide">
                         <div class="banner-w3pvt-1">
-                            <div class="overlay-w3ls">
+                            <div  class="overlay-w3ls d-flex">
+                                <h3 id="slide4" class="para-w3pv" style="color: yellow; " data-animation-in="fadeInLeft" data-animation-out="animate-out fadeOutLeft"> <span>CDELI La Chaux-de-Fonds,</span></h3>
+                                <h3 id="slide4" class="para-w3pv" style="color: yellow; " data-animation-in="fadeInLeft" data-animation-out="animate-out fadeOutLeft"> <span>Svislando</h3>
 
+                                
                             </div>
-
+                           
                         </div>
                     </div>
+                    
+
                     <div class="image-slide">
                         <div class="banner-w3pvt-2">
-                            <div class="overlay-w3ls">
+                            <div class="overlay-w3ls d-flex">
+                                <h2 id="slide4" class="para-w3pv" style="color: yellow; text-align: start;" data-animation-in="fadeInLeft" data-animation-out="animate-out fadeOutLeft"> <span style="background-position: center top;">Kastelo Grezijono, </span></h2>
+                                <h2 id="slide4" class="para-w3pv" style="color: yellow; text-align: end;" data-animation-in="fadeInLeft" data-animation-out="animate-out fadeOutLeft"> <span>Francio</h2>
 
                             </div>
                         </div>
@@ -99,6 +106,7 @@ Espaeranto
                     <div class="image-slide">
                         <div class="banner-w3pvt-3">
                             <div class="overlay-w3ls">
+                                <h2 class="para-w3pv sub-title" style="color: yellow;" data-animation-in="fadeInLeft" data-animation-out="animate-out fadeOutLeft">Roterdamo</h2>
 
                             </div>
                         </div>
@@ -399,7 +407,7 @@ Espaeranto
                     </div>
                 </div>
                 <div class="sub-two-right col-lg-4 col-md-6 my-md-0 my-5">
-                    <h6>Lastaj afishoj</h6>
+                    <h6>Lastaj afiŜoj</h6>
                     @foreach ($agadoj as $agado)
 							@foreach ($aga  as $agas)
                     <div class="row editor-pics mb-3">
@@ -423,7 +431,7 @@ Espaeranto
                 </div>
 
                 <div class="sub-one-left col-lg-4 col-md-6 mt-lg-0 mt-md-5">
-                    <h6>Cefhpagho</h6>
+                    <h6>Ĉefpaĝo</h6>
                     <div class="columns-2 d-flex">
                         <ul class="footer-sub-gd mr-5">
                         <li><a href="{{route('contact')}}">Kontaktu nin</a></li> |
@@ -501,7 +509,8 @@ Espaeranto
 
 </footer>
 <!--//footer-66 -->
-  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+
 </body>
 
 </html>

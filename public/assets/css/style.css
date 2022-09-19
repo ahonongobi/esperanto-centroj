@@ -613,6 +613,7 @@ li>a:only-child:after {
     float: left;
 }
 
+
 .image-slide,
 .fake-radio,
 .radio-btn {
@@ -748,10 +749,16 @@ li>a:only-child:after {
     -o-background-size: cover;
     -ms-background-size: cover;
     min-height: 800px;
+   
 }
+.bottom-right {
+    position: absolute;
+    bottom: 8px;
+    right: 16px;
+  }
 
 .banner-w3pvt-2 {
-    background: url(../images/slides/imageonline-co-add-textGrezil.png) no-repeat center;
+    background: url(../images/slides/greziljono.jpg) no-repeat center;
     background-size: cover;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -761,7 +768,7 @@ li>a:only-child:after {
 }
 
 .banner-w3pvt-3 {
-    background: url(../images/slides/roterdamo.png) no-repeat center;
+    background: url(../images/slides/roterdamo1.jpg) no-repeat center;
     background-size: cover;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -783,7 +790,9 @@ li>a:only-child:after {
     background: rgba(0, 0, 0, 0.55);
     min-height: 800px;
 }
+.overlay-w3ls h2{
 
+}
 .images-inner {
     position: relative;
 }

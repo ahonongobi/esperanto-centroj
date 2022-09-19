@@ -11,19 +11,24 @@ class IndexController extends Controller
 {
     //
     public function indexPost(){
-        
+
         $pictures = DB::select('SELECT * FROM Centerpost ORDER BY id DESC LIMIT 3');
         $agadoj = DB::select('SELECT * FROM post_afiches ORDER BY id DESC LIMIT 3');
-          
+
 
         foreach($agadoj as $agado){
            $aga = DB::select('SELECT * FROM users WHERE id=?',[
                $agado->id_user,
             ]);
+           // check agado
+
+
+
+
 
         }
 
-        $allagadoj= PostAfiche::paginate(3,['*'],'agado');
+        $allagadoj= PostAfiche::paginate(4,['*'],'agado');
         //$allagadoj = DB::select('SELECT * FROM post_afiches');
         foreach($allagadoj as $allagadojn){
             $agases = DB::select('SELECT * FROM users WHERE id=?',[
@@ -43,9 +48,17 @@ class IndexController extends Controller
         ->distinct()
         ->count('lando');
         $amatoroj = DB::table('likes')
+
+
         ->distinct()
         ->count('centre_id');
-        
-        return view('simpleuser/index' , compact('pictures','agadoj','allagadoj','centroj','videoj','popularaj','popularaj2','comments','tofs','likes','centroCout','aga','agases','countlandoj','amatoroj'));
+
+        return view('simpleuser/index' , compact('pictures','agadoj','allagadoj','centroj','videoj','popularaj','popularaj2','comments','tofs','likes','centroCout','aga','countlandoj','amatoroj'));
+    }
+
+    public  function  search(Request $request){
+        $search = $request->get('search');
+        $filtercentroj = DB::table('users')->where('centro','like','%'.$search.'%')->where('grade','=','admin')->get();
+        return view('simpleuser/search',compact('filtercentroj'));
     }
 }
