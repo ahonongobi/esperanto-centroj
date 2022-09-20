@@ -58,7 +58,7 @@
                                         </div>
                                     @endif
                                     @csrf
-
+                                    <input type="hidden" name="token" value="{{ $token }}">
                                     <div class="mb-3">
                                         <label for="emailaddress" class="form-label">Retadreso</label>
                                         <input class="form-control" name="email" type="email" id="emailaddress" required="" placeholder="Via retpoŝta adreso">
