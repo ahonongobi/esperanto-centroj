@@ -12,6 +12,8 @@ use App\Http\Controllers\CentroAgado;
 use App\Http\Controllers\RespondeculoController;
 use App\Http\Controllers\DeleteUpdateController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\ForgetPassword;
+use App\Http\Controllers\ForgetPasswordController;
 use App\Http\Controllers\LikeController;
 use App\Http\Controllers\UpdateavatarController;
 use App\Http\Controllers\SubscribeController;
@@ -88,3 +90,9 @@ Route::get('/agadoj',[RespondeculoController::class,'displayed'])->name('agadoj'
 
 Route::get("/guest",[LoginController::class,'guest']);
 Route::get('/email-verification/{email}/',[LoginController::class,'verified']);
+
+Route::get('forgesispasvorto',[ForgetPasswordController::class,'forgesispasvorton']);
+Route::post('submitPasswordForget',[ForgetPasswordController::class,'submitForgetPasswordForm']);
+Route::get('reset-password/{token}', [ForgetPasswordController::class, 'showResetPasswordForm'])->name('reset.password.get');
+Route::post('submitPasswordReset', [ForgetPasswordController::class, 'submitResetPasswordForm'])->name('reset.password.post');
+

@@ -33,6 +33,6 @@ class ContactMessageCreadted extends Mailable
      */
     public function build()
     {
-        return $this->markdown('emails.messages.created');
+        return $this->markdown('emails.messages.created')->subject('Esperanto-centroj');
     }
 }

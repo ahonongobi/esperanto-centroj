@@ -15,7 +15,12 @@
 <section class="w3l-contact-1">
     <div class="contacts-9 section-gap">
       <div class="wrapper">
-        <h4 class="sub-title text-center">Trovu nin</h4>
+        <div>
+          <a href="/">
+            <img src="{{asset('asset/img/logo_reduce.png')}}" style="width:400px" alt="" srcset="">
+          </a>
+        </div>
+        <h4 class="sub-title text-center"></h4>
         <h3 class="global-title text-center">Kontaktu nin</h3>
         <div class="d-grid contact-view">
           <div class="cont-details">
@@ -34,16 +39,16 @@
               </div>
               <div class="cont-right">
                 <h6>Retpoŝtu Nin</h6>
-                <p><a href="mailto:example@mail.com" class="mail">abyssiniea@mail.com</a></p>
+                <p><a href="mailto:contact@esperanto-centroj.com" class="mail">contact@esperanto-centroj.com</a></p>
               </div>
             </div>
             <div class="cont-top margin-up">
-              <div class="cont-left text-center">
+              <div  style="display: none" class="cont-left text-center">
                 <span class="fa fa-map-marker text-primary"></span>
               </div>
-              <div class="cont-right">
+              <div style="display: none" class="cont-right">
                 <h6>Adreso</h6>
-                <p>Address here, 208 Trainer Avenue street, Illinois, UK - 62617.</p>
+                <p>C</p>
               </div>
             </div>
           </div>

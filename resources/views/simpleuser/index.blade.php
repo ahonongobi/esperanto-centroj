@@ -345,13 +345,13 @@
                     <div class="col-xl-9 col-lg-8">
                         <div class="blog-box-layout1">
                             <div class="item-img">
-                                <a href=""><img style="height:" src="{{asset('asset/img/CDELILaChaux-de-FondsSvisio.jpg')}}" alt="blog"></a>
+                                <a href="/about"><img style="height:" src="{{asset('asset/img/CDELILaChaux-de-FondsSvisio.jpg')}}" alt="blog"></a>
                             </div>
                             <div class="item-content">
                                 <ul class="entry-meta meta-color-dark">
 
                                 </ul>
-                                <h2 class="item-title"> <a href="">NOVA ILO</span> POR NI ĈIUJ</a></h2>
+                                <h2 class="item-title"> <a href="/about">NOVA ILO</span> POR NI ĈIUJ</a></h2>
                                 <p>
                                     Tiu retejo prezentas la Esperanto-centrojn en la tuta mondo. Ĝi estas starigita de
                                     Universala Esperanto Asocio UEA kaj Internacia Ligo de Esperantistaj Instruistoj
@@ -361,7 +361,7 @@
                                     informojn, agadprogramojn kaj similajn gravajn informojn. La publikaj uzantoj
                                     povos legi la tutan retejon sen aldoni ion ajn, konsulti la paĝaron.
                                 </p>
-                                <a href="" class="item-btn">Legu Pli<i class="fas fa-arrow-right"></i></a>
+                                <a href="/about" class="item-btn">Legu Pli<i class="fas fa-arrow-right"></i></a>
                             </div>
                         </div>
                         <div class="row gutters-40">
@@ -486,9 +486,9 @@
 
         <!-- Instagram End Here -->
         <section style="font-style: italic; color:green; " class="sek1 mb-3" data-nombro="9" id="montrinovajhojn">
-            <h4>Laste ŝanĝita: 14 Novembro 2020 (13:08)</h4>
+            <h4>Laste ŝanĝita: 20 Sep 2022 (13:08)</h4>
             <h4>URL: <a href="https://esperanto-centroj.com">https://esperanto-centroj.com</a> </h4>
-            <h4 style="margin-bottom: 3% !important;">Retpoŝto: abyssiniea@gmail.com</h4>
+            <h4 style="margin-bottom: 3% !important;">Retpoŝto: contact@esperanto-centroj.com</h4>
 
         </section>
     </div>

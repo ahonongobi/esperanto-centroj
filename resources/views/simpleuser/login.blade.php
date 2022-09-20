@@ -96,7 +96,7 @@ $selectedBg = "$bg[$i]";
                         @endif
                     </div>
                     <div class="mb-3">
-                        <a href="auth-recoverpw-2.html" class="text-muted float-end"><small>Ĉu vi forgesis vian pasvorton?</small></a>
+                        <a href="{{URL("forgesispasvorto")}}" class="text-muted float-end"><small>Ĉu vi forgesis vian pasvorton?</small></a>
                         <label for="password" class="form-label">Pasvorto</label>
                         <div class="input-group input-group-merge">
                             <input type="password" id="password" class="form-control" name="password" placeholder="Enigu vian pasvorton">

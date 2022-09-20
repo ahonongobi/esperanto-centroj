@@ -102,8 +102,8 @@
 
                     <div class="mb-3">
                         <label for="emailaddress" class="form-label">
-                            Via nomo</label>
-                        <input class="form-control" name="centro" type="text" value="{{old('centro')}}" id="emailaddress" required="" placeholder="Via nomo">
+                            Nomo de la centro</label>
+                        <input class="form-control" name="centro" type="text" value="{{old('centro')}}" id="emailaddress" required="" placeholder="Nomo de la centro">
                         @if($errors->has('centro'))
                             <p style="color: green;" class="text-red">{{ $errors->first('centro') }}</p>
                         @endif
