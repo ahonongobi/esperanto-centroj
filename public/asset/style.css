@@ -52,7 +52,7 @@ html {
 }
 header{
   font-family: 'Poppins', sans-serif;
-  background-image: url(haut.png);
+  background-image: url(haut.png) !important;
 
 }
 body{

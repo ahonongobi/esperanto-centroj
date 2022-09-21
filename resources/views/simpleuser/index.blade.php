@@ -42,7 +42,7 @@
 <!-- ScrollUp Start Here -->
 <a href="#wrapper" data-type="section-switch" class="scrollup">
     <i class="fas fa-angle-double-up"></i>
-</a>
+</a> 
 <!-- ScrollUp End Here -->
 <!-- Preloader Start Here -->
 <div id="preloader"></div>
@@ -50,7 +50,7 @@
 <div id="wrapper" class="wrapper">
     <!-- Add your site or application content here -->
     <!-- Header Area Start Here -->
-    <header class="has-mobile-menu">
+    <header  class="has-mobile-menu">
         <div id="header-topbar" class="pt--14 pb--14 bg--dark border-bootom border-color-accent1">
             <div class="container">
                 <div class="row d-flex align-items-center">
