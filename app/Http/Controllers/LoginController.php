@@ -9,7 +9,7 @@ use App\Models\PostAfiche;
 use App\Models\UseVideoj;
 use App\Models\membroj;
 use App\Models\UserAfishoj;
-use DB;
+use Illuminate\Support\Facades\DB;
 class LoginController extends Controller
 {
     //

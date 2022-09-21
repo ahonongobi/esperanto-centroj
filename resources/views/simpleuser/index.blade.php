@@ -35,7 +35,7 @@
     <script src="{{asset('asset/js/modernizr-3.6.0.min.js')}}"></script>
 </head>
 
-<body style="width: 100% !important " class="bg-pearl box-layout sticky-header">
+<body style="background-image: url(fst-background.png);" style="width: 100% !important " class="bg-pearl box-layout sticky-header">
 <!--[if lte IE 9]>
 <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
 <![endif]-->

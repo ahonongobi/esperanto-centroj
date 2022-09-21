@@ -50,6 +50,14 @@ html {
   height: 100%;
   font-size: 62.5%;
 }
+header{
+  font-family: 'Poppins', sans-serif;
+  background-image: url(haut.png);
+
+}
+body{
+  
+}
 @media only screen and (max-width: 1199px) {
   html {
     font-size: 60%;
